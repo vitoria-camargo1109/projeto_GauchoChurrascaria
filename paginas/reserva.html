@@ -31,36 +31,38 @@
 
                 <label for="nome">Nome:</label><br>
                 <input type="text" id="nome" name="nome"
-                placeholder="Digite seu nome">
+                placeholder="Digite seu nome" required>
                 <br> <br>
 
                 <label for="telefone">Telefone:</label><br>
                 <input type="text" id="telefone" name="telefone"
-                placeholder="Digite seu telefone">
+                placeholder="Digite seu telefone" required>
                 <br> <br>
 
                 <label for="data">Data da reserva:</label><br>
-                <input type="date" id="data" name="data">
+                <input type="date" id="data" name="data" required>
                 <br> <br>
 
                 <label for="horario">Horário:</label><br>
-                <input type="time" id="Horário" name="horario">
+                <input type="time" id="horario" name="horario" required>
                 <br> <br>
 
                 <label for="pessoas">
                     Quantidade de pessoas:
                 </label><br>
-                <input type="number" id="pessoas" name="pessoas"
+                <input type="number" id="pessoas" name="pessoas" required>
                 <br> <br> <br>
                 
                 <label for="observacoes">
                     Observações:
                 </label> <br>
-                <input type="text" id="Observacoes" name="observacoes"
-                placeholder="Ex: aniversário">
+                <input type="text" id="observacoes" name="observacoes"
+                placeholder="Ex: aniversário" required>
                 <br> <br>
 
-                <input type="button" value="Reservar Mesa">
+                <button type="submit">
+                    Enviar
+                </button>
 
             </fieldset>
         </form>
@@ -75,7 +77,7 @@
             <p>Após realizar a reserva, entraremos em contato para confirmação.</p>
         </article>
     </main>
-
+    
     <!-- FOOTER: idêntico em todas as  páginas -->
     <footer>
         <h1>Venha nos visitar!</h1>
