@@ -26,10 +26,37 @@ required, pattern, type="email", type="tel", etc-->
     <!-- Faça o formulário a partir de main. NÃO MUDE NADA ACIMA DESSE COMENTÁRIO SEM AVISAR.-->
     <!-- ! LEMBRE-SE: linha do telefone: pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}"-->
     <main>
-        <section> 
-            <form>
+        <section>
+            <h2> Fale Conosco</h2>
+            <fieldset>
+                <legend>Entre em contato conosco preenchendo o formulário abaixo:</legend>
+                <form>
+                    <label for="nome">Nome:</label> <br>
+                    <input type="text" id="nome" name="nome" placeholder="Digite o seu nome completo" minlegngth="3"
+                        required> <br>
 
-            </form>
+                    <label for="email">E-mail:</label> <br>
+                    <input type="email" id="email" name="email" placeholder="Digite o seu e-mail" required> <br>
+
+                    <label for="telefone">Telefone:</label> <br>
+                    <input type="tel" id="telefone" name="telefone" placeholder="Digite o seu telefone"
+                        pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}" required> <br>
+
+
+                    <label for="assunto">Assunto:</label> <br>
+                    <select id="assunto" name="assunto" required>
+                        <option value="">Selecione...</option>
+                        <option value="reserva">Reserva</option>
+                        <option value="delivery">Delivery</option>
+                        <option value="trabalhe-conosco">Trabalhe Conosco</option>
+                        <option value="outro">Outro</option>
+                    </select> <br> <br>
+
+                    <label for="obs" >Observação:</label> <br>
+                    <textarea id="obs" name="obs"  placeholder="Digite sua observação" rows="4" cols="50" required  minlength="10"></textarea> <br>
+               <button type="submit">Enviar</button>
+                </form>
+            </fieldset>
         </section>
         <article> </article>
     </main>
@@ -41,15 +68,15 @@ required, pattern, type="email", type="tel", etc-->
         <address>
 
             <p><strong>Telefone:</strong><br>
-            11 2534-4654<br>
-            11 2534-4654<br><br></p>
+                11 2534-4654<br>
+                11 2534-4654<br><br></p>
 
             <p><strong>Endereço:</strong><br>
-            Rua das Figueiras, 1408<br>
-            Esq. com Alameda São Caetano - B. Jardim - Santo André<br><br></p>
+                Rua das Figueiras, 1408<br>
+                Esq. com Alameda São Caetano - B. Jardim - Santo André<br><br></p>
 
             <p><strong>Horario de funcionamento:</strong><br>
-            Todos os dias das 11h às 23h</p>
+                Todos os dias das 11h às 23h</p>
 
         </address>
 
