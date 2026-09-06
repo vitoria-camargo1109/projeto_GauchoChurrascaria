@@ -31,36 +31,38 @@
 
                 <label for="nome">Nome:</label><br>
                 <input type="text" id="nome" name="nome"
-                placeholder="Digite seu nome">
+                placeholder="Digite seu nome" required>
                 <br> <br>
 
                 <label for="telefone">Telefone:</label><br>
-                <input type="text" id="telefone" name="telefone"
-                placeholder="Digite seu telefone">
+                <input type="tel" id="telefone" name="telefone"
+                placeholder="(12) 3456-7890" pattern="[0-9]{10,11}" required>
                 <br> <br>
 
                 <label for="data">Data da reserva:</label><br>
-                <input type="date" id="data" name="data">
+                <input type="date" id="data" name="data" required>
                 <br> <br>
 
                 <label for="horario">Horário:</label><br>
-                <input type="time" id="Horário" name="horario">
+                <input type="time" id="horario" name="horario" required>
                 <br> <br>
 
                 <label for="pessoas">
                     Quantidade de pessoas:
                 </label><br>
-                <input type="number" id="pessoas" name="pessoas"
+                <input type="number" id="pessoas" name="pessoas" required>
                 <br> <br> <br>
                 
                 <label for="observacoes">
                     Observações:
                 </label> <br>
-                <input type="text" id="Observacoes" name="observacoes"
-                placeholder="Ex: aniversário">
+                <input type="text" id="observacoes" name="observacoes"
+                placeholder="Ex: aniversário" required>
                 <br> <br>
 
-                <input type="button" value="Reservar Mesa">
+                <button type="submit">
+                    Enviar
+                </button>
 
             </fieldset>
         </form>
@@ -75,27 +77,39 @@
             <p>Após realizar a reserva, entraremos em contato para confirmação.</p>
         </article>
     </main>
-
+    
     <!-- FOOTER: idêntico em todas as  páginas -->
     <footer>
         <h1>Venha nos visitar!</h1>
 
-        <p><strong>Telefone:</strong> (49) 1234-5678</p>
-        <p><strong>Whatsapp:</strong> (49) 99999-9999</p>
-        <p><strong>Endereço:</strong> Rua A, 123 - Bairro/SP</p>
-        <p><strong>Horário de funcionamento:</strong> Segunda a Domingo das 18h às 23h</p>
+        <address>
+
+            <p><b>Telefone:</b><br>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+            <i class="bi bi-telephone" style="font-size: 2rem; color: rgb(0, 0, 0);"></i>
+            11 2534-4654<br>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+            <i class="bi bi-whatsapp" style="font-size: 2rem; color: rgb(0, 0, 0);"></i>
+            11 2534-4654<br><br></p>
+
+            <p><b>Endereço:</b><br>
+            Rua das Figueiras, 1408<br>
+            Esq. com Alameda São Caetano - B. Jardim - Santo André<br><br></p>
+
+            <p><b>Horario de funcionamento:</b><br>
+            Todos os dias das 11h às 23h</p>
+
+        </address>
 
         <nav>
             <a href="quem_somos.html">Quem Somos</a>
             <a href="depoimentos.html">Depoimentos</a>
             <a href="trabalhe_conosco.html">Trabalhe Conosco</a>
             <a href="fale_conosco.html">Fale Conosco</a>
-        </nav>
+        </nav><br>
 
         <p>&copy; 2026 Gaúcho Churrascaria. Todos os direitos reservados.</p>
-        <address>
-            Endereço da unidade | Telefone | E-mail de contato
-        </address>
+
     </footer>
 
 </body>
