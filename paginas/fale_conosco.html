@@ -5,16 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fale conosco - Gaucho Grill Figueiras</title>
-</head>
 
-<!-- Usar máscaras e validação nativas do HTML5(atributos) como:
-required, pattern, type="email", type="tel", etc-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <!--* link dos icones telefone e whatsapp-->
+
+</head>
 
 <body>
     <!-- HEADER/NAVEGAÇÃO: idêntico	em todas as	páginas	-->
     <header>
-        <a href="../index.html"> <title>voltar para a tela de início</title>
-        <img src="../assets/logo/gaucho_logo.png.png" alt="Logo da Gaúcho Grill" class="logo" width="150">
+        <a href="../index.html" title="voltar para a tela de início">
+            <img src="../assets/logo/gaucho_logo.png.png" alt="Logo da Gaúcho Grill" class="logo" width="150">
         </a>
         <h1>Gaúcho Grill Figueiras</h1>
         <nav>
@@ -35,7 +36,7 @@ required, pattern, type="email", type="tel", etc-->
                 <legend>Entre em contato conosco preenchendo o formulário abaixo:</legend>
                 <form>
                     <label for="nome">Nome:</label> <br>
-                    <input type="text" id="nome" name="nome" placeholder="Digite o seu nome completo" minlegngth="3"
+                    <input type="text" id="nome" name="nome" placeholder="Digite o seu nome completo" minlength="3"
                         required> <br>
 
                     <label for="email">E-mail:</label> <br>
@@ -55,28 +56,36 @@ required, pattern, type="email", type="tel", etc-->
                         <option value="outro">Outro</option>
                     </select> <br> <br>
 
-                    <label for="obs" >Observação:</label> <br>
-                    <textarea id="obs" name="obs"  placeholder="Digite sua observação" rows="4" cols="50" required  minlength="10"></textarea> <br>
-               <button type="submit">Enviar</button>
+                    <label for="obs">Observação:</label> <br>
+                    <textarea cols="30" rows="4" id="obs" name="obs" placeholder="Digite sua observação"
+                    required minlength="10"></textarea> <br>
+
+                    <button type="submit">Enviar</button>
                 </form>
             </fieldset>
         </section>
-        <article> </article>
+
+        <article>
+            <h2>Outras formas de contato</h2>
+            <p>Prefere falar direto conosco? Você também pode nos chamar pelo telefone ou WhatsApp informados
+                <a href="#rodape">no rodapé desta página</a>.
+            </p>
+        </article>
+
     </main>
 
     <!-- FOOTER: idêntico em todas as  páginas -->
-    <footer>
-        <h1>Venha nos visitar!</h1>
+    <footer id="rodape">
+        <h2>Venha nos visitar!</h2>
 
         <address>
 
             <p><b>Telefone:</b><br>
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
                 <i class="bi bi-telephone" style="font-size: 2rem; color: rgb(0, 0, 0);"></i>
                 11 2534-4654<br>
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
                 <i class="bi bi-whatsapp" style="font-size: 2rem; color: rgb(0, 0, 0);"></i>
-                11 2534-4654<br><br></p>
+                11 2534-4654<br><br>
+            </p>
 
             <p><b>Endereço:</b><br>
                 Rua das Figueiras, 1408<br>
@@ -91,7 +100,7 @@ required, pattern, type="email", type="tel", etc-->
             <a href="quem_somos.html">Quem Somos</a>
             <a href="depoimentos.html">Depoimentos</a>
             <a href="trabalhe_conosco.html">Trabalhe Conosco</a>
-            <a href="fale_conosco.html">Fale Conosco</a>
+            <a href="#">Fale Conosco</a>
         </nav><br>
 
         <p>&copy; 2026 Gaúcho Churrascaria. Todos os direitos reservados.</p>
