@@ -3,38 +3,39 @@
 Um trabalho universitário sobre um restaurante, para aprimorarmos nossas habilidades de HTML, visando a criação de um site para web. 
 
 ## Integrantes do projeto
-**Nome:** Maria Eduarda Arakaki Rodrigues
-**RGM:** 47484900 
+
+**Nome:** Maria Eduarda Arakaki Rodrigues  
+**RGM:** 47484900  
 **Github:** arakakirod-ship-it
 
-**Nome:** Sabrina Hadassa Gomes de Andrade 
-**RGM:** 47817593 
+**Nome:** Sabrina Hadassa Gomes de Andrade  
+**RGM:** 47817593  
 **Github:** sabrinahadassa
 
-**Nome:** Thayna dos Santos Tavares da Silva
-**RGM:** 47713551 
+**Nome:** Thayna dos Santos Tavares da Silva  
+**RGM:** 47713551  
 **Github:** thayna-tavares07
 
-**Nome:** Vitória Lorena Freire Camargo 
-**RGM:** 46874283
+**Nome:** Vitória Lorena Freire Camargo  
+**RGM:** 46874283  
 **Github:** vitoria-camargo1109
 
-**Nome:** Yasmin 
-**RGM:** 4 
+**Nome:** Yasmin  
+**RGM:** 4   
 **Github:** Miih08
 
 ## Funcionalidades
 
-- **Página inicial** com botões para as demais páginas *(feita por Vitória)*
-- **Carta de vinhos**  organizado por categorias, preços e descrições *(feita por Yasmin)*
-- **Cardápio digital** organizado por categorias, preços e descrições *(feita por Yasmin)*
-- **Delivery** para fazer o pedido online *(feita por Sabrina)*
-- **Depoimentos de clientes** com avaliações reais *(feita por Thayna)*
-- **Fale conosco** informações de contato *(feita por Vitória)*
-- **Nossa unidade** com mapa incorporado e horário de funcionamento *(feita por Maria)*
-- **Quem somos** descrição sobre o restaurante *(feita por Maria)*
-- **Sistema de reservas** via formulário *(feita por Sabrina)*
-- **Trabalhe conosco** informações de contato *(feita por Thayna)*
+- **Página inicial** com botões para as demais páginas 
+- **Carta de vinhos**  organizado por categorias, preços e descrições 
+- **Cardápio digital** organizado por categorias, preços e descrições 
+- **Delivery** para fazer o pedido online 
+- **Depoimentos de clientes** com avaliações reais 
+- **Fale conosco** informações de contato 
+- **Nossa unidade** com mapa incorporado e horário de funcionamento 
+- **Quem somos** descrição sobre o restaurante 
+- **Sistema de reservas** via formulário 
+- **Trabalhe conosco** informações de contato 
 
 ## Tecnologias
 
@@ -55,8 +56,9 @@ Realizamos o desenvolvimento de um site para um restaurante, com o foco na refor
 ## Relato e comprovação do contato
 
 A aluna Maria Eduarda Arakaki Rodrigues realizou o contato com o responsável e sua esposa, ambos donos do negócio, para pedir a autorização. O encontro ocorreu de maneira positiva, com o cliente muito interessado na proposta, autorizando o uso das imagens e do nome do estabelecimento, pediu que fosse inspirado no site que ele já possuia, oferecemos páginas adicionais como os depoimentos, fale conosco, nossa unidade e trabalhe conosco. O cliente demonstrou agrado ao falarmos das adições, desde então entramos em contato para batermos informações e dar atualizações sobre o progresso.
-![foto com o dono](./assets/img/foto_gaucho.png.jpeg)
-<img src="./assets/img/foto_gaucho.png.jpeg" alt="Foto com o dono" width="600">
+<p aling="center">
+<img src="./assets/img/foto_gaucho.png.jpeg" alt="Foto com o dono" width="300">
+</p>
 
 ## Conclusão com a reflexão do grupo sobre os aprendizados da etapa
 
