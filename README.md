@@ -21,8 +21,8 @@ Um trabalho universitário sobre um restaurante, para aprimorarmos nossas habili
 **Github:** vitoria-camargo1109
 
 **Nome:** Yasmin da Silva Pinheiro
-**RGM:** 49842013
-**Github:** Miih08
+**RGM:** 49842013  
+**Github:** Miih08  
 
 ## Funcionalidades
 
