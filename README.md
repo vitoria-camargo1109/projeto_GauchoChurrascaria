@@ -6,7 +6,7 @@ Um trabalho universitário sobre um restaurante, para aprimorarmos nossas habili
 
 **Nome:** Maria Eduarda Arakaki Rodrigues  
 **RGM:** 47484900  
-**Github:** arakakirod-ship-it
+**Github:** mariaarakaki
 
 **Nome:** Sabrina Hadassa Gomes de Andrade  
 **RGM:** 47817593  
@@ -20,9 +20,9 @@ Um trabalho universitário sobre um restaurante, para aprimorarmos nossas habili
 **RGM:** 46874283  
 **Github:** vitoria-camargo1109
 
-**Nome:** Yasmin  
-**RGM:** 4   
-**Github:** Miih08
+**Nome:** Yasmin da Silva Pinheiro  
+**RGM:** 49842013  
+**Github:** Miih08  
 
 ## Funcionalidades
 
