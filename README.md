@@ -55,7 +55,8 @@ Realizamos o desenvolvimento de um site para um restaurante, com o foco na refor
 
 ## Relato e comprovação do contato
 
-A aluna Maria Eduarda Arakaki Rodrigues realizou o contato com o responsável e sua esposa, ambos donos do negócio, para pedir a autorização. O encontro ocorreu de maneira positiva, com o cliente muito interessado na proposta, autorizando o uso das imagens e do nome do estabelecimento, pediu que fosse inspirado no site que ele já possuia, oferecemos páginas adicionais como os depoimentos, fale conosco, nossa unidade e trabalhe conosco. O cliente demonstrou agrado ao falarmos das adições, desde então entramos em contato para batermos informações e dar atualizações sobre o progresso.
+A aluna Maria Eduarda Arakaki Rodrigues realizou o contato com o responsável e sua esposa, ambos donos do negócio, para pedir a autorização. O encontro ocorreu de maneira positiva, com o cliente muito interessado na proposta, autorizando o uso das imagens e do nome do estabelecimento, pediu que fosse inspirado no site que ele já possuia, oferecemos páginas adicionais como os depoimentos, fale conosco, nossa unidade e trabalhe conosco. O cliente demonstrou agrado ao falarmos das adições, desde então entramos em contato para batermos informações e dar atualizações sobre o progresso.  
+Número do dono: (13) 99667-6016 (Jefferson Tomasi)
 <p aling="center">
 <img src="./assets/img/foto_gaucho.png.jpeg" alt="Foto com o dono" width="300">
 </p>
