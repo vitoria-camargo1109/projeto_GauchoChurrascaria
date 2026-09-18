@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cartela de vinhos - Gaucho Grill Figueiras</title>
+    <title>Cartela de vinhos - Gaúcho Grill Figueiras</title>
 
     <!--    <style>
         table {
@@ -35,13 +35,15 @@
 </head>
 
 <body>
-    <!-- HEADER/NAVEGAÇÃO: idêntico	em todas as	páginas	-->
+    <a href="#main" class="skip-link">Pular para o conteúdo principal</a>
+
     <header>
-        <a href="../index.html" title="voltar para a tela de início">
-            <img src="../assets/logo/gaucho_logo.png.png" alt="Logo da Gaúcho Grill" class="logo" width="150">
+        <a href="../index.html" aria-label="Voltar para a página inicial">
+            <img src="../assets/logo/gaucho_logo.png" alt="Gaúcho Grill Figueiras - página inicial" class="logo"
+            width="150">
         </a>
         <h1>Gaúcho Grill Figueiras</h1>
-        <nav>
+        <nav aria-label="Menu principal">
             <a href="../index.html">Início</a>
             <a href="cardapio.html">Cardápio</a>
             <a href="cartela_vinho.html" aria-current="page">Cartela de Vinhos</a>
@@ -52,90 +54,95 @@
         </nav>
     </header>
 
-    <main>
+    <main id="main">
         <section>
             <h2>Mini Cartela de Vinhos</h2>
 
             <article>
                 <h3>Vinhos disponíveis</h3>
                 <table>
-                    <tr>
-                        <th scope="col">Vinhos </th>
-                        <th scope="col">País</th>
-                        <th scope="col">Valor </th>
-                    </tr>
+                    <caption>Vinhos disponíveis, com país de origem e valor</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Vinhos </th>
+                            <th scope="col">País</th>
+                            <th scope="col">Valor </th>
+                        </tr>
+                    </thead>
 
-                    <tr>
-                        <td> <b> Alamos </b> Malbec </td>
-                        <td>Argentina</td>
-                        <td> R$ 159,90 </td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <th scope="row"> <b> Alamos </b> Malbec </th>
+                            <td>Argentina</td>
+                            <td> R$ 159,90 </td>
+                        </tr>
 
-                    <tr>
-                        <td> <b> Felino </b> Cabernet/Malbec </td>
-                        <td> Argentina </td>
-                        <td> R$ 189,90 </td>
-                    </tr>
+                        <tr>
+                            <th scope="row"> <b> Felino </b> Cabernet/Malbec </th>
+                            <td> Argentina </td>
+                            <td> R$ 189,90 </td>
+                        </tr>
 
-                    <tr>
-                        <td><b> D.V. Catena </b> Cabernet/Malbec </td>
-                        <td> Argentina</td>
-                        <td> R$ 279,90 </td>
-                    </tr>
+                        <tr>
+                            <th scope="row"> <b> D.V. Catena </b> Cabernet/Malbec </th>
+                            <td> Argentina</td>
+                            <td> R$ 279,90 </td>
+                        </tr>
 
-                    <tr>
-                        <td><b> Mosquita Muerta </b> Blend de Tintas </td>
-                        <td> Argentina</td>
-                        <td> R$ 189,90 </td>
-                    </tr>
+                        <tr>
+                            <th scope="row"> <b> Mosquita Muerta </b> Blend de Tintas </th>
+                            <td> Argentina</td>
+                            <td> R$ 189,90 </td>
+                        </tr>
 
-                    <tr>
-                        <td><b> Albis </b> Cabernet/Sauvignon </td>
-                        <td> Chile</td>
-                        <td> R$ 349,90 </td>
-                    </tr>
+                        <tr>
+                            <th scope="row"> <b> Albis </b> Cabernet/Sauvignon </th>
+                            <td> Chile</td>
+                            <td> R$ 349,90 </td>
+                        </tr>
 
-                    <tr>
-                        <td><b> Carmen </b> Cabernet/Sauvignon/Carmenère </td>
-                        <td> Chile</td>
-                        <td> R$ 149,90 </td>
-                    </tr>
+                        <tr>
+                            <th scope="row"> <b> Carmen </b> Cabernet/Sauvignon/Carmenère </th>
+                            <td> Chile</td>
+                            <td> R$ 149,90 </td>
+                        </tr>
 
-                    <tr>
-                        <td><b> Los Vascos </b> Cabernet/Sauvignon </td>
-                        <td> Chile</td>
-                        <td> R$ 189,90 </td>
-                    </tr>
+                        <tr>
+                            <th scope="row"> <b> Los Vascos </b> Cabernet/Sauvignon </th>
+                            <td> Chile</td>
+                            <td> R$ 189,90 </td>
+                        </tr>
 
-                    <tr>
-                        <td><b> Milla Cala </b> Blend de Uvas </td>
-                        <td> Chile</td>
-                        <td> R$ 249,90 </td>
-                    </tr>
+                        <tr>
+                            <th scope="row"> <b> Milla Cala </b> Blend de Uvas </th>
+                            <td> Chile</td>
+                            <td> R$ 249,90 </td>
+                        </tr>
 
-                    <tr>
-                        <td><b> Montes </b> Classic Merlot </td>
-                        <td> Chile</td>
-                        <td> R$ 149,90 </td>
-                    </tr>
+                        <tr>
+                            <th scope="row"> <b> Montes </b> Classic Merlot </th>
+                            <td> Chile</td>
+                            <td> R$ 149,90 </td>
+                        </tr>
 
-                    <tr>
-                        <td><b> Terracos do Xisto </b> Blend de Uvas </td>
-                        <td> Portugal </td>
-                        <td> R$ 129,90 </td>
-                    </tr>
+                        <tr>
+                            <th scope="row"> <b> Terraços do Xisto </b> Blend de Uvas </th>
+                            <td> Portugal </td>
+                            <td> R$ 129,90 </td>
+                        </tr>
 
-                    <tr>
-                        <td><b> Coutada Velha </b> Signature (blend) </td>
-                        <td> Portugal</td>
-                        <td> R$ 149,90 </td>
-                    </tr>
+                        <tr>
+                            <th scope="row"> <b> Coutada Velha </b> Signature (blend) </th>
+                            <td> Portugal</td>
+                            <td> R$ 149,90 </td>
+                        </tr>
 
-                    <tr>
-                        <td><b> Vallado Douro </b> Blend de Uvas </td>
-                        <td> Portugal</td>
-                        <td> R$ 169,90 </td>
-                    </tr>
+                        <tr>
+                            <th scope="row"> <b> Vallado Douro </b> Blend de Uvas </th>
+                            <td> Portugal</td>
+                            <td> R$ 169,90 </td>
+                        </tr>
+                    </tbody>
 
                 </table>
             </article>
@@ -152,45 +159,43 @@
 
     </main>
 
-    <!-- FOOTER: idêntico em todas as  páginas -->
     <footer>
         <h2>Venha nos visitar!</h2>
 
         <address>
 
-            <p><b>Telefone:</b><br>
-                <a href="tel:+551125344654" aria-label="Ligar para o telefone">
+            <p><strong>Telefone:</strong><br>
+                <a href="tel:+551125344654">
                     <i aria-hidden="true" class="bi bi-telephone"></i>
-                    11 2534-4654
+                    Ligar para (11) 2534-4654
                 </a><br>
-                <a href="https://wa.me/5511925344654" target="_blank" rel="noopener noreferrer"
-                    aria-label="Chamar no WhatsApp (abre em nova aba)">
+                <a href="https://wa.me/5511925344654" target="_blank" rel="noopener noreferrer">
                     <i aria-hidden="true" class="bi bi-whatsapp"></i>
-                    11 2534-4654
+                    Chamar no WhatsApp (11) 92534-4654 (abre em nova aba)
                 </a><br><br>
             </p>
 
-            <p><b>Endereço:</b><br>
-                <a href="https://www.google.com/maps?q=Rua+das+Figueiras,+1408,+Santo+André" target="_blank" rel="noopener noreferrer"
-                    aria-label="Ver no Google Maps (abre em nova aba)">
+            <p><strong>Endereço:</strong><br>
+                <a href="https://www.google.com/maps?q=Rua+das+Figueiras,+1408,+Santo+André" target="_blank"
+                    rel="noopener noreferrer">
                     Rua das Figueiras, 1408<br>
-                    Esq. com Alameda São Caetano - B. Jardim - Santo André
+                    Esq. com Alameda São Caetano - B. Jardim - Santo André (ver no Google Maps, abre em nova aba)
                 </a><br><br>
             </p>
 
-            <p><b>Horario de funcionamento:</b><br>
+            <p><strong>Horário de funcionamento:</strong><br>
                 Todos os dias das 11h às 23h</p>
 
         </address>
 
-        <nav>
+        <nav aria-label="Rodapé">
             <a href="quem_somos.html">Quem Somos</a>
             <a href="depoimentos.html">Depoimentos</a>
             <a href="trabalhe_conosco.html">Trabalhe Conosco</a>
             <a href="fale_conosco.html">Fale Conosco</a>
         </nav><br>
 
-        <p>&copy; 2026 Gaúcho Churrascaria. Todos os direitos reservados.</p>
+        <p>&copy; 2026 Gaúcho Grill Figueiras. Todos os direitos reservados.</p>
 
     </footer>
 

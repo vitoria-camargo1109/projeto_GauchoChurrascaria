@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quem somos - Gaucho Grill Figueiras</title>
+    <title>Quem somos - Gaúcho Grill Figueiras</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <!--* link dos icones telefone e whatsapp-->
@@ -12,24 +12,27 @@
 </head>
 
 <body>
-    <!-- HEADER/NAVEGAÇÃO: idêntico	em todas as	páginas	-->
+    <a href="#main" class="skip-link">Pular para o conteúdo principal</a>
+
     <header>
-        <a href="../index.html" title="voltar para a tela de início">
-            <img src="../assets/logo/gaucho_logo.png.png" alt="Logo da Gaúcho Grill" class="logo" width="150">
+        <a href="../index.html" aria-label="Voltar para a página inicial">
+            <img src="../assets/logo/gaucho_logo.png" alt="Gaúcho Grill Figueiras - página inicial" class="logo"
+                width="150">
         </a>
-        <h1>Gaúcho Grill Figueiras</h1>
-        <nav>
-            <a href="../index.html">Início</a>
-            <a href="cardapio.html">Cardápio</a>
-            <a href="cartela_vinho.html">Cartela de Vinhos</a>
-            <a href="reserva.html">Reserva</a>
-            <a href="delivery.html">Delivery</a>
-            <a href="nossa_unidade.html">Nossa Unidade</a>
-        </nav>
+
+            <h1>Gaúcho Grill Figueiras</h1>
+            <nav aria-label="Menu principal">
+                <a href="../index.html">Início</a>
+                <a href="cardapio.html">Cardápio</a>
+                <a href="cartela_vinho.html">Cartela de Vinhos</a>
+                <a href="reserva.html">Reserva</a>
+                <a href="delivery.html">Delivery</a>
+                <a href="nossa_unidade.html">Nossa Unidade</a>
+            </nav>
     </header>
 
 
-    <main>
+    <main id="main">
         <section>
             <h2>Quem Somos</h2>
             <p>Desde sempre comprometidos com a tradição gaúcha, servimos as melhores carnes com o
@@ -42,7 +45,14 @@
                     <source src="../assets/video/apresentacao.webm" type="video/webm">
                     Seu navegador não suporta esse vídeo.
                 </video>
-                <h3>Quem somos</h3>
+
+                <h4>Prefere só ouvir? Escute nossa apresentação em áudio</h4>
+                <audio controls>
+                    <source src="../assets/audio/apresentacao_voz.mp3" type="audio/mpeg">
+                    Seu navegador não suporta áudio.
+                    <a href="../assets/audio/apresentacao_voz.mp3">Baixe o arquivo de áudio aqui</a>.
+                </audio>
+
                 <p>Aqui, cada corte é selecionado com cuidado, temperado à moda gaúcha e assado lentamente para
                     garantir um sabor e uma suculência incomparáveis. Sinta-se na serra gaúcha sem sair daqui! </p>
 
@@ -53,7 +63,7 @@
                     ótima companhia. Afinal, para nós, churrasco não é apenas uma refeição — é uma verdadeira
                     celebração. </p>
 
-                <p>Venha viver essa experiência na Gaucho Grill e sinta o verdadeiro sabor da tradição!</p>
+                <p>Venha viver essa experiência na Gaúcho Grill e sinta o verdadeiro sabor da tradição!</p>
             </article>
         </section>
     </main>
@@ -64,39 +74,38 @@
 
         <address>
 
-            <p><b>Telefone:</b><br>
-                <a href="tel:+551125344654" aria-label="Ligar para o telefone">
+            <p><strong>Telefone:</strong><br>
+                <a href="tel:+551125344654">
                     <i aria-hidden="true" class="bi bi-telephone"></i>
-                    11 2534-4654
+                    Ligar para (11) 2534-4654
                 </a><br>
-                <a href="https://wa.me/5511925344654" target="_blank" rel="noopener noreferrer"
-                    aria-label="Chamar no WhatsApp (abre em nova aba)">
+                <a href="https://wa.me/5511925344654" target="_blank" rel="noopener noreferrer">
                     <i aria-hidden="true" class="bi bi-whatsapp"></i>
-                    11 2534-4654
+                    Chamar no WhatsApp (11) 92534-4654 (abre em nova aba)
                 </a><br><br>
             </p>
 
-            <p><b>Endereço:</b><br>
-                <a href="https://www.google.com/maps?q=Rua+das+Figueiras,+1408,+Santo+André" target="_blank" rel="noopener noreferrer"
-                    aria-label="Ver no Google Maps (abre em nova aba)">
+            <p><strong>Endereço:</strong><br>
+                <a href="https://www.google.com/maps?q=Rua+das+Figueiras,+1408,+Santo+André" target="_blank"
+                    rel="noopener noreferrer">
                     Rua das Figueiras, 1408<br>
-                    Esq. com Alameda São Caetano - B. Jardim - Santo André
+                    Esq. com Alameda São Caetano - B. Jardim - Santo André (ver no Google Maps, abre em nova aba)
                 </a><br><br>
             </p>
 
-            <p><b>Horario de funcionamento:</b><br>
+            <p><strong>Horário de funcionamento:</strong><br>
                 Todos os dias das 11h às 23h</p>
 
         </address>
 
-        <nav>
+        <nav aria-label="Rodapé">
             <a href="quem_somos.html" aria-current="page">Quem Somos</a>
             <a href="depoimentos.html">Depoimentos</a>
             <a href="trabalhe_conosco.html">Trabalhe Conosco</a>
             <a href="fale_conosco.html">Fale Conosco</a>
         </nav><br>
 
-        <p>&copy; 2026 Gaúcho Churrascaria. Todos os direitos reservados.</p>
+        <p>&copy; 2026 Gaúcho Grill Figueiras. Todos os direitos reservados.</p>
 
     </footer>
 
