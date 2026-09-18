@@ -12,11 +12,12 @@
 </head>
 
 <body>
-    
-    <header>
+    <a href="#main" class="skip-link">Pular para o conteúdo principal</a>
 
-        <a href="../index.html" title="voltar para a tela de início">
-            <img src="../assets/logo/gaucho_logo.png.png" alt="Gaúcho Grill Figueiras - página inicial" class="logo" width="150">
+    <header>
+        <a href="../index.html" aria-label="Voltar para a página inicial">
+            <img src="../assets/logo/gaucho_logo.png" alt="Gaúcho Grill Figueiras - página inicial" class="logo"
+                width="150">
         </a>
 
         <h1>Gaúcho Grill Figueiras</h1>
@@ -30,27 +31,35 @@
         </nav>
     </header>
 
-    <main>
+    <main id="main">
         <section>
             <h2>Fale Conosco</h2>
-                <form>
-                    <fieldset>
-                        <legend>Entre em contato conosco preenchendo o formulário abaixo:</legend>
+            <form>
+                <fieldset>
+                    <legend>Entre em contato conosco preenchendo o formulário abaixo:</legend>
+
+                    <p>
                         <label for="nome">Nome:</label> <br>
                         <input type="text" id="nome" name="nome" placeholder="Digite o seu nome completo" minlength="3"
-                            autocomplete="name" required> <br>
-    
+                            autocomplete="name" aria-describedby="dica-nome" required> <br>
+                        <small id="dica-nome">Mínimo de 3 caracteres.</small>
+                    </p>
+
+                    <p>
                         <label for="email">E-mail:</label> <br>
-                        <input type="email" id="email" name="email" placeholder="Digite o seu e-mail" autocomplete="email"
-                            required> <br>
-    
+                        <input type="email" id="email" name="email" placeholder="Digite o seu e-mail"
+                            autocomplete="email" required>
+                    </p>
+
+                    <p>
                         <label for="telefone">Telefone:</label> <br>
                         <input type="tel" id="telefone" name="telefone" placeholder="(11) 91234-5678"
-                            pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}" aria-describedby="dica-telefone" autocomplete="tel"
-                            required>
-                        <small id="dica-telefone">Formato: (11) 91234-5678</small> <br><br>
-    
-    
+                            pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}" aria-describedby="dica-telefone"
+                            autocomplete="tel" required>
+                        <small id="dica-telefone">Formato: (11) 91234-5678</small>
+                    </p>
+
+                    <p>
                         <label for="assunto">Assunto:</label> <br>
                         <select id="assunto" name="assunto" required>
                             <option value="">Selecione...</option>
@@ -58,15 +67,19 @@
                             <option value="delivery">Delivery</option>
                             <option value="trabalhe-conosco">Trabalhe Conosco</option>
                             <option value="outro">Outro</option>
-                        </select> <br> <br>
-    
+                        </select>
+                    </p>
+
+                    <p>
                         <label for="obs">Observação:</label> <br>
                         <textarea cols="30" rows="4" id="obs" name="obs" placeholder="Digite sua observação" required
-                            minlength="10"></textarea> <br>
-    
-                        <button type="submit">Enviar</button>
-                    </fieldset>
-                </form>
+                            minlength="10" aria-describedby="dica-obs"></textarea> <br>
+                        <small id="dica-obs">Mínimo de 10 caracteres.</small>
+                    </p>
+
+                    <button type="submit">Enviar</button>
+                </fieldset>
+            </form>
         </section>
 
         <section>
@@ -77,28 +90,29 @@
         </section>
         <article>
             <h3>Perguntas frequentes</h3>
-         
+
             <h4>Como faço uma reserva?</h4>
             <p>Você pode reservar preenchendo o formulário acima com o assunto "Reserva", pela nossa página de
-                <a href="reserva.html">Reserva</a>, ou diretamente pelo telefone e WhatsApp informados no rodapé.</p>
-         
+                <a href="reserva.html">Reserva</a>, ou diretamente pelo telefone e WhatsApp informados no rodapé.
+            </p>
+
             <h4>Vocês fazem entregas?</h4>
             <p>Sim. Confira a área de cobertura e os horários na página de <a href="delivery.html">Delivery</a>.</p>
-         
+
             <h4>Como envio meu currículo para trabalhar com vocês?</h4>
             <p>Use o formulário acima com o assunto "Trabalhe Conosco" ou acesse a página
-                <a href="trabalhe_conosco.html">Trabalhe Conosco</a> para mais detalhes.</p>
+                <a href="trabalhe_conosco.html">Trabalhe Conosco</a> para mais detalhes.
+            </p>
         </article>
-        
+
     </main>
 
-    <!-- FOOTER: idêntico em todas as  páginas -->
     <footer id="rodape">
         <h2>Venha nos visitar!</h2>
 
         <address>
 
-            <p><b>Telefone:</b><br>
+            <p><strong>Telefone:</strong><br>
                 <a href="tel:+551125344654">
                     <i aria-hidden="true" class="bi bi-telephone"></i>
                     Ligar para (11) 2534-4654
@@ -109,7 +123,7 @@
                 </a><br><br>
             </p>
 
-            <p><b>Endereço:</b><br>
+            <p><strong>Endereço:</strong><br>
                 <a href="https://www.google.com/maps?q=Rua+das+Figueiras,+1408,+Santo+André" target="_blank"
                     rel="noopener noreferrer">
                     Rua das Figueiras, 1408<br>
@@ -117,7 +131,7 @@
                 </a><br><br>
             </p>
 
-            <p><b>Horário de funcionamento:</b><br>
+            <p><strong>Horário de funcionamento:</strong><br>
                 Todos os dias das 11h às 23h</p>
 
         </address>
@@ -129,7 +143,7 @@
             <a href="fale_conosco.html" aria-current="page">Fale Conosco</a>
         </nav><br>
 
-        <p>&copy; 2026 Gaúcho Churrascaria. Todos os direitos reservados.</p>
+        <p>&copy; 2026 Gaúcho Grill Figueiras. Todos os direitos reservados.</p>
 
     </footer>
 
