@@ -77,9 +77,9 @@ header {
 }
 
 .menu a:hover {         /*! Controla o :hover (Quando o mouse interage com o elemento) da tag <a> presente <nav> do header. */
-    background-color: var(--cor-destaque-vermelho);   
-    border-radius: 8px;
-    color: var(--texto-claro);                       
+    color: var(--cor-destaque-vermelho);   
+    text-transform: uppercase;        /*? Revisar depois */
+    transition: color 0.2s;
 }                     
 
 
@@ -103,7 +103,11 @@ header {
 
 
 /** Banners: coisas em comum **/
-.banner_inicial, .banner_cardapio  {            
+.banner_inicial, .banner_cardapio, 
+.banner_vinho, .banner_delivery, 
+.banner_depoimentos, .banner_fale_conosco,
+.banner_nossa_unidade, .banner_quem_somos,
+.banner_reserva, .banner_trabalhe_conosco  {            
     margin-top: 5rem;                           
     background-size: cover;                     /*! A imagem cobre toda a área, cortando o excesso */
     min-height: 24rem;                          
@@ -119,6 +123,8 @@ header {
 
 
 /** Banners: diferenças **/
+
+/** 1- Banner index.html **/
 .banner_inicial {            /*! Coloca um título e um banner. */
     background-image: 
         linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   /*! Película escura sobre a foto */
@@ -128,7 +134,7 @@ header {
     background-size: cover;          
 }
 
-
+/** 2- Banner cardapio **/
 .banner_cardapio {
     background-image: 
         linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   
@@ -137,6 +143,87 @@ header {
     background-position: center;      
     background-size: cover;           
 }
+
+/** 3- Banner Carta de Vinhos **/
+.banner_vinho {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   
+        url(../assets/img/carta_vinho1.png);                    
+    background-repeat: no-repeat;     
+    background-position: center;      
+    background-size: cover;           
+}
+
+/** 4- Banner Delivery **/
+.banner_delivery {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   
+        url(../assets/img/imagem_7.jpg);                    
+    background-repeat: no-repeat;     
+    background-position: center;      
+    background-size: cover;           
+}
+
+/** 5- Banner Depoimentos **/
+.banner_depoimentos {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   
+        url(../assets/img/imagem_8.jpg);                    
+    background-repeat: no-repeat;     
+    background-position: center;      
+    background-size: cover;           
+}
+
+/** 6- Banner Fale Conosco **/
+.banner_fale_conosco {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   
+        url(../assets/img/banner_ficticio.jpg);                    
+    background-repeat: no-repeat;     
+    background-position: center;      
+    background-size: cover;           
+}
+
+/** 7- Banner Nossa Unidade **/
+.banner_nossa_unidade {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   
+        url(../assets/img/imagem_2.jpg);                    
+    background-repeat: no-repeat;     
+    background-position: center;      
+    background-size: cover;           
+}
+
+/** 8- Banner Quem Somos **/
+.banner_quem_somos {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   
+        url(../assets/img/imagem_8.jpg);                    
+    background-repeat: no-repeat;     
+    background-position: center;      
+    background-size: cover;           
+}
+
+/** 9- Banner Reserva **/
+.banner_reserva {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   
+        url(../assets/img/imagem_10.jpg);                    
+    background-repeat: no-repeat;     
+    background-position: center;      
+    background-size: cover;           
+}
+
+/** 10- Banner Trabalhe Conosco **/
+.banner_trabalhe_conosco {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   
+        url(../assets/img/imagem_6.jpg);                    
+    background-repeat: no-repeat;     
+    background-position: center;      
+    background-size: cover;           
+}
+
 
 
 /** Footer **/
@@ -204,8 +291,15 @@ footer a {
     transition: color 0.2s;                      /*! Troca de cor suave */
 }
 
+footer a[aria-current="page"] {
+    color: var(--cor-destaque-vermelho);                   
+    text-decoration: none;                       /*! Tira o sublinhado */
+    transition: color 0.2s;                      /*! Troca de cor suave */
+}
+
 footer a:hover {
-    color: var(--cor-destaque-vermelho);          
+    color: var(--cor-destaque-vermelho);      
+    text-transform: uppercase;   
 }
 
 footer a:focus-visible {
