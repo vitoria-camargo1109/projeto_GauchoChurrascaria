@@ -61,10 +61,22 @@ header {
     z-index: 50;                  
 }
 
+.menu h1 { 
+    color: var(--texto-claro);
+    font-family: "Parisienne", cursive;
+    margin-right: 17rem;
+    font-size: 2rem; 
+    font-weight: 500;
+    word-spacing: 0.2rem;
+}
+
 .menu a {               /*! Controla a tag <a> presente no <nav> do header. */
-    padding: 0.40rem;                    /*! Espaço dentro de cada link */
+    padding: 0.20rem;                    /*! Espaço dentro de cada link */
     color: var(--texto-claro);           
     text-decoration: none;               /*! Tira o sublinhado do link */
+    font-family: "Parisienne", cursive;
+    font-size: large;
+    font-weight: 700;
 }
 
 .menu a:first-child {
@@ -78,7 +90,6 @@ header {
 
 .menu a:hover {         /*! Controla o :hover (Quando o mouse interage com o elemento) da tag <a> presente <nav> do header. */
     color: var(--cor-destaque-vermelho);   
-    text-transform: uppercase;        /*? Revisar depois */
     transition: color 0.2s;
 }                     
 
@@ -118,8 +129,8 @@ header {
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);   
     font-family: "Parisienne", cursive;        
     font-size: 5.5rem;                          
-    
 }
+
 
 
 /** Banners: diferenças **/
@@ -298,8 +309,7 @@ footer a[aria-current="page"] {
 }
 
 footer a:hover {
-    color: var(--cor-destaque-vermelho);      
-    text-transform: uppercase;   
+    color: var(--cor-destaque-vermelho);        
 }
 
 footer a:focus-visible {
@@ -379,7 +389,10 @@ footer a:focus-visible {
     justify-content: center;                     
     gap: 2rem;                                   
     padding-top: 1.5rem;                         
-    border-top: 1px solid var(--borda-divisores);   
+    border-top: 1px solid var(--borda-divisores);
+    font-family: "Parisienne", cursive;
+    font-size: large;
+    font-weight: 700;  
 }
 
 /** Copyright **/
@@ -392,9 +405,10 @@ footer a:focus-visible {
 
 /** Footer no celular e tablet: uma coluna só **/
 @media (max-width: 900px) {                      /*! Vale só para telas de até 900px */
+
     footer {
         grid-template-columns: 1fr;              /*! Vira 1 coluna, uma embaixo da outra */
-        padding: 2rem 1.5rem 1rem;              
+        padding: 2rem 1.5rem 1rem;             
     }
 
     .menu_footer {
