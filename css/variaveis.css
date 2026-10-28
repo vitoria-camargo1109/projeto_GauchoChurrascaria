@@ -1,0 +1,32 @@
+:root {
+
+    /** Paleta **/
+
+    /* Fundos */
+    --cor-fundo-escuro: #1c1614;               /* 60%, base */
+    --cor-fundo-escuro-alternativo: #2a201c;   /* 60%, base */
+    --cor-fundo-claro: #f6f1e7;                /* 60%, base */
+    
+    /* Textos e Títulos */
+    --texto-claro: #f2eee8;                    /* 30%, apoio */
+    --texto-escuro: #1c1411;                   /* 30%, apoio */
+    --texto-secundario: #a39a92;               /* 30%, apoio */
+    --cor-titulo-escuro: #eec416;
+    --cor-titulo-claro: #9e0410;  
+    --cor-subtitulo-claro: 	#d10510;  
+
+    /* Destaques */
+    --cor-destaque-vermelho: #d10510;          /* 10%, destaque */
+    --cor-destaque-amarelo:  #eec416;          /* 10%, destaque */
+
+    /* Hover */
+    --hover-vinho: #9e0410;                    
+    --hover-mostarda: #c9a00d;
+
+    /* Apoio, bordas e divisores */
+    --cor-apoio: #5c6b3a;
+    --borda-divisores: #8a8178;
+
+    /* Espaçamentos */
+    --espaçamento: 0.5rem;
+}

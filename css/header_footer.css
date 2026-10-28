@@ -1,0 +1,428 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Parisienne&display=swap');
+
+* {                   /*! O seletor "*" serve para todos os elementos de modo geral. */
+    margin: 0px;      
+    padding: 0px;     
+}
+
+.visually-hidden {
+    position: absolute;     
+    width: 1px;             
+    height: 1px;            
+    overflow: hidden;       
+    clip: rect(0 0 0 0);    
+    white-space: nowrap;    /*! Impede o texto de quebrar linha */
+}
+
+
+/** <body> **/
+body {                /*! Controla tudo que está dentro da tag <body> */
+    background-color: var(--cor-fundo-claro);   
+    color: var(--texto-escuro);                 
+}
+
+
+/** Skip-link para a acessibilidade. **/
+.skip-link {          /*! Controla a tag <a href="#main" class="skip-link"> do HTML. */
+    position: absolute;                         
+    top: -100%;                                 /*! Joga o link para fora da tela */
+    left: 0;                                    
+    background-color: var(--cor-fundo-escuro);  
+    color: var(--texto-claro);                  
+    padding: 0.75rem 1rem;                      /*! Espaço dentro do link */
+    z-index: 100;                               /*! Fica acima de todo o resto */
+}
+
+.skip-link:focus {      /*! aplica :focus ao skip-link para que ele receba foco. Serve para a acessibilidade. */
+    top: 0;             /*! Traz o link de volta para a tela quando recebe foco */
+}
+
+
+/** Header **/
+header {
+    background-color: var(--cor-fundo-escuro);  /*! Cor de fundo escura do header */
+}
+
+
+/** faixa do menu: <nav aria-label="Menu principal" class="menu"> **/
+.menu {                /*! Controla a tag <nav> do header. */
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)),   
+        url("../assets/img/header_footer.jpg");                    
+    padding: 0rem 2rem;           
+    display: flex;                
+    align-items: center;          
+    justify-content: flex-end;    /*! links no canto direito */
+    gap: 1.5rem;                  
+    position: fixed;              /*! A faixa acompanha a rolagem da página */
+    top: 0;                       
+    right: 0;                     
+    left: 0;                      
+    z-index: 50;                  
+}
+
+.menu h1 { 
+    color: var(--texto-claro);
+    font-family: "Parisienne", cursive;
+    margin-right: 17rem;
+    font-size: 2rem; 
+    font-weight: 500;
+    word-spacing: 0.2rem;
+}
+
+.menu a {               /*! Controla a tag <a> presente no <nav> do header. */
+    padding: 0.20rem;                    /*! Espaço dentro de cada link */
+    color: var(--texto-claro);           
+    text-decoration: none;               /*! Tira o sublinhado do link */
+    font-family: "Parisienne", cursive;
+    font-size: large;
+    font-weight: 700;
+}
+
+.menu a:first-child {
+    margin-right: auto;   
+    padding: 0;            
+}
+
+.menu a:first-child:hover {
+    background-color: transparent;   
+}
+
+.menu a:hover {         /*! Controla o :hover (Quando o mouse interage com o elemento) da tag <a> presente <nav> do header. */
+    color: var(--cor-destaque-vermelho);   
+    transition: color 0.2s;
+}                     
+
+
+.menu a[aria-current="page"] {
+    background-color: transparent;
+    color: var(--cor-destaque-vermelho);          
+}
+
+
+/** Logo **/
+.logo {
+    height: 5rem;      
+    width: auto;       
+    display: block;    /*! Tira o espaço extra que imagens inline têm embaixo */
+}
+
+.link_logo {              /*! Controla a iamgem do  logo apenas */
+    display: inline-block;   /*! Permite usar margem no link */
+    margin: 0rem 1.5rem;     
+} 
+
+
+/** Banners: coisas em comum **/
+.banner_inicial, .banner_cardapio, 
+.banner_vinho, .banner_delivery, 
+.banner_depoimentos, .banner_fale_conosco,
+.banner_nossa_unidade, .banner_quem_somos,
+.banner_reserva, .banner_trabalhe_conosco  {            
+    margin-top: 5rem;                           
+    background-size: cover;                     /*! A imagem cobre toda a área, cortando o excesso */
+    min-height: 24rem;                          
+    display: flex;                              /*! Ativa o centralizador do título */
+    align-items: center;                        /*! Centraliza o título na vertical */
+    justify-content: center;                    /*! Centraliza o título na horizontal */
+    color: var(--texto-claro);                  
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);   
+    font-family: "Parisienne", cursive;        
+    font-size: 5.5rem;                          
+}
+
+
+
+/** Banners: diferenças **/
+
+/** 1- Banner index.html **/
+.banner_inicial {            /*! Coloca um título e um banner. */
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   /*! Película escura sobre a foto */
+        url(../assets/img/banner_ficticio.jpg);                    /*! Imagem do banner da página inicial */
+    background-repeat: no-repeat;     
+    background-position: center;      
+    background-size: cover;          
+}
+
+/** 2- Banner cardapio **/
+.banner_cardapio {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   
+        url(../assets/img/banner_ficticio.jpg);                    
+    background-repeat: no-repeat;     
+    background-position: center;      
+    background-size: cover;           
+}
+
+/** 3- Banner Carta de Vinhos **/
+.banner_vinho {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   
+        url(../assets/img/carta_vinho1.png);                    
+    background-repeat: no-repeat;     
+    background-position: center;      
+    background-size: cover;           
+}
+
+/** 4- Banner Delivery **/
+.banner_delivery {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   
+        url(../assets/img/imagem_7.jpg);                    
+    background-repeat: no-repeat;     
+    background-position: center;      
+    background-size: cover;           
+}
+
+/** 5- Banner Depoimentos **/
+.banner_depoimentos {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   
+        url(../assets/img/imagem_8.jpg);                    
+    background-repeat: no-repeat;     
+    background-position: center;      
+    background-size: cover;           
+}
+
+/** 6- Banner Fale Conosco **/
+.banner_fale_conosco {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   
+        url(../assets/img/banner_ficticio.jpg);                    
+    background-repeat: no-repeat;     
+    background-position: center;      
+    background-size: cover;           
+}
+
+/** 7- Banner Nossa Unidade **/
+.banner_nossa_unidade {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   
+        url(../assets/img/imagem_2.jpg);                    
+    background-repeat: no-repeat;     
+    background-position: center;      
+    background-size: cover;           
+}
+
+/** 8- Banner Quem Somos **/
+.banner_quem_somos {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   
+        url(../assets/img/imagem_8.jpg);                    
+    background-repeat: no-repeat;     
+    background-position: center;      
+    background-size: cover;           
+}
+
+/** 9- Banner Reserva **/
+.banner_reserva {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   
+        url(../assets/img/imagem_10.jpg);                    
+    background-repeat: no-repeat;     
+    background-position: center;      
+    background-size: cover;           
+}
+
+/** 10- Banner Trabalhe Conosco **/
+.banner_trabalhe_conosco {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   
+        url(../assets/img/imagem_6.jpg);                    
+    background-repeat: no-repeat;     
+    background-position: center;      
+    background-size: cover;           
+}
+
+
+
+/** Footer **/
+footer {
+    background-color: var(--cor-fundo-escuro);   
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)),   
+        url("../assets/img/header_footer.jpg");                    
+    background-size: cover;          
+    background-position: center;     
+    background-repeat: no-repeat;    
+    color: var(--texto-claro);       
+    padding: 3rem 4rem 1.5rem;       
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);       
+    gap: 2.5rem;                                 
+    border-top: 4px solid var(--cor-destaque-vermelho);   
+}
+
+/** Títulos das colunas **/
+.coluna_footer h2 {
+    color: var(--texto-claro);                   /*! Título creme (antes era vermelho), mais neutro e elegante */
+    font-family: "Parisienne", cursive;         
+    font-weight: 400;                            
+    font-size: 2rem;                             
+    margin-bottom: 1rem;                         
+    padding-bottom: 0.5rem;                      
+    border-bottom: 2px solid var(--cor-destaque-vermelho);   /*! O vermelho agora fica só no sublinhado (antes era vermelho) */
+    display: inline-block;                       
+}
+
+.coluna_footer p {
+    line-height: 1.6;                            
+    margin-bottom: 1rem;                         
+    color: var(--texto-secundario);              
+}
+
+/** Listas sem marcadores **/
+.lista_contato,
+.lista_redes {
+    list-style: none;                            /*! Tira as bolinhas da lista */
+}
+
+/** Contato: ícone + texto **/
+.lista_contato li {
+    display: flex;                              
+    gap: 0.75rem;                                
+    margin-bottom: 0.9rem;                       
+    line-height: 1.5;                            
+}
+
+.lista_contato i {
+    color: var(--cor-destaque-vermelho);          
+    font-size: 1.1rem;                           /*! Tamanho dos ícones */
+}
+
+address {
+    font-style: normal;                          
+}
+
+/** Links **/
+footer a {
+    color: var(--texto-claro);                   
+    text-decoration: none;                       /*! Tira o sublinhado */
+    transition: color 0.2s;                      /*! Troca de cor suave */
+}
+
+footer a[aria-current="page"] {
+    color: var(--cor-destaque-vermelho);                   
+    text-decoration: none;                       /*! Tira o sublinhado */
+    transition: color 0.2s;                      /*! Troca de cor suave */
+}
+
+footer a:hover {
+    color: var(--cor-destaque-vermelho);        
+}
+
+footer a:focus-visible {
+    outline: 2px solid var(--texto-claro);       /*! Anel de foco claro, só aparece para quem navega pelo teclado */
+    outline-offset: 3px;                         /*! Afasta o anel do elemento */
+}
+
+/** Redes sociais: ícones redondos **/
+.lista_redes {
+    display: flex;                               /*! Ícones lado a lado */
+    gap: 1rem;                                   
+}
+
+.lista_redes a {
+    display: flex;                               
+    align-items: center;                         
+    justify-content: center;                    
+    width: 2.75rem;                              
+    height: 2.75rem;                             
+    border: 2px solid var(--borda-divisores);    /*! Contorno discreto, cinza-quente (antes era vermelho) */
+    border-radius: 50%;                          
+    font-size: 1.25rem;                         
+}
+
+.lista_redes a:hover {
+    background-color: var(--cor-destaque-vermelho);   
+    border-color: var(--cor-destaque-vermelho);       /*! O contorno também fica vermelho no hover */
+    color: var(--texto-escuro);                      
+}
+
+/** Formulário: campo e botão na mesma linha **/
+.form_lista {
+    display: flex; 
+    flex-direction: column;
+    gap: 0.75rem;                              
+}
+
+.form_lista input {
+    padding: 0.75rem 1rem;
+    border: 2px solid transparent;
+    border-radius: 8px;         
+    background-color: var(--cor-fundo-claro);
+    color: var(--texto-escuro);
+    font-size: 1rem;                            
+}
+
+.form_lista input:focus {
+    outline: none;                               /*! Tira o contorno padrão do navegador */
+    border-color: var(--cor-destaque-vermelho);   /*! Borda amarela quando o campo está selecionado */
+}
+
+.form_lista button {
+    align-self: center;          
+    padding: 0.6rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--cor-destaque-vermelho);
+    color: var(--texto-claro);
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.form_lista button:hover {
+    background-color: var(--hover-vinho);        /*! Vinho mais escuro ao passar o mouse */
+}
+
+/** Menu do rodapé **/
+.menu_footer,
+.copyright {
+    grid-column: 1 / -1;                         /*! Ocupa a largura toda, da primeira à última coluna */
+    text-align: center;                          
+}
+
+.menu_footer {
+    display: flex;                               
+    justify-content: center;                     
+    gap: 2rem;                                   
+    padding-top: 1.5rem;                         
+    border-top: 1px solid var(--borda-divisores);
+    font-family: "Parisienne", cursive;
+    font-size: large;
+    font-weight: 700;  
+}
+
+/** Copyright **/
+.copyright {
+    color: var(--texto-secundario);             
+    font-size: 0.9rem;                           
+    margin: 0;                                   
+}
+
+
+/** Footer no celular e tablet: uma coluna só **/
+@media (max-width: 900px) {                      /*! Vale só para telas de até 900px */
+
+    footer {
+        grid-template-columns: 1fr;              /*! Vira 1 coluna, uma embaixo da outra */
+        padding: 2rem 1.5rem 1rem;             
+    }
+
+    .menu_footer {
+        flex-direction: column;                  
+        align-items: center;                     
+        gap: 1rem;                               
+    }
+}
+
+/** Títulos **/
+h1 {
+    color: var(--cor-titulo-claro);              
+}
+
+h2 {
+    color: var(--cor-subtitulo-claro);           
+}
