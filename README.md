@@ -64,6 +64,7 @@ Número do dono: (13) 99667-6016 (Jefferson Tomasi)
 
 ## Conclusão com a reflexão do grupo sobre os aprendizados da etapa
 
+
 Ao longo do desenvolvimento deste projeto, pudemos colocar em prática os conceitos de HTML estudados em sala de aula, aplicando-os em um contexto real: a criação de um site funcional para um cliente de verdade. Essa experiência trouxe desafios que vão além do código, como entender as necessidades do cliente, manter a padronização visual entre as páginas e organizar o trabalho em equipe de forma que cada integrante pudesse contribuir de acordo com suas responsabilidades.
 
 Um dos principais aprendizados foi a importância da estrutura semântica do HTML para garantir acessibilidade e organização do conteúdo, além de perceber como pequenos detalhes — como links funcionais, atributos corretos e validação do código — fazem diferença na qualidade final do produto. O contato direto com o cliente também foi enriquecedor, pois nos mostrou como alinhar expectativas e traduzir pedidos informais em funcionalidades concretas no site.
