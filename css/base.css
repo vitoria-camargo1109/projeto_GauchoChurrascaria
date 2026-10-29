@@ -353,3 +353,160 @@ body .page-title {
 .pagina-fale-conosco main > section:first-of-type > h2 {
   display: none;
 }
+
+/* ===== PÁGINA: DEPOIMENTOS ===== */
+
+.pagina-depoimentos {
+  --fc-vermelho: #d0021b;
+  --fc-vermelho-escuro: #8f0113;
+  --fc-marfim: #f6f1e7;
+  --fc-texto: #2a1f1a;
+  --fc-raio: 6px;
+  --fc-serifa: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+
+  background:
+    radial-gradient(ellipse at top, rgba(208, 2, 27, .07), transparent 60%),
+    var(--fc-marfim);
+}
+
+.pagina-depoimentos main {
+  max-width: 960px;
+  margin-inline: auto;
+  padding: 4rem 1.25rem 6rem;
+  font-family: var(--fc-serifa);
+  font-size: 1.15rem;
+  color: var(--fc-texto);
+}
+
+/* O banner já mostra o título, então escondemos o h2 do meio */
+.pagina-depoimentos main > section > h2 {
+  display: none;
+}
+
+/* Texto de introdução com ornamento */
+.pagina-depoimentos main > section > p {
+  margin: 0 0 3.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--fc-vermelho-escuro);
+}
+.pagina-depoimentos main > section > p::after {
+  content: "◆";
+  display: block;
+  width: 200px;
+  height: 14px;
+  margin: 1.2rem auto 0;
+  font-family: Arial, sans-serif;
+  font-size: .7rem;
+  font-style: normal;
+  line-height: 14px;
+  text-align: center;
+  color: var(--fc-vermelho);
+  background:
+    linear-gradient(90deg, transparent, var(--fc-vermelho)) left center / 85px 1px no-repeat,
+    linear-gradient(270deg, transparent, var(--fc-vermelho)) right center / 85px 1px no-repeat;
+}
+
+/* Cartões: nome à esquerda, estrelas à direita */
+.pagina-depoimentos main article {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  column-gap: 1.5rem;
+  row-gap: .25rem;
+  background: #fffdf8;
+  border: 1px solid rgba(208, 2, 27, .25);
+  border-left: 5px solid var(--fc-vermelho);
+  border-radius: var(--fc-raio);
+  box-shadow: 0 10px 26px rgba(42, 31, 26, .07);
+  padding: 2rem 2.25rem;
+  margin-bottom: 1.75rem;
+  transition: transform .3s, box-shadow .3s, border-color .3s;
+}
+/* Aspas decorativas de fundo */
+.pagina-depoimentos main article::before {
+  content: "\201C";
+  position: absolute;
+  top: -.5rem;
+  right: 1.25rem;
+  font-family: Georgia, serif;
+  font-size: 9rem;
+  line-height: 1;
+  color: rgba(208, 2, 27, .09);
+  pointer-events: none;
+}
+.pagina-depoimentos main article > * {
+  position: relative;
+}
+.pagina-depoimentos main article:hover {
+  transform: translateY(-3px);
+  border-color: var(--fc-vermelho);
+  box-shadow: 0 20px 40px rgba(42, 31, 26, .14);
+}
+/* Cartão aberto fica em destaque */
+.pagina-depoimentos main article:has(details[open]) {
+  border-color: rgba(208, 2, 27, .5);
+  box-shadow: 0 20px 40px rgba(42, 31, 26, .14);
+}
+
+/* Nome e estrelas */
+.pagina-depoimentos main article h3 {
+  margin: 0;
+  font-family: var(--fc-serifa);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: var(--fc-vermelho-escuro);
+}
+.pagina-depoimentos main article h3 + p {
+  margin: 0;
+  font-size: 1rem;
+  color: #6b5d52;
+  text-align: right;
+}
+.pagina-depoimentos main article details {
+  grid-column: 1 / -1;
+  margin-top: 1.25rem;
+}
+
+/* "Ver depoimento": botão em formato de pílula */
+.pagina-depoimentos main summary {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  cursor: pointer;
+  list-style: none;
+  padding: .6rem 1.4rem;
+  border: 1px solid var(--fc-vermelho);
+  border-radius: 999px;
+  color: var(--fc-vermelho);
+  font-size: .85rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  transition: background .3s, color .3s;
+}
+.pagina-depoimentos main summary::-webkit-details-marker {
+  display: none;
+}
+.pagina-depoimentos main summary::after {
+  content: "+";
+  font-size: 1.3rem;
+  line-height: 1;
+}
+.pagina-depoimentos main summary:hover {
+  background: var(--fc-vermelho);
+  color: #fff;
+}
+.pagina-depoimentos main details[open] summary {
+  background: var(--fc-vermelho);
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+.pagina-depoimentos main details[open] summary::after {
+  content: "\2212";
+}
+.pagina-depoimentos main
