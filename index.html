@@ -43,12 +43,12 @@
 
     <main id="main">
 
-        <!--* Ícones SVG reutilizados nos cards de vinhos -->
+        <!--* Ícones SVG reutilizados na lista de vinhos -->
         <svg class="visually-hidden" aria-hidden="true" focusable="false">
             <symbol id="icone-garrafa" viewBox="0 0 24 48">
                 <path fill="currentColor"
                     d="M10 2h4v8c0 2 3 4 3 8v26a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V18c0-4 3-6 3-8z" />
-                <rect x="8" y="27" width="8" height="12" rx="1" fill="var(--cor-cartao)" />
+                <rect x="8" y="27" width="8" height="12" rx="1" fill="var(--cor-fundo-claro)" />
             </symbol>
             <symbol id="icone-taca" viewBox="0 0 24 48">
                 <path fill="currentColor" d="M5 2h14c0 10-1 17-7 19-6-2-7-9-7-19z" />
@@ -57,19 +57,45 @@
             </symbol>
         </svg>
 
-        <section class="apresentacao" aria-labelledby="titulo-apresentacao">
-            <h2 id="titulo-apresentacao">Venha viver a tradição gaúcha</h2>
-            <p>Bem-vindo ao Gaúcho Grill Figueiras, onde a tradição do churrasco
-                gaúcho encontra a excelência culinária!</p>
+        <section class="secao-dividida apresentacao" aria-labelledby="titulo-apresentacao">
+            <article>
+                <h2 id="titulo-apresentacao">Venha viver a tradição <em>gaúcha</em></h2>
+                <p>Bem-vindo ao Gaúcho Grill Figueiras, onde a tradição do churrasco
+                    gaúcho encontra a excelência culinária!</p>
 
-            <nav aria-label="Atalhos">
-                <ul class="atalhos">
-                    <li><a class="botao" href="paginas/reserva.html">Reserva</a></li>
-                    <li><a class="botao" href="paginas/cardapio.html">Cardápio</a></li>
-                    <li><a class="botao" href="paginas/delivery.html">Delivery</a></li>
-                    <li><a class="botao" href="paginas/quem_somos.html">Quem Somos</a></li>
-                </ul>
-            </nav>
+                <nav aria-label="Atalhos">
+                    <ul class="atalhos">
+                        <li>
+                            <a class="atalho" href="paginas/cardapio.html">
+                                <span class="rotulo">Cardápio</span>
+                                <span class="descricao">Confira nossos cortes, porções e pratos especiais.</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="atalho" href="paginas/reserva.html">
+                                <span class="rotulo">Reserva</span>
+                                <span class="descricao">Garanta sua mesa com antecedência.</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="atalho" href="paginas/delivery.html">
+                                <span class="rotulo">Delivery</span>
+                                <span class="descricao">Peça suas carnes favoritas sem sair de casa.</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="atalho" href="paginas/quem_somos.html">
+                                <span class="rotulo">Quem Somos</span>
+                                <span class="descricao">Conheça nossa história e tradição gaúcha.</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </article>
+
+            <figure>
+                <img src="assets/img/imagem_1.jpg" alt="Salão do restaurante com mesa farta">
+            </figure>
         </section>
 
         <section class="secao-depoimentos" aria-labelledby="titulo-depoimentos">
@@ -163,7 +189,7 @@
                     aria-label="Próximo depoimento"><span aria-hidden="true">&#8250;</span></button>
             </nav>
 
-            <p class="acao"><a class="botao" href="paginas/depoimentos.html">Ver todos<span
+            <p class="acao"><a class="botao botao-claro" href="paginas/depoimentos.html">Ver todos<span
                         class="visually-hidden"> os depoimentos</span></a></p>
         </section>
 
@@ -173,26 +199,24 @@
             </figure>
 
             <article>
-                <h2 id="titulo-vinhos">Carta de Vinhos</h2>
+                <h2 id="titulo-vinhos">Carta de <em>Vinhos</em></h2>
                 <p>Harmonize sua refeição com nossa seleção de vinhos.</p>
 
-                <ul class="cartoes-vinho">
+                <ul class="paises-vinho">
                     <li>
                         <svg class="icone-vinho" viewBox="0 0 56 48" aria-hidden="true" focusable="false">
                             <use href="#icone-garrafa" x="6" width="24" height="48" />
                             <use href="#icone-taca" x="30" width="24" height="48" />
                         </svg>
                         <h3>Argentina</h3>
-                        <p>4 rótulos</p>
-                        <p>a partir de R$ 159,90</p>
+                        <p>4 rótulos, a partir de R$ 159,90</p>
                     </li>
                     <li>
                         <svg class="icone-vinho" viewBox="0 0 56 48" aria-hidden="true" focusable="false">
                             <use href="#icone-garrafa" x="16" width="24" height="48" />
                         </svg>
                         <h3>Chile</h3>
-                        <p>5 rótulos</p>
-                        <p>a partir de R$ 149,90</p>
+                        <p>5 rótulos, a partir de R$ 149,90</p>
                     </li>
                     <li>
                         <svg class="icone-vinho" viewBox="0 0 56 48" aria-hidden="true" focusable="false">
@@ -200,8 +224,7 @@
                             <use href="#icone-taca" x="30" width="24" height="48" />
                         </svg>
                         <h3>Portugal</h3>
-                        <p>3 rótulos</p>
-                        <p>a partir de R$ 129,90</p>
+                        <p>3 rótulos, a partir de R$ 129,90</p>
                     </li>
                 </ul>
 
@@ -210,31 +233,29 @@
             </article>
         </section>
 
-        <section class="secao-dividida secao-unidade" aria-labelledby="titulo-unidade">
+        <!--* A foto desta seção é o fundo (definida em variaveis.css: --img-secao-unidade) -->
+        <section class="secao-unidade" aria-labelledby="titulo-unidade">
             <article>
-                <h2 id="titulo-unidade">Nossa Unidade</h2>
+                <h2 id="titulo-unidade">Nossa <em>Unidade</em></h2>
                 <p>Uma casa, uma tradição. Carnes selecionadas, preparo na brasa e um ambiente acolhedor para
-                    reunir família e amigos.</p>
-                <a class="botao" href="paginas/nossa_unidade.html">Saiba mais<span class="visually-hidden"> sobre nossa
-                        unidade</span></a>
+                    reunir família e amigos. Estamos te esperando!</p>
+                <p class="detalhe">Todos os dias das 11h às 23h</p>
+                <a class="botao botao-claro" href="paginas/nossa_unidade.html">Saiba mais<span
+                        class="visually-hidden"> sobre nossa unidade</span></a>
             </article>
-
-            <figure>
-                <img src="assets/img/imagem_2.jpg" alt="Mesa farta do restaurante com bar ao fundo">
-            </figure>
         </section>
 
         <section class="secao-dividida secao-trabalhe" aria-labelledby="titulo-trabalhe">
-            <figure>
-                <img src="assets/img/imagem_6.jpg" alt="Espetos grelhados na churrasqueira">
-            </figure>
-
             <article>
-                <h2 id="titulo-trabalhe">Trabalhe Conosco</h2>
+                <h2 id="titulo-trabalhe">Trabalhe <em>Conosco</em></h2>
                 <p>Faça parte da nossa equipe! Preencha o formulário e venha trabalhar com a gente.</p>
                 <a class="botao" href="paginas/trabalhe_conosco.html">Saiba mais<span class="visually-hidden"> sobre
                         as vagas</span></a>
             </article>
+
+            <figure>
+                <img src="assets/img/imagem_6.jpg" alt="Espetos grelhados na churrasqueira">
+            </figure>
         </section>
 
     </main>

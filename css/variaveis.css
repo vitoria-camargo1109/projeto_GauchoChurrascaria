@@ -25,6 +25,8 @@
     --texto-claro: #f2eee8;
     --texto-escuro: #1c1411;
     --texto-secundario: #a39a92;
+    --texto-claro-suave: #d2cac0;              /* texto claro um pouco mais apagado, para fundos escuros */
+    --texto-suave: #6b5d52;                    /* texto cinza-marrom, para fundos claros */
 
     /* Títulos */
     --cor-titulo-escuro: #eec416;
@@ -42,9 +44,10 @@
     /* Apoio, bordas e divisores */
     --cor-apoio: #5c6b3a;
     --borda-divisores: #8a8178;
+    --linha-suave: rgba(28, 20, 17, 0.2);      /* linhas finas entre itens de lista */
 
-    /* Página inicial: faixas, cards e títulos das seções */
-    --cor-faixa: #e6dfcf;                      /* faixa alternada (bege) */
+    /* Página inicial: fundos, cards e títulos das seções */
+    --cor-faixa: #e6dfcf;                      /* fundo bege (Trabalhe Conosco) */
     --cor-cartao: #fffdf8;                     /* fundo dos cards */
     --cor-titulo-secao: var(--texto-escuro);
 
@@ -52,8 +55,8 @@
     /* ---------- 2. TIPOGRAFIA ---------- */
 
     --fonte-menu: "Parisienne", cursive;        /* título do menu, banners e títulos do rodapé */
-    --fonte-links: "Montserrat", sans-serif;    /* links do menu e do menu do rodapé */
-    --fonte-elegante: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --fonte-links: "Montserrat", sans-serif;    /* links do menu e do rodapé, textos da página inicial */
+    --fonte-elegante: "Cormorant Garamond", Georgia, "Times New Roman", serif;   /* títulos e citações */
     --fonte-cursiva: "Great Vibes", cursive;    /* títulos do Fale Conosco */
 
 
@@ -63,9 +66,9 @@
     --altura-menu: 5rem;        /* altura do menu fixo (e margem dos banners) */
     --altura-banner: 24rem;
     --raio-padrao: 8px;
-    --raio-cartao: 16px;
+    --raio-cartao: 4px;
     --largura-conteudo: 1100px; /* largura máxima do conteúdo da página inicial */
-    --espaco-secao: 4rem;       /* espaço acima e abaixo de cada seção */
+    --espaco-secao: 5rem;       /* espaço acima e abaixo de cada seção */
     --gap-carrossel: 1.5rem;    /* espaço entre os depoimentos */
 
 
@@ -85,6 +88,8 @@
     --img-banner-reserva: url("../assets/img/imagem_10.jpg");
     --img-banner-trabalhe-conosco: url("../assets/img/imagem_6.jpg");
 
+    --img-secao-unidade: url("../assets/img/imagem_2.jpg");   /* fundo da seção Nossa Unidade */
+
 
     /* ---------- 5. EFEITOS ---------- */
 
@@ -93,9 +98,9 @@
     --sombra-texto-banner: 2px 2px 8px rgba(0, 0, 0, 0.8);
     --transicao-rapida: 0.2s;
     --sombra-cartao: 0 6px 18px rgba(28, 20, 17, 0.12);
-    --sombra-cartao-destaque: 0 16px 32px rgba(28, 20, 17, 0.28);
-    --formato-botao: polygon(0.9rem 0, calc(100% - 0.9rem) 0, 100% 50%,
-                             calc(100% - 0.9rem) 100%, 0.9rem 100%, 0 50%);   /* botão sextavado */
+    --sombra-foto: 0 18px 40px rgba(28, 20, 17, 0.22);
+    --sombra-cartao-destaque: 0 16px 32px rgba(0, 0, 0, 0.45);
+    --pelicula-forte: linear-gradient(rgba(14, 9, 7, 0.72), rgba(14, 9, 7, 0.72));   /* sobre fotos com texto */
 
 
     /* ---------- 6. FALE CONOSCO E DEPOIMENTOS ---------- */

@@ -666,13 +666,18 @@ h2 {
 /* ==========================================================================
    5. PÁGINA INICIAL  (<body class="pagina-inicial">)
 
-   5.1 Seções (faixas) e títulos
-   5.2 Botão sextavado
-   5.3 Apresentação
+   Faixas de largura total que alternam fundos:
+   abertura (creme) > depoimentos (escuro) > vinhos (creme) >
+   unidade (foto) > trabalhe conosco (bege)
+
+   5.1 Seções e títulos
+   5.2 Botões
+   5.3 Abertura e atalhos
    5.4 Depoimentos (carrossel)
-   5.5 Seções divididas (imagem + texto)
-   5.6 Cards de vinhos
-   5.7 Tablet e celular
+   5.5 Carta de Vinhos
+   5.6 Nossa Unidade
+   5.7 Trabalhe Conosco
+   5.8 Tablet e celular
    ========================================================================== */
 
 /* ---------- 5.1 Seções e títulos ---------- */
@@ -681,109 +686,177 @@ h2 {
    O padding lateral mantém o conteúdo centralizado, com largura máxima. */
 .pagina-inicial main > section {
     padding: var(--espaco-secao) max(1.5rem, calc((100% - var(--largura-conteudo)) / 2));
-    border-top: 1px solid var(--borda-divisores);
     color: var(--texto-escuro);
     font-family: var(--fonte-links);
-}
-
-/* Faixas alternadas: creme, bege, creme, bege... */
-.pagina-inicial main > section:nth-of-type(even) {
-    background-color: var(--cor-faixa);
 }
 
 .pagina-inicial main h2 {
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
     color: var(--cor-titulo-secao);
     font-family: var(--fonte-elegante);
-    font-size: clamp(2.2rem, 5vw, 3.2rem);
-    font-weight: 700;
-    line-height: 1.1;
-}
-
-.pagina-inicial main p {
-    max-width: 60ch;
-    font-size: 1.05rem;
-    line-height: 1.6;
-}
-
-
-/* ---------- 5.2 Botão sextavado ---------- */
-/* A "borda" é o fundo do próprio link; o preenchimento é o ::before, um pouco menor.
-   Como o clip-path corta o outline, o foco do teclado troca a cor de fundo. */
-
-.pagina-inicial .botao {
-    position: relative;
-    isolation: isolate;
-    display: inline-block;
-    padding: 0.7rem 2.25rem;
-    background-color: var(--cor-fundo-escuro-alternativo);
-    clip-path: var(--formato-botao);
-    color: var(--texto-escuro);
-    font-family: var(--fonte-links);
-    font-size: 0.9rem;
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
     font-weight: 600;
-    letter-spacing: 0.06em;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: color var(--transicao-rapida);
+    line-height: 1.05;
 }
 
-.pagina-inicial .botao::before {
-    content: "";
-    position: absolute;
-    inset: 2px;
-    z-index: -1;
-    background-color: var(--cor-fundo-claro);
-    clip-path: var(--formato-botao);
-    transition: background-color var(--transicao-rapida);
+/* Última palavra do título em itálico e colorida */
+.pagina-inicial main h2 em {
+    color: var(--hover-vinho);
+    font-style: italic;
 }
 
-.pagina-inicial .botao:hover {
+.pagina-inicial main > section p {
+    max-width: 56ch;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* Seções com fundo escuro: texto claro e destaque dourado */
+.pagina-inicial .secao-depoimentos,
+.pagina-inicial .secao-unidade {
     color: var(--texto-claro);
 }
 
-.pagina-inicial .botao:hover::before {
+.pagina-inicial .secao-depoimentos h2,
+.pagina-inicial .secao-unidade h2 {
+    color: var(--texto-claro);
+}
+
+.pagina-inicial .secao-depoimentos h2 em,
+.pagina-inicial .secao-unidade h2 em {
+    color: var(--cor-destaque-amarelo);
+}
+
+
+/* ---------- 5.2 Botões ---------- */
+
+.pagina-inicial .botao {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    border: 1px solid var(--hover-vinho);
+    border-radius: 2px;
     background-color: var(--hover-vinho);
+    color: var(--texto-claro);
+    font-family: var(--fonte-links);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color var(--transicao-rapida), border-color var(--transicao-rapida),
+                color var(--transicao-rapida);
+}
+
+.pagina-inicial .botao:hover {
+    border-color: var(--cor-fundo-escuro);
+    background-color: var(--cor-fundo-escuro);
 }
 
 .pagina-inicial .botao:focus-visible {
-    text-decoration: underline;
-    text-underline-offset: 0.3em;
+    outline: 3px solid var(--cor-destaque-amarelo);
+    outline-offset: 3px;
 }
 
-.pagina-inicial .botao:focus-visible::before {
+/* Versão só com contorno, para fundos escuros */
+.pagina-inicial .botao-claro {
+    border-color: var(--cor-destaque-amarelo);
+    background-color: transparent;
+    color: var(--cor-destaque-amarelo);
+}
+
+.pagina-inicial .botao-claro:hover {
+    border-color: var(--cor-destaque-amarelo);
     background-color: var(--cor-destaque-amarelo);
+    color: var(--texto-escuro);
+}
+
+.pagina-inicial .acao {
+    margin-top: 1.5rem;
 }
 
 
-/* ---------- 5.3 Apresentação ---------- */
+/* ---------- 5.3 Abertura e atalhos ---------- */
 
-.pagina-inicial .apresentacao {
-    text-align: center;
+/* Grade de duas colunas (texto + foto), usada em Abertura, Vinhos e Trabalhe Conosco */
+.pagina-inicial .secao-dividida {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4rem;
+    align-items: center;
 }
 
-.pagina-inicial .apresentacao p {
-    margin-inline: auto;
+.pagina-inicial .secao-dividida img {
+    display: block;
+    width: 100%;
+    height: auto;                    /* mantém a proporção original: a foto aparece inteira */
+    border-radius: var(--raio-cartao);
+    box-shadow: var(--sombra-foto);
 }
 
+/* Lista de atalhos: uma linha por página, com seta */
 .pagina-inicial .atalhos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1.75rem;
+    margin-top: 2rem;
+    border-bottom: 1px solid var(--linha-suave);
     list-style: none;
+}
+
+.pagina-inicial .atalho {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 1rem;
+    align-items: center;
+    padding: 0.9rem 0;
+    border-top: 1px solid var(--linha-suave);
+    color: var(--texto-escuro);
+    text-decoration: none;
+    transition: color var(--transicao-rapida);
+}
+
+.pagina-inicial .atalho::after {
+    content: "\2192";                /* seta para a direita */
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    font-size: 1.4rem;
+    transition: transform var(--transicao-rapida);
+}
+
+.pagina-inicial .atalho .rotulo {
+    font-family: var(--fonte-elegante);
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.pagina-inicial .atalho .descricao {
+    grid-column: 1;
+    color: var(--texto-suave);
+    font-size: 0.9rem;
+}
+
+.pagina-inicial .atalho:hover {
+    color: var(--hover-vinho);
+}
+
+.pagina-inicial .atalho:hover::after {
+    transform: translateX(0.35rem);
+}
+
+.pagina-inicial .atalho:focus-visible {
+    outline: 3px solid var(--hover-vinho);
+    outline-offset: 2px;
 }
 
 
 /* ---------- 5.4 Depoimentos (carrossel) ---------- */
 
 .pagina-inicial .secao-depoimentos {
+    background-color: var(--cor-fundo-escuro);
     text-align: center;
 }
 
 .pagina-inicial .secao-depoimentos p {
     margin-inline: auto;
+    color: var(--texto-claro-suave);
 }
 
 /* Fileira horizontal: rola com o dedo/mouse e "encaixa" em cada card */
@@ -804,7 +877,7 @@ h2 {
 }
 
 .pagina-inicial .carrossel:focus-visible {
-    outline: 2px solid var(--hover-vinho);
+    outline: 2px solid var(--cor-destaque-amarelo);
     outline-offset: 4px;
 }
 
@@ -821,18 +894,19 @@ h2 {
     align-items: center;
     gap: 0.75rem;
     width: 100%;
-    padding: 1.5rem 1.25rem;
-    border: 1.5px solid var(--borda-divisores);
+    padding: 1.75rem 1.5rem;
+    border: 1px solid transparent;
     border-radius: var(--raio-cartao);
     background-color: var(--cor-cartao);
     box-shadow: var(--sombra-cartao);
+    color: var(--texto-escuro);
     transition: transform 0.35s, box-shadow 0.35s, border-color 0.35s;
 }
 
 /* Card central: o JavaScript marca com esta classe o card que está no meio da fileira */
 .pagina-inicial .cartao-depoimento.em-destaque {
     transform: translateY(-0.75rem);
-    border-color: var(--hover-vinho);
+    border-color: var(--cor-destaque-amarelo);
     box-shadow: var(--sombra-cartao-destaque);
 }
 
@@ -840,35 +914,38 @@ h2 {
 .pagina-inicial .avatar {
     display: grid;
     place-items: center;
-    width: 3.5rem;
-    height: 3.5rem;
+    width: 3.25rem;
+    height: 3.25rem;
     border-radius: 50%;
-    background-color: var(--hover-vinho);
-    color: var(--texto-claro);
+    background-color: var(--cor-fundo-escuro);
+    color: var(--cor-destaque-amarelo);
     font-family: var(--fonte-elegante);
-    font-size: 1.75rem;
-    font-weight: 700;
+    font-size: 1.7rem;
+    font-weight: 600;
 }
 
 .pagina-inicial .cartao-depoimento h3 {
     font-family: var(--fonte-links);
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 0.95rem;
+    font-weight: 700;
 }
 
 .pagina-inicial .cartao-depoimento blockquote {
     flex: 1;
-    font-size: 0.95rem;
-    line-height: 1.55;
+    font-family: var(--fonte-elegante);
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.5;
 }
 
-.pagina-inicial .cartao-depoimento blockquote p {
+.pagina-inicial .secao-depoimentos .cartao-depoimento p {
+    color: inherit;
     font-size: inherit;
 }
 
-.pagina-inicial .origem-avaliacao {
-    color: var(--texto-secundario);
-    font-size: 0.85rem;
+.pagina-inicial .secao-depoimentos .cartao-depoimento .origem-avaliacao {
+    color: var(--texto-suave);
+    font-size: 0.8rem;
 }
 
 /* Botões anterior / próximo (o JavaScript tira o atributo "hidden") */
@@ -888,22 +965,22 @@ h2 {
     place-items: center;
     width: 2.75rem;
     height: 2.75rem;
-    border: 2px solid var(--cor-fundo-escuro-alternativo);
+    border: 1px solid var(--cor-destaque-amarelo);
     border-radius: 50%;
     background-color: transparent;
-    color: var(--texto-escuro);
+    color: var(--cor-destaque-amarelo);
     font-size: 1.25rem;
     cursor: pointer;
     transition: background-color var(--transicao-rapida), color var(--transicao-rapida);
 }
 
 .pagina-inicial .carrossel-controles button:hover:not(:disabled) {
-    background-color: var(--hover-vinho);
-    color: var(--texto-claro);
+    background-color: var(--cor-destaque-amarelo);
+    color: var(--texto-escuro);
 }
 
 .pagina-inicial .carrossel-controles button:focus-visible {
-    outline: 2px solid var(--hover-vinho);
+    outline: 2px solid var(--texto-claro);
     outline-offset: 3px;
 }
 
@@ -912,84 +989,84 @@ h2 {
     cursor: not-allowed;
 }
 
-.pagina-inicial .acao {
-    margin-top: 1.5rem;
-}
 
+/* ---------- 5.5 Carta de Vinhos ---------- */
 
-/* ---------- 5.5 Seções divididas (imagem + texto) ---------- */
-
-.pagina-inicial .secao-dividida {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 3rem;
-    align-items: center;
-}
-
-.pagina-inicial .secao-dividida img {
-    display: block;
-    width: 100%;
-    height: auto;                    /* mantém a proporção original: a foto aparece inteira, sem cortes */
-    border: 2px solid var(--borda-divisores);
-    border-radius: var(--raio-cartao);
-}
-
-/* Título da Carta de Vinhos com uma linha de cada lado */
-.pagina-inicial .secao-vinhos h2 {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.pagina-inicial .secao-vinhos h2::before,
-.pagina-inicial .secao-vinhos h2::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background-color: var(--borda-divisores);
-}
-
-
-/* ---------- 5.6 Cards de vinhos ---------- */
-
-.pagina-inicial .cartoes-vinho {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
-    margin: 1.5rem 0;
+/* Lista simples de países, com ícone de garrafa/taça (SVG) */
+.pagina-inicial .paises-vinho {
+    margin: 1.75rem 0;
+    border-bottom: 1px solid var(--linha-suave);
     list-style: none;
 }
 
-.pagina-inicial .cartoes-vinho li {
-    padding: 1rem 0.5rem;
-    border: 1.5px solid var(--borda-divisores);
-    border-radius: var(--raio-cartao);
-    background-color: var(--cor-cartao);
-    text-align: center;
+.pagina-inicial .paises-vinho li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 1.25rem;
+    align-items: center;
+    padding: 0.9rem 0;
+    border-top: 1px solid var(--linha-suave);
 }
 
 .pagina-inicial .icone-vinho {
-    width: 3.5rem;
-    height: 3rem;
-    color: var(--cor-fundo-escuro-alternativo);
+    grid-row: 1 / span 2;
+    width: 3rem;
+    height: 2.6rem;
+    color: var(--hover-vinho);
 }
 
-.pagina-inicial .cartoes-vinho h3 {
-    margin-top: 0.5rem;
-    font-family: var(--fonte-links);
-    font-size: 1rem;
+.pagina-inicial .paises-vinho h3 {
+    font-family: var(--fonte-elegante);
+    font-size: 1.5rem;
     font-weight: 600;
+    line-height: 1.2;
 }
 
-.pagina-inicial .cartoes-vinho p {
-    margin-inline: auto;
-    color: var(--texto-secundario);
-    font-size: 0.85rem;
+.pagina-inicial .paises-vinho p {
+    color: var(--texto-suave);
+    font-size: 0.9rem;
     line-height: 1.4;
 }
 
 
-/* ---------- 5.7 Tablet e celular ---------- */
+/* ---------- 5.6 Nossa Unidade (foto de fundo) ---------- */
+
+.pagina-inicial .secao-unidade {
+    display: flex;
+    align-items: center;
+    min-height: 30rem;
+    background-image: var(--pelicula-forte), var(--img-secao-unidade);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.pagina-inicial .secao-unidade article {
+    max-width: 34rem;
+}
+
+.pagina-inicial .secao-unidade .detalhe {
+    margin-bottom: 1.5rem;
+    color: var(--cor-destaque-amarelo);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+
+/* ---------- 5.7 Trabalhe Conosco ---------- */
+
+.pagina-inicial .secao-trabalhe {
+    background-color: var(--cor-faixa);
+}
+
+.pagina-inicial .secao-trabalhe p {
+    margin-bottom: 1.75rem;
+}
+
+
+/* ---------- 5.8 Tablet e celular ---------- */
 
 /* Tablet (até 900px): 2 depoimentos por vez */
 @media (max-width: 900px) {
@@ -999,10 +1076,11 @@ h2 {
     }
 }
 
-/* Quem prefere menos movimento: sem animação no card em destaque */
+/* Quem prefere menos movimento: sem animações */
 @media (prefers-reduced-motion: reduce) {
 
-    .pagina-inicial .cartao-depoimento {
+    .pagina-inicial .cartao-depoimento,
+    .pagina-inicial .atalho::after {
         transition: none;
     }
 }
@@ -1011,7 +1089,7 @@ h2 {
 @media (max-width: 700px) {
 
     .pagina-inicial main > section {
-        padding-block: 3rem;
+        padding-block: 3.5rem;
     }
 
     .pagina-inicial .carrossel > li {
@@ -1020,15 +1098,11 @@ h2 {
 
     .pagina-inicial .secao-dividida {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 2rem;
     }
 
-    /* A imagem sempre aparece antes do texto */
+    /* A foto sempre aparece antes do texto */
     .pagina-inicial .secao-dividida > figure {
         order: -1;
-    }
-
-    .pagina-inicial .cartoes-vinho {
-        grid-template-columns: 1fr;
     }
 }
