@@ -12,17 +12,19 @@
     <!--* Caminho para o CSS. *-->
     <link rel="stylesheet" href="css/variaveis.css">
     <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/header_footer.css"> 
+    <link rel="stylesheet" href="css/header_footer.css">
 
+    <!--* JavaScript: botões do carrossel de depoimentos *-->
+    <script src="js/depoimentos.js" defer></script>
 </head>
 
-<body>
+<body class="pagina-inicial">
     <a href="#main" class="skip-link">Pular para o conteúdo principal</a>
 
     <header class="header_inicio">
-    
+
         <nav aria-label="Menu principal" class="menu">
-            
+
             <a href="index.html" aria-label="Voltar para a página inicial">
                 <img src="assets/logo/gaucho_logo.png" alt="Gaúcho Grill Figueiras - página inicial" class="logo">
             </a>
@@ -39,91 +41,223 @@
 
     </header>
 
-    <main id="main">  
-        <article>
-            <h2>Bem-vindo</h2>
-            <p>Bem-vindo ao Gaúcho Grill Figueiras, onde a tradição do churrasco
-                gaúcho encontra a excelência culinária!</p>
-        </article>
+    <main id="main">
 
-        <section>
-            <h2>Conheça mais sobre nós</h2>
+        <!--* Ícones SVG reutilizados na lista de vinhos -->
+        <svg class="visually-hidden" aria-hidden="true" focusable="false">
+            <symbol id="icone-garrafa" viewBox="0 0 24 48">
+                <path fill="currentColor"
+                    d="M10 2h4v8c0 2 3 4 3 8v26a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V18c0-4 3-6 3-8z" />
+                <rect x="8" y="27" width="8" height="12" rx="1" fill="var(--cor-fundo-claro)" />
+            </symbol>
+            <symbol id="icone-taca" viewBox="0 0 24 48">
+                <path fill="currentColor" d="M5 2h14c0 10-1 17-7 19-6-2-7-9-7-19z" />
+                <path fill="currentColor" d="M11 21h2v19h-2z" />
+                <path fill="currentColor" d="M7 44h10v2H7z" />
+            </symbol>
+        </svg>
 
+        <section class="secao-dividida apresentacao" aria-labelledby="titulo-apresentacao">
             <article>
+                <h2 id="titulo-apresentacao">Venha viver a tradição <em>gaúcha</em></h2>
+                <p>Bem-vindo ao Gaúcho Grill Figueiras, onde a tradição do churrasco
+                    gaúcho encontra a excelência culinária!</p>
 
-                <a href="paginas/cardapio.html">
-                    <h3>Cardápio</h3>
-                    <p>Confira nossos cortes, porções e pratos especiais.</p>
-                    <img src="assets/img/imagem_1.jpg" alt="Salão do restaurante com mesa farta">
-                </a>
-
+                <nav aria-label="Atalhos">
+                    <ul class="atalhos">
+                        <li>
+                            <a class="atalho" href="paginas/cardapio.html">
+                                <span class="rotulo">Cardápio</span>
+                                <span class="descricao">Confira nossos cortes, porções e pratos especiais.</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="atalho" href="paginas/reserva.html">
+                                <span class="rotulo">Reserva</span>
+                                <span class="descricao">Garanta sua mesa com antecedência.</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="atalho" href="paginas/delivery.html">
+                                <span class="rotulo">Delivery</span>
+                                <span class="descricao">Peça suas carnes favoritas sem sair de casa.</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="atalho" href="paginas/quem_somos.html">
+                                <span class="rotulo">Quem Somos</span>
+                                <span class="descricao">Conheça nossa história e tradição gaúcha.</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
             </article>
 
+            <figure>
+                <img src="assets/img/imagem_1.jpg" alt="Salão do restaurante com mesa farta">
+            </figure>
+        </section>
+
+        <section class="secao-depoimentos" aria-labelledby="titulo-depoimentos">
+            <h2 id="titulo-depoimentos">Depoimentos</h2>
+            <p>Veja o que nossos clientes dizem sobre o Gaúcho Grill Figueiras.</p>
+
+            <ul class="carrossel" id="lista-depoimentos" tabindex="0" aria-label="Depoimentos de clientes">
+                <li>
+                    <article class="cartao-depoimento">
+                        <span class="avatar" aria-hidden="true">N</span>
+                        <h3>Napolittano Gastronomia</h3>
+                        <p><span role="img" aria-label="Avaliação 5 de 5 estrelas">⭐⭐⭐⭐⭐</span></p>
+                        <blockquote>
+                            <p>"Muito boa a carne e o atendimento."</p>
+                        </blockquote>
+                        <p class="origem-avaliacao">Avaliação no Google</p>
+                    </article>
+                </li>
+
+                <li>
+                    <article class="cartao-depoimento">
+                        <span class="avatar" aria-hidden="true">M</span>
+                        <h3>marli rodrigues</h3>
+                        <p><span role="img" aria-label="Avaliação 5 de 5 estrelas">⭐⭐⭐⭐⭐</span></p>
+                        <blockquote>
+                            <p>"Tivemos uma ótima experiência, um ótimo atendimento, comida quentinha e a carne veio
+                                num ponto perfeito!"</p>
+                        </blockquote>
+                        <p class="origem-avaliacao">Avaliação no Google</p>
+                    </article>
+                </li>
+
+                <li>
+                    <article class="cartao-depoimento">
+                        <span class="avatar" aria-hidden="true">T</span>
+                        <h3>Tatiana de Paula Kasputis</h3>
+                        <p><span role="img" aria-label="Avaliação 5 de 5 estrelas">⭐⭐⭐⭐⭐</span></p>
+                        <blockquote>
+                            <p>"Eu realmente me senti muito feliz com o atendimento do Daniel na última quarta feira.
+                                Ele deixou eu e meus convidados muito satisfeitos com o atendimento!"</p>
+                        </blockquote>
+                        <p class="origem-avaliacao">Avaliação no Google</p>
+                    </article>
+                </li>
+
+                <li>
+                    <article class="cartao-depoimento">
+                        <span class="avatar" aria-hidden="true">L</span>
+                        <h3>Leila Araujo</h3>
+                        <p><span role="img" aria-label="Avaliação 5 de 5 estrelas">⭐⭐⭐⭐⭐</span></p>
+                        <blockquote>
+                            <p>"Simplesmente ameiii! Amei a experiência, amei o atendimento do Francisco.
+                                Comida deliciosa, ambiente muito bom. Recomendo"</p>
+                        </blockquote>
+                        <p class="origem-avaliacao">Avaliação no Google</p>
+                    </article>
+                </li>
+
+                <li>
+                    <article class="cartao-depoimento">
+                        <span class="avatar" aria-hidden="true">C</span>
+                        <h3>Cibeli Pepineli</h3>
+                        <p><span role="img" aria-label="Avaliação 5 de 5 estrelas">⭐⭐⭐⭐⭐</span></p>
+                        <blockquote>
+                            <p>"Eu adoro esse restaurante! Qualidade excepcional, atendimento, ambiente, até mesmo o
+                                delivery é fantástico. [...] Parabéns a todos, esse restaurante é fantástico!"</p>
+                        </blockquote>
+                        <p class="origem-avaliacao">Avaliação no Google</p>
+                    </article>
+                </li>
+
+                <li>
+                    <article class="cartao-depoimento">
+                        <span class="avatar" aria-hidden="true">C</span>
+                        <h3>Carolliny Mattesco</h3>
+                        <p><span role="img" aria-label="Avaliação 5 de 5 estrelas">⭐⭐⭐⭐⭐</span></p>
+                        <blockquote>
+                            <p>"Se vc está procurando um lugar de comida de verdade e bem servida, esse é o lugar!
+                                [...] Carne de primeira, ao ponto e macia! Serviço bem rápido."</p>
+                        </blockquote>
+                        <p class="origem-avaliacao">Avaliação no Google</p>
+                    </article>
+                </li>
+            </ul>
+
+            <!--* Fica escondido até o JavaScript rodar (js/depoimentos.js) -->
+            <nav class="carrossel-controles" id="controles-depoimentos" aria-label="Navegar pelos depoimentos" hidden>
+                <button type="button" data-direcao="-1" aria-controls="lista-depoimentos"
+                    aria-label="Depoimento anterior"><span aria-hidden="true">&#8249;</span></button>
+                <button type="button" data-direcao="1" aria-controls="lista-depoimentos"
+                    aria-label="Próximo depoimento"><span aria-hidden="true">&#8250;</span></button>
+            </nav>
+
+            <p class="acao"><a class="botao botao-claro" href="paginas/depoimentos.html">Ver todos<span
+                        class="visually-hidden"> os depoimentos</span></a></p>
+        </section>
+
+        <section class="secao-dividida secao-vinhos" aria-labelledby="titulo-vinhos">
+            <figure>
+                <img src="assets/img/carta_vinho1.png" alt="Banner da Carta de vinhos - seleção do gaúcho">
+            </figure>
 
             <article>
-                <a href="paginas/carta_vinho.html">
-                    <h3>Carta de Vinhos</h3>
-                    <p>Harmonize sua refeição com nossa seleção de vinhos.</p>
-                    <img src="assets/img/carta_vinho1.png" alt="Banner da Carta de vinhos - seleção do gaúcho">
-                </a>
-            </article>
+                <h2 id="titulo-vinhos">Carta de <em>Vinhos</em></h2>
+                <p>Harmonize sua refeição com nossa seleção de vinhos.</p>
 
-            <article>
+                <ul class="paises-vinho">
+                    <li>
+                        <svg class="icone-vinho" viewBox="0 0 56 48" aria-hidden="true" focusable="false">
+                            <use href="#icone-garrafa" x="6" width="24" height="48" />
+                            <use href="#icone-taca" x="30" width="24" height="48" />
+                        </svg>
+                        <h3>Argentina</h3>
+                        <p>4 rótulos, a partir de R$ 159,90</p>
+                    </li>
+                    <li>
+                        <svg class="icone-vinho" viewBox="0 0 56 48" aria-hidden="true" focusable="false">
+                            <use href="#icone-garrafa" x="16" width="24" height="48" />
+                        </svg>
+                        <h3>Chile</h3>
+                        <p>5 rótulos, a partir de R$ 149,90</p>
+                    </li>
+                    <li>
+                        <svg class="icone-vinho" viewBox="0 0 56 48" aria-hidden="true" focusable="false">
+                            <use href="#icone-garrafa" x="6" width="24" height="48" />
+                            <use href="#icone-taca" x="30" width="24" height="48" />
+                        </svg>
+                        <h3>Portugal</h3>
+                        <p>3 rótulos, a partir de R$ 129,90</p>
+                    </li>
+                </ul>
 
-                <a href="paginas/reserva.html">
-                    <h3>Reserva</h3>
-                    <p>Garanta sua mesa com antecedência.</p>
-                    <img src="assets/img/imagem_10.jpg" alt="Mesa farta com costelas em destaque">
-                </a>
-            </article>
-
-            <article>
-
-                <a href="paginas/delivery.html">
-                    <h3>Delivery</h3>
-                    <p>Peça suas carnes favoritas sem sair de casa.</p>
-                    <img src="assets/img/imagem_7.jpg" alt="Prato de costela com arroz e farofa">
-                </a>
-            </article>
-
-            <article>
-
-                <a href="paginas/nossa_unidade.html">
-                    <h3>Nossa Unidade</h3>
-                    <p>Conheça nosso espaço e localização.</p>
-                    <img src="assets/img/imagem_2.jpg" alt="Mesa farta do restaurante com bar ao fundo">
-
-                </a>
-            </article>
-
-            <article>
-                <a href="paginas/quem_somos.html">
-                    <h3>Quem Somos</h3>
-                    <p>Conheça nossa história e tradição gaúcha.</p>
-                    <img src="assets/img/imagem_8.jpg"
-                        alt="Mesa com prato de carne, arroz, uma taça de vinho, e ao fundo uma parte do restaurante desfocado">
-                </a>
-            </article>
-
-            <article>
-                <a href="paginas/depoimentos.html">
-                    <h3>Depoimentos</h3>
-                    <p>Veja o que nossos clientes têm a dizer.</p>
-                    <img src="assets/img/imagem_8.jpg"
-                        alt="Mesa com prato de carne, arroz, uma taça de vinho, e ao fundo uma parte do restaurante desfocado">
-
-                </a>
-            </article>
-
-            <article>
-                <a href="paginas/trabalhe_conosco.html">
-                    <h3>Trabalhe Conosco</h3>
-                    <p>Faça parte da nossa equipe.</p>
-                    <img src="assets/img/imagem_6.jpg" alt="Espetos grelhados na churrasqueira">
-
-                </a>
+                <a class="botao" href="paginas/carta_vinho.html">Ver carta<span class="visually-hidden"> de
+                        vinhos</span></a>
             </article>
         </section>
+
+        <!--* A foto desta seção é o fundo (definida em variaveis.css: --img-secao-unidade) -->
+        <section class="secao-unidade" aria-labelledby="titulo-unidade">
+            <article>
+                <h2 id="titulo-unidade">Nossa <em>Unidade</em></h2>
+                <p>Uma casa, uma tradição. Carnes selecionadas, preparo na brasa e um ambiente acolhedor para
+                    reunir família e amigos. Estamos te esperando!</p>
+                <p class="detalhe">Todos os dias das 11h às 23h</p>
+                <a class="botao botao-claro" href="paginas/nossa_unidade.html">Saiba mais<span
+                        class="visually-hidden"> sobre nossa unidade</span></a>
+            </article>
+        </section>
+
+        <section class="secao-dividida secao-trabalhe" aria-labelledby="titulo-trabalhe">
+            <article>
+                <h2 id="titulo-trabalhe">Trabalhe <em>Conosco</em></h2>
+                <p>Faça parte da nossa equipe! Preencha o formulário e venha trabalhar com a gente.</p>
+                <a class="botao" href="paginas/trabalhe_conosco.html">Saiba mais<span class="visually-hidden"> sobre
+                        as vagas</span></a>
+            </article>
+
+            <figure>
+                <img src="assets/img/imagem_6.jpg" alt="Espetos grelhados na churrasqueira">
+            </figure>
+        </section>
+
     </main>
 
     <footer id="rodape">

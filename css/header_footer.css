@@ -1,428 +1,319 @@
-@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Parisienne&display=swap');
+/* ==========================================================================
+   HEADER_FOOTER.CSS
+   Cabeçalho (menu + banner) e rodapé, iguais em todas as páginas.
 
-* {                   /*! O seletor "*" serve para todos os elementos de modo geral. */
-    margin: 0px;      
-    padding: 0px;     
-}
+   Índice
+   1. Fontes
+   2. Menu principal (nav) e logo
+   3. Banners
+   4. Rodapé
+   5. Rodapé no celular e tablet
+   ========================================================================== */
 
-.visually-hidden {
-    position: absolute;     
-    width: 1px;             
-    height: 1px;            
-    overflow: hidden;       
-    clip: rect(0 0 0 0);    
-    white-space: nowrap;    /*! Impede o texto de quebrar linha */
-}
-
-
-/** <body> **/
-body {                /*! Controla tudo que está dentro da tag <body> */
-    background-color: var(--cor-fundo-claro);   
-    color: var(--texto-escuro);                 
-}
+/* ---------- 1. FONTES ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400..700&family=Parisienne&display=swap');
 
 
-/** Skip-link para a acessibilidade. **/
-.skip-link {          /*! Controla a tag <a href="#main" class="skip-link"> do HTML. */
-    position: absolute;                         
-    top: -100%;                                 /*! Joga o link para fora da tela */
-    left: 0;                                    
-    background-color: var(--cor-fundo-escuro);  
-    color: var(--texto-claro);                  
-    padding: 0.75rem 1rem;                      /*! Espaço dentro do link */
-    z-index: 100;                               /*! Fica acima de todo o resto */
-}
+/* ==========================================================================
+   2. MENU PRINCIPAL
+   ========================================================================== */
 
-.skip-link:focus {      /*! aplica :focus ao skip-link para que ele receba foco. Serve para a acessibilidade. */
-    top: 0;             /*! Traz o link de volta para a tela quando recebe foco */
-}
-
-
-/** Header **/
 header {
-    background-color: var(--cor-fundo-escuro);  /*! Cor de fundo escura do header */
+    background-color: var(--cor-fundo-escuro);
 }
 
-
-/** faixa do menu: <nav aria-label="Menu principal" class="menu"> **/
-.menu {                /*! Controla a tag <nav> do header. */
-    background-image: 
-        linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)),   
-        url("../assets/img/header_footer.jpg");                    
-    padding: 0rem 2rem;           
-    display: flex;                
-    align-items: center;          
-    justify-content: flex-end;    /*! links no canto direito */
-    gap: 1.5rem;                  
-    position: fixed;              /*! A faixa acompanha a rolagem da página */
-    top: 0;                       
-    right: 0;                     
-    left: 0;                      
-    z-index: 50;                  
+/* Faixa fixa no topo: <nav aria-label="Menu principal" class="menu"> */
+.menu {
+    position: fixed;                 /* acompanha a rolagem da página */
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;       /* links no canto direito */
+    gap: 1.5rem;
+    padding: 0 2rem;
+    background-image: var(--degrade-menu-rodape), var(--img-menu-rodape);
 }
 
-.menu h1 { 
+/* Título ao lado do logo: mantém a fonte cursiva e fica em uma linha só */
+.menu h1 {
+    margin-right: auto;              /* empurra os links para a direita */
     color: var(--texto-claro);
-    font-family: "Parisienne", cursive;
-    margin-right: 17rem;
-    font-size: 2rem; 
+    font-family: var(--fonte-menu);
+    font-size: 2rem;
     font-weight: 500;
     word-spacing: 0.2rem;
+    white-space: nowrap;             /* impede a quebra em 2 linhas */
 }
 
-.menu a {               /*! Controla a tag <a> presente no <nav> do header. */
-    padding: 0.20rem;                    /*! Espaço dentro de cada link */
-    color: var(--texto-claro);           
-    text-decoration: none;               /*! Tira o sublinhado do link */
-    font-family: "Parisienne", cursive;
-    font-size: large;
-    font-weight: 700;
+/* Links do menu: Montserrat */
+.menu a {
+    padding: 0.2rem;
+    color: var(--texto-claro);
+    text-decoration: none;
+    font-family: var(--fonte-links);
+    font-size: 1rem;
+    font-weight: 500;
 }
 
-.menu a:first-child {
-    margin-right: auto;   
-    padding: 0;            
+.menu a:hover {
+    color: var(--cor-destaque-vermelho);
+    transition: color var(--transicao-rapida);
 }
-
-.menu a:first-child:hover {
-    background-color: transparent;   
-}
-
-.menu a:hover {         /*! Controla o :hover (Quando o mouse interage com o elemento) da tag <a> presente <nav> do header. */
-    color: var(--cor-destaque-vermelho);   
-    transition: color 0.2s;
-}                     
-
 
 .menu a[aria-current="page"] {
     background-color: transparent;
-    color: var(--cor-destaque-vermelho);          
+    color: var(--cor-destaque-vermelho);
 }
 
+/* O primeiro link do menu é o logo: sem padding e empurra os demais */
+.menu a:first-child,
+.menu a:first-child:hover {
+    background-color: transparent;
+}
 
-/** Logo **/
+.menu a:first-child {
+    margin-right: auto;
+    padding: 0;
+}
+
+/* Quando o título vem logo depois do logo, ele fica colado no logo
+   (o espaço entre os dois é o "gap" do .menu) */
+.menu a:first-child:has(+ h1) {
+    margin-right: 0;
+}
+
+/* ---------- Logo ---------- */
+.link_logo {
+    display: inline-block;           /* permite usar margem no link */
+    margin: 0 1.5rem;
+}
+
 .logo {
-    height: 5rem;      
-    width: auto;       
-    display: block;    /*! Tira o espaço extra que imagens inline têm embaixo */
-}
-
-.link_logo {              /*! Controla a iamgem do  logo apenas */
-    display: inline-block;   /*! Permite usar margem no link */
-    margin: 0rem 1.5rem;     
-} 
-
-
-/** Banners: coisas em comum **/
-.banner_inicial, .banner_cardapio, 
-.banner_vinho, .banner_delivery, 
-.banner_depoimentos, .banner_fale_conosco,
-.banner_nossa_unidade, .banner_quem_somos,
-.banner_reserva, .banner_trabalhe_conosco  {            
-    margin-top: 5rem;                           
-    background-size: cover;                     /*! A imagem cobre toda a área, cortando o excesso */
-    min-height: 24rem;                          
-    display: flex;                              /*! Ativa o centralizador do título */
-    align-items: center;                        /*! Centraliza o título na vertical */
-    justify-content: center;                    /*! Centraliza o título na horizontal */
-    color: var(--texto-claro);                  
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);   
-    font-family: "Parisienne", cursive;        
-    font-size: 5.5rem;                          
+    display: block;                  /* tira o espaço extra de imagens inline */
+    height: var(--altura-menu);
+    width: auto;
 }
 
 
+/* ==========================================================================
+   3. BANNERS
+   ========================================================================== */
 
-/** Banners: diferenças **/
-
-/** 1- Banner index.html **/
-.banner_inicial {            /*! Coloca um título e um banner. */
-    background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   /*! Película escura sobre a foto */
-        url(../assets/img/banner_ficticio.jpg);                    /*! Imagem do banner da página inicial */
-    background-repeat: no-repeat;     
-    background-position: center;      
-    background-size: cover;          
-}
-
-/** 2- Banner cardapio **/
-.banner_cardapio {
-    background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   
-        url(../assets/img/banner_ficticio.jpg);                    
-    background-repeat: no-repeat;     
-    background-position: center;      
-    background-size: cover;           
-}
-
-/** 3- Banner Carta de Vinhos **/
-.banner_vinho {
-    background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   
-        url(../assets/img/carta_vinho1.png);                    
-    background-repeat: no-repeat;     
-    background-position: center;      
-    background-size: cover;           
-}
-
-/** 4- Banner Delivery **/
-.banner_delivery {
-    background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   
-        url(../assets/img/imagem_7.jpg);                    
-    background-repeat: no-repeat;     
-    background-position: center;      
-    background-size: cover;           
-}
-
-/** 5- Banner Depoimentos **/
-.banner_depoimentos {
-    background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   
-        url(../assets/img/imagem_8.jpg);                    
-    background-repeat: no-repeat;     
-    background-position: center;      
-    background-size: cover;           
-}
-
-/** 6- Banner Fale Conosco **/
-.banner_fale_conosco {
-    background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   
-        url(../assets/img/banner_ficticio.jpg);                    
-    background-repeat: no-repeat;     
-    background-position: center;      
-    background-size: cover;           
-}
-
-/** 7- Banner Nossa Unidade **/
-.banner_nossa_unidade {
-    background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   
-        url(../assets/img/imagem_2.jpg);                    
-    background-repeat: no-repeat;     
-    background-position: center;      
-    background-size: cover;           
-}
-
-/** 8- Banner Quem Somos **/
-.banner_quem_somos {
-    background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   
-        url(../assets/img/imagem_8.jpg);                    
-    background-repeat: no-repeat;     
-    background-position: center;      
-    background-size: cover;           
-}
-
-/** 9- Banner Reserva **/
-.banner_reserva {
-    background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   
-        url(../assets/img/imagem_10.jpg);                    
-    background-repeat: no-repeat;     
-    background-position: center;      
-    background-size: cover;           
-}
-
-/** 10- Banner Trabalhe Conosco **/
+/* Parte comum a todos os banners */
+.banner_inicial,
+.banner_cardapio,
+.banner_vinho,
+.banner_delivery,
+.banner_depoimentos,
+.banner_fale_conosco,
+.banner_nossa_unidade,
+.banner_quem_somos,
+.banner_reserva,
 .banner_trabalhe_conosco {
-    background-image: 
-        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),   
-        url(../assets/img/imagem_6.jpg);                    
-    background-repeat: no-repeat;     
-    background-position: center;      
-    background-size: cover;           
+    margin-top: var(--altura-menu);
+    min-height: var(--altura-banner);
+    display: flex;                   /* centraliza o título */
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: var(--texto-claro);
+    text-shadow: var(--sombra-texto-banner);
+    font-family: var(--fonte-menu);
+    font-size: 5.5rem;
 }
 
+/* O que muda em cada banner: só a imagem (a película escura é a mesma) */
+.banner_inicial         { background-image: var(--pelicula-escura), var(--img-banner-inicial); }
+.banner_cardapio        { background-image: var(--pelicula-escura), var(--img-banner-cardapio); }
+.banner_vinho           { background-image: var(--pelicula-escura), var(--img-banner-vinho); }
+.banner_delivery        { background-image: var(--pelicula-escura), var(--img-banner-delivery); }
+.banner_depoimentos     { background-image: var(--pelicula-escura), var(--img-banner-depoimentos); }
+.banner_fale_conosco    { background-image: var(--pelicula-escura), var(--img-banner-fale-conosco); }
+.banner_nossa_unidade   { background-image: var(--pelicula-escura), var(--img-banner-nossa-unidade); }
+.banner_quem_somos      { background-image: var(--pelicula-escura), var(--img-banner-quem-somos); }
+.banner_reserva         { background-image: var(--pelicula-escura), var(--img-banner-reserva); }
+.banner_trabalhe_conosco { background-image: var(--pelicula-escura), var(--img-banner-trabalhe-conosco); }
 
 
-/** Footer **/
+/* ==========================================================================
+   4. RODAPÉ
+   ========================================================================== */
+
 footer {
-    background-color: var(--cor-fundo-escuro);   
-    background-image:
-        linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)),   
-        url("../assets/img/header_footer.jpg");                    
-    background-size: cover;          
-    background-position: center;     
-    background-repeat: no-repeat;    
-    color: var(--texto-claro);       
-    padding: 3rem 4rem 1.5rem;       
     display: grid;
-    grid-template-columns: repeat(3, 1fr);       
-    gap: 2.5rem;                                 
-    border-top: 4px solid var(--cor-destaque-vermelho);   
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    padding: 3rem 4rem 1.5rem;
+    border-top: 4px solid var(--cor-destaque-vermelho);
+    background-color: var(--cor-fundo-escuro);
+    background-image: var(--degrade-menu-rodape), var(--img-menu-rodape);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--texto-claro);
 }
 
-/** Títulos das colunas **/
+/* ---------- Colunas ---------- */
 .coluna_footer h2 {
-    color: var(--texto-claro);                   /*! Título creme (antes era vermelho), mais neutro e elegante */
-    font-family: "Parisienne", cursive;         
-    font-weight: 400;                            
-    font-size: 2rem;                             
-    margin-bottom: 1rem;                         
-    padding-bottom: 0.5rem;                      
-    border-bottom: 2px solid var(--cor-destaque-vermelho);   /*! O vermelho agora fica só no sublinhado (antes era vermelho) */
-    display: inline-block;                       
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--cor-destaque-vermelho);   /* o vermelho fica só no sublinhado */
+    color: var(--texto-claro);
+    font-family: var(--fonte-menu);
+    font-size: 2rem;
+    font-weight: 400;
 }
 
 .coluna_footer p {
-    line-height: 1.6;                            
-    margin-bottom: 1rem;                         
-    color: var(--texto-secundario);              
+    margin-bottom: 1rem;
+    color: var(--texto-secundario);
+    line-height: 1.6;
 }
 
-/** Listas sem marcadores **/
-.lista_contato,
-.lista_redes {
-    list-style: none;                            /*! Tira as bolinhas da lista */
-}
-
-/** Contato: ícone + texto **/
-.lista_contato li {
-    display: flex;                              
-    gap: 0.75rem;                                
-    margin-bottom: 0.9rem;                       
-    line-height: 1.5;                            
-}
-
-.lista_contato i {
-    color: var(--cor-destaque-vermelho);          
-    font-size: 1.1rem;                           /*! Tamanho dos ícones */
-}
-
-address {
-    font-style: normal;                          
-}
-
-/** Links **/
+/* ---------- Links do rodapé ---------- */
 footer a {
-    color: var(--texto-claro);                   
-    text-decoration: none;                       /*! Tira o sublinhado */
-    transition: color 0.2s;                      /*! Troca de cor suave */
+    color: var(--texto-claro);
+    text-decoration: none;
+    transition: color var(--transicao-rapida);
 }
 
+footer a:hover,
 footer a[aria-current="page"] {
-    color: var(--cor-destaque-vermelho);                   
-    text-decoration: none;                       /*! Tira o sublinhado */
-    transition: color 0.2s;                      /*! Troca de cor suave */
-}
-
-footer a:hover {
-    color: var(--cor-destaque-vermelho);        
+    color: var(--cor-destaque-vermelho);
 }
 
 footer a:focus-visible {
-    outline: 2px solid var(--texto-claro);       /*! Anel de foco claro, só aparece para quem navega pelo teclado */
-    outline-offset: 3px;                         /*! Afasta o anel do elemento */
+    outline: 2px solid var(--texto-claro);   /* anel de foco: só aparece no teclado */
+    outline-offset: 3px;
 }
 
-/** Redes sociais: ícones redondos **/
+/* ---------- Listas sem marcadores ---------- */
+.lista_contato,
 .lista_redes {
-    display: flex;                               /*! Ícones lado a lado */
-    gap: 1rem;                                   
+    list-style: none;
+}
+
+/* ---------- Contato: ícone + texto ---------- */
+.lista_contato li {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.9rem;
+    line-height: 1.5;
+}
+
+.lista_contato i {
+    color: var(--cor-destaque-vermelho);
+    font-size: 1.1rem;
+}
+
+address {
+    font-style: normal;
+}
+
+/* ---------- Redes sociais: ícones redondos ---------- */
+.lista_redes {
+    display: flex;
+    gap: 1rem;
 }
 
 .lista_redes a {
-    display: flex;                               
-    align-items: center;                         
-    justify-content: center;                    
-    width: 2.75rem;                              
-    height: 2.75rem;                             
-    border: 2px solid var(--borda-divisores);    /*! Contorno discreto, cinza-quente (antes era vermelho) */
-    border-radius: 50%;                          
-    font-size: 1.25rem;                         
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 2px solid var(--borda-divisores);
+    border-radius: 50%;
+    font-size: 1.25rem;
 }
 
 .lista_redes a:hover {
-    background-color: var(--cor-destaque-vermelho);   
-    border-color: var(--cor-destaque-vermelho);       /*! O contorno também fica vermelho no hover */
-    color: var(--texto-escuro);                      
+    background-color: var(--cor-destaque-vermelho);
+    border-color: var(--cor-destaque-vermelho);
+    color: var(--texto-escuro);
 }
 
-/** Formulário: campo e botão na mesma linha **/
+/* ---------- Formulário "Cadastre-se" ---------- */
 .form_lista {
-    display: flex; 
+    display: flex;
     flex-direction: column;
-    gap: 0.75rem;                              
+    gap: 0.75rem;
 }
 
 .form_lista input {
     padding: 0.75rem 1rem;
     border: 2px solid transparent;
-    border-radius: 8px;         
+    border-radius: var(--raio-padrao);
     background-color: var(--cor-fundo-claro);
     color: var(--texto-escuro);
-    font-size: 1rem;                            
+    font-size: 1rem;
 }
 
 .form_lista input:focus {
-    outline: none;                               /*! Tira o contorno padrão do navegador */
-    border-color: var(--cor-destaque-vermelho);   /*! Borda amarela quando o campo está selecionado */
+    outline: none;
+    border-color: var(--cor-destaque-vermelho);
 }
 
 .form_lista button {
-    align-self: center;          
+    align-self: center;
     padding: 0.6rem 1.5rem;
     border: none;
-    border-radius: 8px;
+    border-radius: var(--raio-padrao);
     background-color: var(--cor-destaque-vermelho);
     color: var(--texto-claro);
     font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color var(--transicao-rapida);
 }
 
 .form_lista button:hover {
-    background-color: var(--hover-vinho);        /*! Vinho mais escuro ao passar o mouse */
+    background-color: var(--hover-vinho);
 }
 
-/** Menu do rodapé **/
+/* ---------- Menu do rodapé e copyright (largura total) ---------- */
 .menu_footer,
 .copyright {
-    grid-column: 1 / -1;                         /*! Ocupa a largura toda, da primeira à última coluna */
-    text-align: center;                          
+    grid-column: 1 / -1;             /* da primeira à última coluna */
+    text-align: center;
 }
 
 .menu_footer {
-    display: flex;                               
-    justify-content: center;                     
-    gap: 2rem;                                   
-    padding-top: 1.5rem;                         
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding-top: 1.5rem;
     border-top: 1px solid var(--borda-divisores);
-    font-family: "Parisienne", cursive;
-    font-size: large;
-    font-weight: 700;  
+    font-family: var(--fonte-links);
+    font-size: 1rem;
+    font-weight: 500;
 }
 
-/** Copyright **/
 .copyright {
-    color: var(--texto-secundario);             
-    font-size: 0.9rem;                           
-    margin: 0;                                   
+    margin: 0;
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
 }
 
 
-/** Footer no celular e tablet: uma coluna só **/
-@media (max-width: 900px) {                      /*! Vale só para telas de até 900px */
+/* ==========================================================================
+   5. RODAPÉ NO CELULAR E TABLET (até 900px): uma coluna só
+   ========================================================================== */
+@media (max-width: 900px) {
 
     footer {
-        grid-template-columns: 1fr;              /*! Vira 1 coluna, uma embaixo da outra */
-        padding: 2rem 1.5rem 1rem;             
+        grid-template-columns: 1fr;
+        padding: 2rem 1.5rem 1rem;
     }
 
     .menu_footer {
-        flex-direction: column;                  
-        align-items: center;                     
-        gap: 1rem;                               
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
     }
-}
-
-/** Títulos **/
-h1 {
-    color: var(--cor-titulo-claro);              
-}
-
-h2 {
-    color: var(--cor-subtitulo-claro);           
 }

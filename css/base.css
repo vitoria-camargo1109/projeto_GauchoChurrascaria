@@ -1,512 +1,1108 @@
-/* ===== Fale Conosco ===== */
-.pagina-fale-conosco {
-  --fc-vermelho: #d0021b;
-  --fc-vermelho-escuro: #8f0113;
-  --fc-vermelho-claro: #ff4d5e;
-  --fc-marfim: #f6f1e7;
-  --fc-carvao: #16100d;
-  --fc-texto: #2a1f1a;
-  --fc-raio: 4px;
-  --fc-serifa: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-  --fc-cursiva: "Great Vibes", cursive;
+/* ==========================================================================
+   BASE.CSS
+   Regras gerais de todas as páginas + estilo das páginas Fale Conosco, Depoimentos e inicial.
 
-  background:
-    radial-gradient(ellipse at top, rgba(208, 2, 27, .06), transparent 60%),
-    var(--fc-marfim);
+   Índice
+   1. Reset
+   2. Corpo e títulos
+   3. Acessibilidade (texto oculto e skip-link)
+   4. Páginas Fale Conosco e Depoimentos (fundo, layout e cores compartilhados)
+   5. Página inicial
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. RESET
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
 }
 
-/* ===== Layout geral ===== */
+
+/* ==========================================================================
+   2. CORPO E TÍTULOS
+   ========================================================================== */
+
+body {
+    background-color: var(--cor-fundo-claro);
+    color: var(--texto-escuro);
+}
+
+h1 {
+    color: var(--cor-titulo-claro);
+}
+
+h2 {
+    color: var(--cor-subtitulo-claro);
+}
+
+
+/* ==========================================================================
+   3. ACESSIBILIDADE
+   ========================================================================== */
+
+/* Esconde o texto da vista, mas leitores de tela continuam lendo */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* Link "Pular para o conteúdo principal": só aparece ao receber foco */
+.skip-link {
+    position: absolute;
+    top: -100%;                      /* fora da tela */
+    left: 0;
+    z-index: 100;
+    padding: 0.75rem 1rem;
+    background-color: var(--cor-fundo-escuro);
+    color: var(--texto-claro);
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+
+/* ==========================================================================
+   4. PÁGINAS FALE CONOSCO E DEPOIMENTOS
+      <body class="pagina-fale-conosco"> e <body class="pagina-depoimentos">
+      As duas páginas compartilham fundo, layout da main e cores (variáveis --fc-*).
+
+   4.1 Fundo e layout (as duas páginas)
+   4.2 Fale Conosco: títulos com ornamento
+   4.3 Fale Conosco: formulário
+   4.4 Fale Conosco: card "Outras formas de contato"
+   4.5 Fale Conosco: perguntas frequentes (FAQ)
+   4.6 Fale Conosco: links
+   4.7 Fale Conosco: celular
+   4.8 Depoimentos: introdução e cartões
+   4.9 Depoimentos: botão "Ver depoimento"
+   4.10 Depoimentos: celular
+   ========================================================================== */
+
+/* ---------- 4.1 Fundo e layout (as duas páginas) ---------- */
+
+.pagina-fale-conosco,
+.pagina-depoimentos {
+    background:
+        radial-gradient(ellipse at top, rgba(var(--fc-vermelho-rgb), 0.06), transparent 60%),
+        var(--fc-marfim);
+}
+
+.pagina-fale-conosco main,
+.pagina-depoimentos main {
+    margin-inline: auto;
+    padding: 4rem 1.25rem 6rem;
+    color: var(--fc-texto);
+    font-family: var(--fonte-elegante);
+    font-size: 1.15rem;
+}
+
 .pagina-fale-conosco main {
-  max-width: 1240px;
-  margin-inline: auto;
-  padding: 4rem 1.25rem 6rem;
-  font-family: var(--fc-serifa);
-  font-size: 1.15rem;
-  color: var(--fc-texto);
-}
-.pagina-fale-conosco main > * + * {
-  margin-top: 4rem;
+    max-width: var(--fc-largura-max);
 }
 
-/* ===== Títulos com ornamento ===== */
+.pagina-depoimentos main {
+    max-width: var(--dep-largura-max);
+}
+
+.pagina-fale-conosco main > * + * {
+    margin-top: 4rem;
+}
+
+/* O banner já mostra o título da página, então o h2 do meio fica escondido */
+.pagina-fale-conosco main > section:first-of-type > h2,
+.pagina-depoimentos main > section > h2 {
+    display: none;
+}
+
+/* Âncora do rodapé (link "no rodapé desta página") */
+.pagina-fale-conosco #rodape {
+    scroll-margin-top: 1rem;
+}
+
+
+/* ---------- 4.2 Fale Conosco: títulos com ornamento ---------- */
+
 .pagina-fale-conosco main h2,
 .pagina-fale-conosco main > article > h3 {
-  font-family: var(--fc-cursiva);
-  font-weight: 400;
-  font-size: clamp(2.8rem, 7vw, 3.8rem);
-  line-height: 1.1;
-  color: var(--fc-vermelho);
-  text-align: center;
-  margin: 0 0 2.5rem;
+    margin: 0 0 2.5rem;
+    color: var(--fc-vermelho);
+    font-family: var(--fonte-cursiva);
+    font-size: clamp(2.8rem, 7vw, 3.8rem);
+    font-weight: 400;
+    line-height: 1.1;
+    text-align: center;
 }
+
+/* Losango com linhas laterais embaixo do título */
 .pagina-fale-conosco main h2::after,
 .pagina-fale-conosco main > article > h3::after {
-  content: "◆";
-  display: block;
-  width: 180px;
-  height: 14px;
-  margin: .9rem auto 0;
-  font-family: Arial, sans-serif;
-  font-size: .6rem;
-  line-height: 14px;
-  text-align: center;
-  color: var(--fc-vermelho);
-  background:
-    linear-gradient(90deg, transparent, var(--fc-vermelho)) left center / 75px 1px no-repeat,
-    linear-gradient(270deg, transparent, var(--fc-vermelho)) right center / 75px 1px no-repeat;
+    content: "◆";
+    display: block;
+    width: 180px;
+    height: 14px;
+    margin: 0.9rem auto 0;
+    color: var(--fc-vermelho);
+    font-family: Arial, sans-serif;
+    font-size: 0.6rem;
+    line-height: 14px;
+    text-align: center;
+    background:
+        linear-gradient(90deg, transparent, var(--fc-vermelho)) left center / 75px 1px no-repeat,
+        linear-gradient(270deg, transparent, var(--fc-vermelho)) right center / 75px 1px no-repeat;
 }
 
-/* ===== Formulário ===== */
+
+/* ---------- 4.3 Fale Conosco: formulário ---------- */
+
 .pagina-fale-conosco main form {
-  position: relative;
-  background:
-    radial-gradient(circle at top right, rgba(255, 255, 255, .06), transparent 55%),
-    linear-gradient(165deg, #241813, var(--fc-carvao));
-  border-radius: var(--fc-raio);
-  padding: clamp(2rem, 5vw, 3.5rem);
-  box-shadow:
-    0 30px 60px rgba(22, 16, 13, .35),
-    0 0 0 1px rgba(246, 241, 231, .25);
-}
-.pagina-fale-conosco main form::before {
-  content: "";
-  position: absolute;
-  inset: 10px;
-  border: 1px solid rgba(246, 241, 231, .15);
-  border-radius: 2px;
-  pointer-events: none;
+    position: relative;
+    padding: clamp(2rem, 5vw, 3.5rem);
+    border-radius: var(--fc-raio);
+    background:
+        radial-gradient(circle at top right, rgba(var(--fc-marfim-rgb), 0.06), transparent 55%),
+        linear-gradient(165deg, var(--fc-carvao-claro), var(--fc-carvao));
+    box-shadow:
+        0 30px 60px rgba(var(--fc-carvao-rgb), 0.35),
+        0 0 0 1px rgba(var(--fc-marfim-rgb), 0.25);
 }
 
+/* Moldura dupla interna */
+.pagina-fale-conosco main form::before {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border: 1px solid rgba(var(--fc-marfim-rgb), 0.15);
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+/* Grade de 2 colunas */
 .pagina-fale-conosco main fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
-  min-width: 0;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
 }
+
 .pagina-fale-conosco main legend {
-  float: left;
-  grid-column: 1 / -1;
-  width: 100%;
-  padding: 0 0 1.5rem;
-  margin: 0;
-  color: var(--fc-marfim);
-  font-size: 1.3rem;
-  font-style: italic;
-  text-align: center;
+    float: left;
+    grid-column: 1 / -1;
+    width: 100%;
+    margin: 0;
+    padding: 0 0 1.5rem;
+    color: var(--fc-marfim);
+    font-size: 1.3rem;
+    font-style: italic;
+    text-align: center;
 }
+
+/* Observação e botão ocupam a largura toda */
 .pagina-fale-conosco main fieldset p:has(textarea),
 .pagina-fale-conosco main fieldset button {
-  grid-column: 1 / -1;
+    grid-column: 1 / -1;
 }
 
-/* Campos */
+/* Cada campo: rótulo + campo + dica */
 .pagina-fale-conosco main form p {
-  display: grid;
-  align-content: start;
-  gap: .5rem;
-  margin: 0;
-}
-.pagina-fale-conosco main form p br {
-  display: none;
-}
-.pagina-fale-conosco main form label {
-  color: var(--fc-marfim);
-  font-weight: 600;
-  font-size: .85rem;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-}
-.pagina-fale-conosco main form small {
-  color: rgba(246, 241, 231, .65);
-  font-size: .95rem;
-  font-style: italic;
+    display: grid;
+    align-content: start;
+    gap: 0.5rem;
+    margin: 0;
 }
 
-/* Inputs: só linha branca embaixo */
+.pagina-fale-conosco main form p br {
+    display: none;
+}
+
+.pagina-fale-conosco main form label {
+    color: var(--fc-marfim);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+}
+
+.pagina-fale-conosco main form small {
+    color: rgba(var(--fc-marfim-rgb), 0.65);
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
+/* Campos: só uma linha clara embaixo */
 .pagina-fale-conosco main form input,
 .pagina-fale-conosco main form select,
 .pagina-fale-conosco main form textarea {
-  width: 100%;
-  box-sizing: border-box;
-  padding: .8rem .2rem;
-  background: transparent;
-  color: var(--fc-marfim);
-  border: 0;
-  border-bottom: 1px solid rgba(246, 241, 231, .5);
-  border-radius: 0;
-  font-family: var(--fc-serifa);
-  font-size: 1.2rem;
-  transition: border-color .3s, box-shadow .3s, background-color .3s;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.8rem 0.2rem;
+    border: 0;
+    border-bottom: 1px solid rgba(var(--fc-marfim-rgb), 0.5);
+    border-radius: 0;
+    background: transparent;
+    color: var(--fc-marfim);
+    font-family: var(--fonte-elegante);
+    font-size: 1.2rem;
+    transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
 }
+
 .pagina-fale-conosco main form ::placeholder {
-  color: rgba(246, 241, 231, .4);
-  font-style: italic;
+    color: rgba(var(--fc-marfim-rgb), 0.4);
+    font-style: italic;
 }
+
+/* Textarea: caixa completa */
 .pagina-fale-conosco main form textarea {
-  min-height: 130px;
-  padding: .9rem 1rem;
-  border: 1px solid rgba(246, 241, 231, .4);
-  border-radius: var(--fc-raio);
-  resize: vertical;
+    min-height: 130px;
+    padding: 0.9rem 1rem;
+    border: 1px solid rgba(var(--fc-marfim-rgb), 0.4);
+    border-radius: var(--fc-raio);
+    resize: vertical;
 }
 
-/* Select */
+/* Select: seta clara própria */
 .pagina-fale-conosco main form select {
-  appearance: none;
-  cursor: pointer;
-  padding-right: 2rem;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23f6f1e7' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right .3rem center;
-}
-.pagina-fale-conosco main form select option {
-  background: #1b1412;
-  color: var(--fc-marfim);
+    appearance: none;
+    padding-right: 2rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23f6f1e7' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.3rem center;
+    cursor: pointer;
 }
 
-/* Autopreenchimento */
+.pagina-fale-conosco main form select option {
+    background: var(--fc-campo-escuro);
+    color: var(--fc-marfim);
+}
+
+/* Mantém o fundo escuro quando o navegador autopreenche */
 .pagina-fale-conosco main form input:-webkit-autofill {
-  -webkit-text-fill-color: var(--fc-marfim);
-  box-shadow: 0 0 0 1000px #1b1412 inset;
-  caret-color: var(--fc-marfim);
+    -webkit-text-fill-color: var(--fc-marfim);
+    box-shadow: 0 0 0 1000px var(--fc-campo-escuro) inset;
+    caret-color: var(--fc-marfim);
 }
 
 /* Foco */
 .pagina-fale-conosco main form input:focus,
 .pagina-fale-conosco main form select:focus {
-  outline: none;
-  border-bottom-color: #fff;
-  box-shadow: 0 2px 0 0 #fff;
-}
-.pagina-fale-conosco main form textarea:focus {
-  outline: none;
-  border-color: #fff;
-  box-shadow: 0 0 0 3px rgba(255, 255, 255, .2);
+    outline: none;
+    border-bottom-color: var(--fc-branco);
+    box-shadow: 0 2px 0 0 var(--fc-branco);
 }
 
-/* Inválido */
+.pagina-fale-conosco main form textarea:focus {
+    outline: none;
+    border-color: var(--fc-branco);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+}
+
+/* Inválido (só depois que a pessoa mexe no campo) */
 .pagina-fale-conosco main form input:user-invalid,
 .pagina-fale-conosco main form select:user-invalid,
 .pagina-fale-conosco main form textarea:user-invalid {
-  border-color: #ff8a8a;
-  box-shadow: 0 2px 0 0 #ff8a8a;
+    border-color: var(--fc-erro);
+    box-shadow: 0 2px 0 0 var(--fc-erro);
 }
 
-/* Botão: contorno branco que se preenche */
+/* Botão: contorno claro que se preenche no hover */
 .pagina-fale-conosco main form button[type="submit"] {
-  justify-self: center;
-  margin-top: .5rem;
-  padding: 1rem 3.5rem;
-  background: transparent;
-  color: var(--fc-marfim);
-  border: 1px solid var(--fc-marfim);
-  border-radius: 0;
-  font-family: var(--fc-serifa);
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: .3em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background .35s, color .35s, box-shadow .35s;
+    justify-self: center;
+    margin-top: 0.5rem;
+    padding: 1rem 3.5rem;
+    border: 1px solid var(--fc-marfim);
+    border-radius: 0;
+    background: transparent;
+    color: var(--fc-marfim);
+    font-family: var(--fonte-elegante);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.35s, color 0.35s, box-shadow 0.35s;
 }
+
 .pagina-fale-conosco main form button[type="submit"]:hover {
-  background: var(--fc-marfim);
-  color: var(--fc-carvao);
-  box-shadow: 0 10px 28px rgba(246, 241, 231, .2);
+    background: var(--fc-marfim);
+    color: var(--fc-carvao);
+    box-shadow: 0 10px 28px rgba(var(--fc-marfim-rgb), 0.2);
 }
+
 .pagina-fale-conosco main form button[type="submit"]:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: 4px;
+    outline: 2px solid var(--fc-branco);
+    outline-offset: 4px;
 }
 
-/* ===== Card "Outras formas de contato" ===== */
+
+/* ---------- 4.4 Fale Conosco: card "Outras formas de contato" ---------- */
+
 .pagina-fale-conosco .card-contato {
-  position: relative;
-  background: #fffdf8;
-  border: 1px solid rgba(208, 2, 27, .45);
-  border-radius: var(--fc-raio);
-  box-shadow: 0 14px 34px rgba(42, 31, 26, .08);
-  padding: 2.5rem 2.5rem 2.25rem;
-  text-align: center;
+    position: relative;
+    padding: 2.5rem 2.5rem 2.25rem;
+    border: 1px solid rgba(var(--fc-vermelho-rgb), 0.45);
+    border-radius: var(--fc-raio);
+    background: var(--fc-cartao);
+    box-shadow: 0 14px 34px rgba(var(--fc-texto-rgb), 0.08);
+    text-align: center;
 }
+
+/* Moldura interna */
 .pagina-fale-conosco .card-contato::before {
-  content: "";
-  position: absolute;
-  inset: 8px;
-  border: 1px solid rgba(208, 2, 27, .2);
-  pointer-events: none;
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(var(--fc-vermelho-rgb), 0.2);
+    pointer-events: none;
 }
+
 .pagina-fale-conosco .card-contato h3 {
-  font-family: var(--fc-cursiva);
-  font-weight: 400;
-  font-size: 2.6rem;
-  line-height: 1.1;
-  color: var(--fc-vermelho);
-  margin: 0 0 .75rem;
+    margin: 0 0 0.75rem;
+    color: var(--fc-vermelho);
+    font-family: var(--fonte-cursiva);
+    font-size: 2.6rem;
+    font-weight: 400;
+    line-height: 1.1;
 }
+
 .pagina-fale-conosco .card-contato p {
-  margin: 0;
-  line-height: 1.8;
+    margin: 0;
+    line-height: 1.8;
 }
 
-/* ===== FAQ ===== */
+
+/* ---------- 4.5 Fale Conosco: perguntas frequentes (FAQ) ---------- */
+/* HTML: <article> > <h3> + vários <section class="faq-item"> */
+
 .pagina-fale-conosco main > article {
-  counter-reset: faq;
-}
-.pagina-fale-conosco .faq-item {
-  counter-increment: faq;
-  position: relative;
-  background: #fffdf8;
-  border: 1px solid rgba(208, 2, 27, .3);
-  border-left: 3px solid var(--fc-vermelho);
-  border-radius: var(--fc-raio);
-  box-shadow: 0 8px 22px rgba(42, 31, 26, .06);
-  padding: 1.75rem 2rem 1.75rem 5rem;
-  margin-bottom: 1.25rem;
-  transition: transform .3s, box-shadow .3s, border-color .3s;
-}
-.pagina-fale-conosco .faq-item::before {
-  content: counter(faq, upper-roman);
-  position: absolute;
-  left: 1.5rem;
-  top: 1.45rem;
-  min-width: 2.2rem;
-  font-family: var(--fc-serifa);
-  font-size: 1.7rem;
-  font-weight: 600;
-  color: var(--fc-vermelho);
-}
-.pagina-fale-conosco .faq-item:hover {
-  transform: translateY(-3px);
-  border-color: var(--fc-vermelho);
-  box-shadow: 0 18px 36px rgba(42, 31, 26, .12);
-}
-.pagina-fale-conosco .faq-item h4 {
-  margin: 0 0 .5rem;
-  font-family: var(--fc-serifa);
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--fc-vermelho-escuro);
-}
-.pagina-fale-conosco .faq-item p {
-  margin: 0;
-  line-height: 1.75;
+    counter-reset: faq;              /* zera a numeração romana (I, II, III) */
 }
 
-/* ===== Links ===== */
+.pagina-fale-conosco .faq-item {
+    counter-increment: faq;
+    position: relative;
+    margin-bottom: 1.25rem;
+    padding: 1.75rem 2rem 1.75rem 5rem;
+    border: 1px solid rgba(var(--fc-vermelho-rgb), 0.3);
+    border-left: 3px solid var(--fc-vermelho);
+    border-radius: var(--fc-raio);
+    background: var(--fc-cartao);
+    box-shadow: 0 8px 22px rgba(var(--fc-texto-rgb), 0.06);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+/* Número romano à esquerda */
+.pagina-fale-conosco .faq-item::before {
+    content: counter(faq, upper-roman);
+    position: absolute;
+    top: 1.45rem;
+    left: 1.5rem;
+    min-width: 2.2rem;
+    color: var(--fc-vermelho);
+    font-family: var(--fonte-elegante);
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+.pagina-fale-conosco .faq-item:hover {
+    transform: translateY(-3px);
+    border-color: var(--fc-vermelho);
+    box-shadow: 0 18px 36px rgba(var(--fc-texto-rgb), 0.12);
+}
+
+.pagina-fale-conosco .faq-item h4 {
+    margin: 0 0 0.5rem;
+    color: var(--fc-vermelho-escuro);
+    font-family: var(--fonte-elegante);
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.pagina-fale-conosco .faq-item p {
+    margin: 0;
+    line-height: 1.75;
+}
+
+
+/* ---------- 4.6 Fale Conosco: links (card de contato e FAQ) ---------- */
+
 .pagina-fale-conosco .card-contato a,
 .pagina-fale-conosco .faq-item a {
-  color: var(--fc-vermelho-escuro);
-  font-weight: 700;
-  text-decoration: none;
-  border-bottom: 1px solid var(--fc-vermelho);
-  transition: color .2s, border-color .2s;
+    border-bottom: 1px solid var(--fc-vermelho);
+    color: var(--fc-vermelho-escuro);
+    font-weight: 700;
+    text-decoration: none;
+    transition: color var(--transicao-rapida), border-color var(--transicao-rapida);
 }
+
 .pagina-fale-conosco .card-contato a:hover,
 .pagina-fale-conosco .faq-item a:hover {
-  color: var(--fc-vermelho);
-  border-bottom-color: var(--fc-vermelho-escuro);
+    border-bottom-color: var(--fc-vermelho-escuro);
+    color: var(--fc-vermelho);
 }
+
 .pagina-fale-conosco .card-contato a:focus-visible,
 .pagina-fale-conosco .faq-item a:focus-visible {
-  outline: 2px solid var(--fc-vermelho);
-  outline-offset: 3px;
+    outline: 2px solid var(--fc-vermelho);
+    outline-offset: 3px;
 }
 
-.pagina-fale-conosco #rodape {
-  scroll-margin-top: 1rem;
-}
 
-/* ===== Celular ===== */
+/* ---------- 4.7 Fale Conosco: celular (até 700px) ---------- */
+
 @media (max-width: 700px) {
-  .pagina-fale-conosco main { font-size: 1.05rem; }
-  .pagina-fale-conosco main fieldset {
-    grid-template-columns: 1fr;
-    gap: 1.75rem;
-  }
-  .pagina-fale-conosco main form button[type="submit"] {
-    width: 100%;
-    padding-inline: 1rem;
-  }
-  .pagina-fale-conosco .card-contato { padding: 2rem 1.25rem; }
-  .pagina-fale-conosco .faq-item {
-    padding: 1.25rem 1.25rem 1.25rem 3.75rem;
-  }
-  .pagina-fale-conosco .faq-item::before {
-    left: 1rem;
-    top: 1.1rem;
-    font-size: 1.4rem;
-  }
+
+    .pagina-fale-conosco main {
+        font-size: 1.05rem;
+    }
+
+    .pagina-fale-conosco main fieldset {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+    }
+
+    .pagina-fale-conosco main form button[type="submit"] {
+        width: 100%;
+        padding-inline: 1rem;
+    }
+
+    .pagina-fale-conosco .card-contato {
+        padding: 2rem 1.25rem;
+    }
+
+    .pagina-fale-conosco .faq-item {
+        padding: 1.25rem 1.25rem 1.25rem 3.75rem;
+    }
+
+    .pagina-fale-conosco .faq-item::before {
+        top: 1.1rem;
+        left: 1rem;
+        font-size: 1.4rem;
+    }
 }
 
-/* Esconde somente o título da página */
-body h1.entry-title,
-body .entry-title,
-body .page-title {
-  display: none !important;
-}
 
-/* Esconde só o título "Fale Conosco" */
-.pagina-fale-conosco main > section:first-of-type > h2 {
-  display: none;
-}
-
-/* ===== PÁGINA: DEPOIMENTOS ===== */
-
-.pagina-depoimentos {
-  --fc-vermelho: #d0021b;
-  --fc-vermelho-escuro: #8f0113;
-  --fc-marfim: #f6f1e7;
-  --fc-texto: #2a1f1a;
-  --fc-raio: 6px;
-  --fc-serifa: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-
-  background:
-    radial-gradient(ellipse at top, rgba(208, 2, 27, .07), transparent 60%),
-    var(--fc-marfim);
-}
-
-.pagina-depoimentos main {
-  max-width: 960px;
-  margin-inline: auto;
-  padding: 4rem 1.25rem 6rem;
-  font-family: var(--fc-serifa);
-  font-size: 1.15rem;
-  color: var(--fc-texto);
-}
-
-/* O banner já mostra o título, então escondemos o h2 do meio */
-.pagina-depoimentos main > section > h2 {
-  display: none;
-}
+/* ---------- 4.8 Depoimentos: introdução e cartões ---------- */
 
 /* Texto de introdução com ornamento */
 .pagina-depoimentos main > section > p {
-  margin: 0 0 3.5rem;
-  text-align: center;
-  font-size: 1.5rem;
-  font-style: italic;
-  line-height: 1.6;
-  color: var(--fc-vermelho-escuro);
-}
-.pagina-depoimentos main > section > p::after {
-  content: "◆";
-  display: block;
-  width: 200px;
-  height: 14px;
-  margin: 1.2rem auto 0;
-  font-family: Arial, sans-serif;
-  font-size: .7rem;
-  font-style: normal;
-  line-height: 14px;
-  text-align: center;
-  color: var(--fc-vermelho);
-  background:
-    linear-gradient(90deg, transparent, var(--fc-vermelho)) left center / 85px 1px no-repeat,
-    linear-gradient(270deg, transparent, var(--fc-vermelho)) right center / 85px 1px no-repeat;
+    margin: 0 0 3.5rem;
+    color: var(--fc-vermelho-escuro);
+    font-size: 1.5rem;
+    font-style: italic;
+    line-height: 1.6;
+    text-align: center;
 }
 
-/* Cartões: nome à esquerda, estrelas à direita */
-.pagina-depoimentos main article {
-  position: relative;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: center;
-  column-gap: 1.5rem;
-  row-gap: .25rem;
-  background: #fffdf8;
-  border: 1px solid rgba(208, 2, 27, .25);
-  border-left: 5px solid var(--fc-vermelho);
-  border-radius: var(--fc-raio);
-  box-shadow: 0 10px 26px rgba(42, 31, 26, .07);
-  padding: 2rem 2.25rem;
-  margin-bottom: 1.75rem;
-  transition: transform .3s, box-shadow .3s, border-color .3s;
+.pagina-depoimentos main > section > p::after {
+    content: "◆";
+    display: block;
+    width: 200px;
+    height: 14px;
+    margin: 1.2rem auto 0;
+    color: var(--fc-vermelho);
+    font-family: Arial, sans-serif;
+    font-size: 0.7rem;
+    font-style: normal;
+    line-height: 14px;
+    text-align: center;
+    background:
+        linear-gradient(90deg, transparent, var(--fc-vermelho)) left center / 85px 1px no-repeat,
+        linear-gradient(270deg, transparent, var(--fc-vermelho)) right center / 85px 1px no-repeat;
 }
+
+/* Cartão: nome à esquerda, estrelas à direita */
+.pagina-depoimentos main article {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    column-gap: 1.5rem;
+    row-gap: 0.25rem;
+    margin-bottom: 1.75rem;
+    padding: 2rem 2.25rem;
+    border: 1px solid rgba(var(--fc-vermelho-rgb), 0.25);
+    border-left: 5px solid var(--fc-vermelho);
+    border-radius: var(--dep-raio);
+    background: var(--fc-cartao);
+    box-shadow: 0 10px 26px rgba(var(--fc-texto-rgb), 0.07);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
 /* Aspas decorativas de fundo */
 .pagina-depoimentos main article::before {
-  content: "\201C";
-  position: absolute;
-  top: -.5rem;
-  right: 1.25rem;
-  font-family: Georgia, serif;
-  font-size: 9rem;
-  line-height: 1;
-  color: rgba(208, 2, 27, .09);
-  pointer-events: none;
+    content: "\201C";
+    position: absolute;
+    top: -0.5rem;
+    right: 1.25rem;
+    color: rgba(var(--fc-vermelho-rgb), 0.09);
+    font-family: Georgia, serif;
+    font-size: 9rem;
+    line-height: 1;
+    pointer-events: none;
 }
+
 .pagina-depoimentos main article > * {
-  position: relative;
+    position: relative;
 }
+
 .pagina-depoimentos main article:hover {
-  transform: translateY(-3px);
-  border-color: var(--fc-vermelho);
-  box-shadow: 0 20px 40px rgba(42, 31, 26, .14);
+    transform: translateY(-3px);
+    border-color: var(--fc-vermelho);
+    box-shadow: 0 20px 40px rgba(var(--fc-texto-rgb), 0.14);
 }
+
 /* Cartão aberto fica em destaque */
 .pagina-depoimentos main article:has(details[open]) {
-  border-color: rgba(208, 2, 27, .5);
-  box-shadow: 0 20px 40px rgba(42, 31, 26, .14);
+    border-color: rgba(var(--fc-vermelho-rgb), 0.5);
+    box-shadow: 0 20px 40px rgba(var(--fc-texto-rgb), 0.14);
 }
 
 /* Nome e estrelas */
 .pagina-depoimentos main article h3 {
-  margin: 0;
-  font-family: var(--fc-serifa);
-  font-size: 1.7rem;
-  font-weight: 700;
-  color: var(--fc-vermelho-escuro);
-}
-.pagina-depoimentos main article h3 + p {
-  margin: 0;
-  font-size: 1rem;
-  color: #6b5d52;
-  text-align: right;
-}
-.pagina-depoimentos main article details {
-  grid-column: 1 / -1;
-  margin-top: 1.25rem;
+    margin: 0;
+    color: var(--fc-vermelho-escuro);
+    font-family: var(--fonte-elegante);
+    font-size: 1.7rem;
+    font-weight: 700;
 }
 
-/* "Ver depoimento": botão em formato de pílula */
+.pagina-depoimentos main article h3 + p {
+    margin: 0;
+    color: var(--fc-texto-suave);
+    font-size: 1rem;
+    text-align: right;
+}
+
+.pagina-depoimentos main article details {
+    grid-column: 1 / -1;
+    margin-top: 1.25rem;
+}
+
+
+/* ---------- 4.9 Depoimentos: botão "Ver depoimento" (formato pílula) ---------- */
+
 .pagina-depoimentos main summary {
-  display: inline-flex;
-  align-items: center;
-  gap: .6rem;
-  cursor: pointer;
-  list-style: none;
-  padding: .6rem 1.4rem;
-  border: 1px solid var(--fc-vermelho);
-  border-radius: 999px;
-  color: var(--fc-vermelho);
-  font-size: .85rem;
-  font-weight: 700;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  transition: background .3s, color .3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1.4rem;
+    border: 1px solid var(--fc-vermelho);
+    border-radius: 999px;
+    color: var(--fc-vermelho);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    list-style: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
 }
+
 .pagina-depoimentos main summary::-webkit-details-marker {
-  display: none;
+    display: none;
 }
+
 .pagina-depoimentos main summary::after {
-  content: "+";
-  font-size: 1.3rem;
-  line-height: 1;
+    content: "+";
+    font-size: 1.3rem;
+    line-height: 1;
 }
-.pagina-depoimentos main summary:hover {
-  background: var(--fc-vermelho);
-  color: #fff;
-}
+
+.pagina-depoimentos main summary:hover,
 .pagina-depoimentos main details[open] summary {
-  background: var(--fc-vermelho);
-  color: #fff;
-  margin-bottom: 1.5rem;
+    background: var(--fc-vermelho);
+    color: var(--fc-branco);
 }
+
+.pagina-depoimentos main details[open] summary {
+    margin-bottom: 1.5rem;
+}
+
 .pagina-depoimentos main details[open] summary::after {
-  content: "\2212";
+    content: "\2212";                /* sinal de menos */
 }
-.pagina-depoimentos main
+
+.pagina-depoimentos main summary:focus-visible {
+    outline: 2px solid var(--fc-vermelho);
+    outline-offset: 3px;
+}
+
+
+/* ---------- 4.10 Depoimentos: celular (até 700px) ---------- */
+
+@media (max-width: 700px) {
+
+    .pagina-depoimentos main {
+        font-size: 1.05rem;
+    }
+
+    .pagina-depoimentos main > section > p {
+        font-size: 1.25rem;
+    }
+
+    /* Nome em cima, estrelas embaixo */
+    .pagina-depoimentos main article {
+        grid-template-columns: 1fr;
+        padding: 1.5rem 1.25rem;
+    }
+
+    .pagina-depoimentos main article h3 + p {
+        text-align: left;
+    }
+}
+
+
+/* ==========================================================================
+   5. PÁGINA INICIAL  (<body class="pagina-inicial">)
+
+   Faixas de largura total que alternam fundos:
+   abertura (creme) > depoimentos (escuro) > vinhos (creme) >
+   unidade (foto) > trabalhe conosco (bege)
+
+   5.1 Seções e títulos
+   5.2 Botões
+   5.3 Abertura e atalhos
+   5.4 Depoimentos (carrossel)
+   5.5 Carta de Vinhos
+   5.6 Nossa Unidade
+   5.7 Trabalhe Conosco
+   5.8 Tablet e celular
+   ========================================================================== */
+
+/* ---------- 5.1 Seções e títulos ---------- */
+
+/* Cada <section> da main é uma faixa de largura total.
+   O padding lateral mantém o conteúdo centralizado, com largura máxima. */
+.pagina-inicial main > section {
+    padding: var(--espaco-secao) max(1.5rem, calc((100% - var(--largura-conteudo)) / 2));
+    color: var(--texto-escuro);
+    font-family: var(--fonte-links);
+}
+
+.pagina-inicial main h2 {
+    margin-bottom: 1.25rem;
+    color: var(--cor-titulo-secao);
+    font-family: var(--fonte-elegante);
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-weight: 600;
+    line-height: 1.05;
+}
+
+/* Última palavra do título em itálico e colorida */
+.pagina-inicial main h2 em {
+    color: var(--hover-vinho);
+    font-style: italic;
+}
+
+.pagina-inicial main > section p {
+    max-width: 56ch;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* Seções com fundo escuro: texto claro e destaque dourado */
+.pagina-inicial .secao-depoimentos,
+.pagina-inicial .secao-unidade {
+    color: var(--texto-claro);
+}
+
+.pagina-inicial .secao-depoimentos h2,
+.pagina-inicial .secao-unidade h2 {
+    color: var(--texto-claro);
+}
+
+.pagina-inicial .secao-depoimentos h2 em,
+.pagina-inicial .secao-unidade h2 em {
+    color: var(--cor-destaque-amarelo);
+}
+
+
+/* ---------- 5.2 Botões ---------- */
+
+.pagina-inicial .botao {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    border: 1px solid var(--hover-vinho);
+    border-radius: 2px;
+    background-color: var(--hover-vinho);
+    color: var(--texto-claro);
+    font-family: var(--fonte-links);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color var(--transicao-rapida), border-color var(--transicao-rapida),
+                color var(--transicao-rapida);
+}
+
+.pagina-inicial .botao:hover {
+    border-color: var(--cor-fundo-escuro);
+    background-color: var(--cor-fundo-escuro);
+}
+
+.pagina-inicial .botao:focus-visible {
+    outline: 3px solid var(--cor-destaque-amarelo);
+    outline-offset: 3px;
+}
+
+/* Versão só com contorno, para fundos escuros */
+.pagina-inicial .botao-claro {
+    border-color: var(--cor-destaque-amarelo);
+    background-color: transparent;
+    color: var(--cor-destaque-amarelo);
+}
+
+.pagina-inicial .botao-claro:hover {
+    border-color: var(--cor-destaque-amarelo);
+    background-color: var(--cor-destaque-amarelo);
+    color: var(--texto-escuro);
+}
+
+.pagina-inicial .acao {
+    margin-top: 1.5rem;
+}
+
+
+/* ---------- 5.3 Abertura e atalhos ---------- */
+
+/* Grade de duas colunas (texto + foto), usada em Abertura, Vinhos e Trabalhe Conosco */
+.pagina-inicial .secao-dividida {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4rem;
+    align-items: center;
+}
+
+.pagina-inicial .secao-dividida img {
+    display: block;
+    width: 100%;
+    height: auto;                    /* mantém a proporção original: a foto aparece inteira */
+    border-radius: var(--raio-cartao);
+    box-shadow: var(--sombra-foto);
+}
+
+/* Lista de atalhos: uma linha por página, com seta */
+.pagina-inicial .atalhos {
+    margin-top: 2rem;
+    border-bottom: 1px solid var(--linha-suave);
+    list-style: none;
+}
+
+.pagina-inicial .atalho {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 1rem;
+    align-items: center;
+    padding: 0.9rem 0;
+    border-top: 1px solid var(--linha-suave);
+    color: var(--texto-escuro);
+    text-decoration: none;
+    transition: color var(--transicao-rapida);
+}
+
+.pagina-inicial .atalho::after {
+    content: "\2192";                /* seta para a direita */
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    font-size: 1.4rem;
+    transition: transform var(--transicao-rapida);
+}
+
+.pagina-inicial .atalho .rotulo {
+    font-family: var(--fonte-elegante);
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.pagina-inicial .atalho .descricao {
+    grid-column: 1;
+    color: var(--texto-suave);
+    font-size: 0.9rem;
+}
+
+.pagina-inicial .atalho:hover {
+    color: var(--hover-vinho);
+}
+
+.pagina-inicial .atalho:hover::after {
+    transform: translateX(0.35rem);
+}
+
+.pagina-inicial .atalho:focus-visible {
+    outline: 3px solid var(--hover-vinho);
+    outline-offset: 2px;
+}
+
+
+/* ---------- 5.4 Depoimentos (carrossel) ---------- */
+
+.pagina-inicial .secao-depoimentos {
+    background-color: var(--cor-fundo-escuro);
+    text-align: center;
+}
+
+.pagina-inicial .secao-depoimentos p {
+    margin-inline: auto;
+    color: var(--texto-claro-suave);
+}
+
+/* Fileira horizontal: rola com o dedo/mouse e "encaixa" em cada card */
+.pagina-inicial .carrossel {
+    display: flex;
+    gap: var(--gap-carrossel);
+    margin-top: 2rem;
+    padding: 1.75rem 0.25rem 1.75rem;   /* espaço para o card central "subir" sem ser cortado */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;              /* esconde a barra de rolagem (Firefox) */
+    list-style: none;
+}
+
+/* Esconde a barra de rolagem (Chrome, Edge e Safari) */
+.pagina-inicial .carrossel::-webkit-scrollbar {
+    display: none;
+}
+
+.pagina-inicial .carrossel:focus-visible {
+    outline: 2px solid var(--cor-destaque-amarelo);
+    outline-offset: 4px;
+}
+
+/* 3 cards visíveis no computador */
+.pagina-inicial .carrossel > li {
+    display: flex;
+    flex: 0 0 calc((100% - 2 * var(--gap-carrossel)) / 3);
+    scroll-snap-align: start;
+}
+
+.pagina-inicial .cartao-depoimento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 1.75rem 1.5rem;
+    border: 1px solid transparent;
+    border-radius: var(--raio-cartao);
+    background-color: var(--cor-cartao);
+    box-shadow: var(--sombra-cartao);
+    color: var(--texto-escuro);
+    transition: transform 0.35s, box-shadow 0.35s, border-color 0.35s;
+}
+
+/* Card central: o JavaScript marca com esta classe o card que está no meio da fileira */
+.pagina-inicial .cartao-depoimento.em-destaque {
+    transform: translateY(-0.75rem);
+    border-color: var(--cor-destaque-amarelo);
+    box-shadow: var(--sombra-cartao-destaque);
+}
+
+/* Círculo com a inicial do cliente (no lugar da foto) */
+.pagina-inicial .avatar {
+    display: grid;
+    place-items: center;
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 50%;
+    background-color: var(--cor-fundo-escuro);
+    color: var(--cor-destaque-amarelo);
+    font-family: var(--fonte-elegante);
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+.pagina-inicial .cartao-depoimento h3 {
+    font-family: var(--fonte-links);
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.pagina-inicial .cartao-depoimento blockquote {
+    flex: 1;
+    font-family: var(--fonte-elegante);
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.pagina-inicial .secao-depoimentos .cartao-depoimento p {
+    color: inherit;
+    font-size: inherit;
+}
+
+.pagina-inicial .secao-depoimentos .cartao-depoimento .origem-avaliacao {
+    color: var(--texto-suave);
+    font-size: 0.8rem;
+}
+
+/* Botões anterior / próximo (o JavaScript tira o atributo "hidden") */
+.pagina-inicial .carrossel-controles {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.pagina-inicial .carrossel-controles[hidden] {
+    display: none;
+}
+
+.pagina-inicial .carrossel-controles button {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid var(--cor-destaque-amarelo);
+    border-radius: 50%;
+    background-color: transparent;
+    color: var(--cor-destaque-amarelo);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: background-color var(--transicao-rapida), color var(--transicao-rapida);
+}
+
+.pagina-inicial .carrossel-controles button:hover:not(:disabled) {
+    background-color: var(--cor-destaque-amarelo);
+    color: var(--texto-escuro);
+}
+
+.pagina-inicial .carrossel-controles button:focus-visible {
+    outline: 2px solid var(--texto-claro);
+    outline-offset: 3px;
+}
+
+.pagina-inicial .carrossel-controles button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+
+/* ---------- 5.5 Carta de Vinhos ---------- */
+
+/* Lista simples de países, com ícone de garrafa/taça (SVG) */
+.pagina-inicial .paises-vinho {
+    margin: 1.75rem 0;
+    border-bottom: 1px solid var(--linha-suave);
+    list-style: none;
+}
+
+.pagina-inicial .paises-vinho li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 1.25rem;
+    align-items: center;
+    padding: 0.9rem 0;
+    border-top: 1px solid var(--linha-suave);
+}
+
+.pagina-inicial .icone-vinho {
+    grid-row: 1 / span 2;
+    width: 3rem;
+    height: 2.6rem;
+    color: var(--hover-vinho);
+}
+
+.pagina-inicial .paises-vinho h3 {
+    font-family: var(--fonte-elegante);
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.pagina-inicial .paises-vinho p {
+    color: var(--texto-suave);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+
+/* ---------- 5.6 Nossa Unidade (foto de fundo) ---------- */
+
+.pagina-inicial .secao-unidade {
+    display: flex;
+    align-items: center;
+    min-height: 30rem;
+    background-image: var(--pelicula-forte), var(--img-secao-unidade);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.pagina-inicial .secao-unidade article {
+    max-width: 34rem;
+}
+
+.pagina-inicial .secao-unidade .detalhe {
+    margin-bottom: 1.5rem;
+    color: var(--cor-destaque-amarelo);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+
+/* ---------- 5.7 Trabalhe Conosco ---------- */
+
+.pagina-inicial .secao-trabalhe {
+    background-color: var(--cor-faixa);
+}
+
+.pagina-inicial .secao-trabalhe p {
+    margin-bottom: 1.75rem;
+}
+
+
+/* ---------- 5.8 Tablet e celular ---------- */
+
+/* Tablet (até 900px): 2 depoimentos por vez */
+@media (max-width: 900px) {
+
+    .pagina-inicial .carrossel > li {
+        flex-basis: calc((100% - var(--gap-carrossel)) / 2);
+    }
+}
+
+/* Quem prefere menos movimento: sem animações */
+@media (prefers-reduced-motion: reduce) {
+
+    .pagina-inicial .cartao-depoimento,
+    .pagina-inicial .atalho::after {
+        transition: none;
+    }
+}
+
+/* Celular (até 700px): uma coluna */
+@media (max-width: 700px) {
+
+    .pagina-inicial main > section {
+        padding-block: 3.5rem;
+    }
+
+    .pagina-inicial .carrossel > li {
+        flex-basis: 100%;
+    }
+
+    .pagina-inicial .secao-dividida {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    /* A foto sempre aparece antes do texto */
+    .pagina-inicial .secao-dividida > figure {
+        order: -1;
+    }
+}
