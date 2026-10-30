@@ -9,7 +9,7 @@
    3. Medidas e espaçamentos
    4. Imagens
    5. Efeitos (gradientes, sombras)
-   6. Página Fale Conosco
+   6. Fale Conosco e Depoimentos
    ========================================================================== */
 
 :root {
@@ -43,6 +43,11 @@
     --cor-apoio: #5c6b3a;
     --borda-divisores: #8a8178;
 
+    /* Página inicial: faixas, cards e títulos das seções */
+    --cor-faixa: #e6dfcf;                      /* faixa alternada (bege) */
+    --cor-cartao: #fffdf8;                     /* fundo dos cards */
+    --cor-titulo-secao: var(--texto-escuro);
+
 
     /* ---------- 2. TIPOGRAFIA ---------- */
 
@@ -58,6 +63,10 @@
     --altura-menu: 5rem;        /* altura do menu fixo (e margem dos banners) */
     --altura-banner: 24rem;
     --raio-padrao: 8px;
+    --raio-cartao: 16px;
+    --largura-conteudo: 1100px; /* largura máxima do conteúdo da página inicial */
+    --espaco-secao: 4rem;       /* espaço acima e abaixo de cada seção */
+    --gap-carrossel: 1.5rem;    /* espaço entre os depoimentos */
 
 
     /* ---------- 4. IMAGENS ---------- */
@@ -83,28 +92,33 @@
     --degrade-menu-rodape: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
     --sombra-texto-banner: 2px 2px 8px rgba(0, 0, 0, 0.8);
     --transicao-rapida: 0.2s;
+    --sombra-cartao: 0 6px 18px rgba(28, 20, 17, 0.12);
+    --sombra-cartao-destaque: 0 16px 32px rgba(28, 20, 17, 0.28);
+    --formato-botao: polygon(0.9rem 0, calc(100% - 0.9rem) 0, 100% 50%,
+                             calc(100% - 0.9rem) 100%, 0.9rem 100%, 0 50%);   /* botão sextavado */
 
 
-    /* ---------- 6. PÁGINA FALE CONOSCO ---------- */
-
-    /* Cores (versão "R, G, B" usada em transparências: rgba(var(--x-rgb), 0.5)) */
-    --fc-vinho: #6e0f1f;
-    --fc-vinho-rgb: 110, 15, 31;
-    --fc-vinho-escuro: #4a0a15;
-    --fc-ouro: #c9a24d;
-    --fc-ouro-rgb: 201, 162, 77;
-    --fc-ouro-claro: #e3c883;
+    /* ---------- 6. FALE CONOSCO E DEPOIMENTOS ---------- */
+    /* Cores (a versão "-rgb" é usada em transparências: rgba(var(--x-rgb), 0.5)) */
+    --fc-vermelho: var(--cor-destaque-vermelho);
+    --fc-vermelho-rgb: 209, 5, 16;             /* mesmo vermelho, em R, G, B */
+    --fc-vermelho-escuro: var(--hover-vinho);
     --fc-marfim: var(--cor-fundo-claro);
     --fc-marfim-rgb: 246, 241, 231;
     --fc-carvao: #16100d;
+    --fc-carvao-claro: #241813;
     --fc-carvao-rgb: 22, 16, 13;
     --fc-texto: #2a1f1a;
     --fc-texto-rgb: 42, 31, 26;
-    --fc-cartao: #fffdf8;
+    --fc-texto-suave: #6b5d52;
+    --fc-cartao: var(--cor-cartao);
     --fc-campo-escuro: #1b1412;
+    --fc-branco: #ffffff;
     --fc-erro: #ff8a8a;
 
     /* Medidas */
-    --fc-raio: 4px;
-    --fc-largura-max: 1240px;
+    --fc-raio: 4px;               /* Fale Conosco */
+    --dep-raio: 6px;              /* Depoimentos */
+    --fc-largura-max: 1240px;     /* Fale Conosco */
+    --dep-largura-max: 960px;     /* Depoimentos */
 }
