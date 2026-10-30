@@ -678,6 +678,7 @@ h2 {
    5.6 Nossa Unidade
    5.7 Trabalhe Conosco
    5.8 Tablet e celular
+   5.9 Animações
    ========================================================================== */
 
 /* ---------- 5.1 Seções e títulos ---------- */
@@ -1181,5 +1182,155 @@ h2 {
 
     .pagina-inicial .atalho {
         min-height: 12rem;
+    }
+}
+
+
+/* ---------- 5.9 Animações ---------- */
+
+/* Entrada do banner: aparece de dentro do fundo escuro do cabeçalho */
+.pagina-inicial .banner_inicial {
+    animation: entrada-banner 1.1s ease-out both;
+}
+
+@keyframes entrada-banner {
+    from {
+        opacity: 0;
+        letter-spacing: 0.12em;
+    }
+
+    to {
+        opacity: 1;
+        letter-spacing: normal;
+    }
+}
+
+/* Aparecer ao rolar a página.
+   O js/animacoes.js coloca "js-animacoes" no <html> e a classe "revelar" nos blocos.
+   Sem JavaScript nada fica escondido: o conteúdo aparece normalmente. */
+.js-animacoes .revelar {
+    opacity: 0;
+    transform: translate(var(--desloc-x, 0), var(--desloc-y, var(--deslocamento-entrada)));
+    transition: opacity var(--duracao-entrada) ease-out, transform var(--duracao-entrada) ease-out;
+    transition-delay: var(--atraso, 0s);
+}
+
+.js-animacoes .revelar.visivel {
+    opacity: 1;
+    transform: none;
+}
+
+/* Texto entra pela esquerda e foto pela direita (as seções de duas colunas) */
+.js-animacoes .secao-dividida > article.revelar,
+.js-animacoes .secao-unidade > article.revelar {
+    --desloc-x: -2.5rem;
+    --desloc-y: 0;
+}
+
+.js-animacoes .secao-dividida > figure.revelar {
+    --desloc-x: 2.5rem;
+    --desloc-y: 0;
+}
+
+/* A barrinha vermelha dos títulos "cresce" quando o título aparece */
+.js-animacoes h2.revelar::after {
+    width: 0;
+    transition: width var(--duracao-entrada) ease-out 0.35s;
+}
+
+.js-animacoes h2.revelar.visivel::after {
+    width: 4rem;
+}
+
+/* Ao passar o mouse: botões, atalhos, cards de vinhos e fotos "levantam" */
+.pagina-inicial .botao {
+    transition: background-color var(--transicao-rapida), border-color var(--transicao-rapida),
+                color var(--transicao-rapida), transform var(--transicao-media), box-shadow var(--transicao-media);
+}
+
+.pagina-inicial .botao:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
+}
+
+.pagina-inicial .atalho {
+    transition: border-color var(--transicao-rapida), transform var(--transicao-media),
+                box-shadow var(--transicao-media);
+}
+
+.pagina-inicial .atalho:hover,
+.pagina-inicial .atalho:focus-visible {
+    transform: translateY(-6px);
+    box-shadow: var(--sombra-cartao-destaque);
+}
+
+.pagina-inicial .cartoes-vinho li {
+    transition: transform var(--transicao-media), box-shadow var(--transicao-media);
+}
+
+.pagina-inicial .cartoes-vinho li:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sombra-cartao-destaque);
+}
+
+/* Foto: sobe um pouco e a sombra deslocada aumenta */
+.pagina-inicial .secao-dividida img {
+    transition: transform var(--transicao-media), box-shadow var(--transicao-media);
+}
+
+.pagina-inicial .secao-dividida img:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 1.15rem 1.15rem 0 var(--cor-fundo-escuro);
+}
+
+.pagina-inicial .secao-trabalhe img:hover {
+    box-shadow: 1.15rem 1.15rem 0 var(--cor-destaque-vermelho);
+}
+
+.pagina-inicial .carrossel-controles button {
+    transition: background-color var(--transicao-rapida), color var(--transicao-rapida),
+                transform var(--transicao-media);
+}
+
+.pagina-inicial .carrossel-controles button:hover:not(:disabled) {
+    transform: scale(1.12);
+}
+
+/* Celular (até 700px): as seções empilham, então entram de baixo para cima */
+@media (max-width: 700px) {
+
+    .js-animacoes .secao-dividida > article.revelar,
+    .js-animacoes .secao-unidade > article.revelar,
+    .js-animacoes .secao-dividida > figure.revelar {
+        --desloc-x: 0;
+        --desloc-y: var(--deslocamento-entrada);
+    }
+}
+
+/* Quem prefere menos movimento: sem animações */
+@media (prefers-reduced-motion: reduce) {
+
+    .pagina-inicial .banner_inicial {
+        animation: none;
+    }
+
+    .js-animacoes .revelar {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .js-animacoes h2.revelar::after {
+        width: 4rem;
+        transition: none;
+    }
+
+    .pagina-inicial .botao:hover,
+    .pagina-inicial .atalho:hover,
+    .pagina-inicial .atalho:focus-visible,
+    .pagina-inicial .cartoes-vinho li:hover,
+    .pagina-inicial .secao-dividida img:hover,
+    .pagina-inicial .carrossel-controles button:hover:not(:disabled) {
+        transform: none;
     }
 }
