@@ -15,7 +15,7 @@
    1. RESET
    ========================================================================== */
 
-* {
+   * {
     margin: 0;
     padding: 0;
 }
@@ -666,9 +666,9 @@ h2 {
 /* ==========================================================================
    5. PÁGINA INICIAL  (<body class="pagina-inicial">)
 
-   Faixas de largura total que alternam fundos:
-   abertura (creme) > depoimentos (escuro) > vinhos (creme) >
-   unidade (foto) > trabalhe conosco (bege)
+   Seções de largura total que alternam os fundos:
+   abertura (creme) > depoimentos (escuro) > vinhos (bege) >
+   unidade (foto) > trabalhe conosco (creme)
 
    5.1 Seções e títulos
    5.2 Botões
@@ -690,41 +690,56 @@ h2 {
     font-family: var(--fonte-links);
 }
 
-.pagina-inicial main h2 {
-    margin-bottom: 1.25rem;
-    color: var(--cor-titulo-secao);
-    font-family: var(--fonte-elegante);
-    font-size: clamp(2.4rem, 5vw, 3.6rem);
-    font-weight: 600;
-    line-height: 1.05;
+/* Título pequeno em letra cursiva, acima do título principal */
+.pagina-inicial .chamada {
+    margin-bottom: 0.25rem;
+    color: var(--cor-destaque-vermelho);
+    font-family: var(--fonte-menu);
+    font-size: 1.75rem;
+    line-height: 1.2;
 }
 
-/* Última palavra do título em itálico e colorida */
-.pagina-inicial main h2 em {
-    color: var(--hover-vinho);
-    font-style: italic;
+.pagina-inicial main h2 {
+    margin-bottom: 1rem;
+    color: var(--cor-titulo-secao);
+    font-family: var(--fonte-titulo);
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+/* Barrinha vermelha embaixo do título */
+.pagina-inicial main h2::after {
+    content: "";
+    display: block;
+    width: 4rem;
+    height: 4px;
+    margin-top: 0.75rem;
+    background-color: var(--cor-destaque-vermelho);
 }
 
 .pagina-inicial main > section p {
-    max-width: 56ch;
+    max-width: 60ch;
     font-size: 1.05rem;
-    line-height: 1.7;
+    line-height: 1.6;
 }
 
-/* Seções com fundo escuro: texto claro e destaque dourado */
-.pagina-inicial .secao-depoimentos,
-.pagina-inicial .secao-unidade {
-    color: var(--texto-claro);
+/* Seções com texto centralizado */
+.pagina-inicial .apresentacao,
+.pagina-inicial .secao-depoimentos {
+    text-align: center;
 }
 
-.pagina-inicial .secao-depoimentos h2,
-.pagina-inicial .secao-unidade h2 {
-    color: var(--texto-claro);
+.pagina-inicial .apresentacao p,
+.pagina-inicial .secao-depoimentos p {
+    margin-inline: auto;
 }
 
-.pagina-inicial .secao-depoimentos h2 em,
-.pagina-inicial .secao-unidade h2 em {
-    color: var(--cor-destaque-amarelo);
+.pagina-inicial .apresentacao h2::after,
+.pagina-inicial .secao-depoimentos h2::after {
+    margin-inline: auto;
 }
 
 
@@ -733,14 +748,14 @@ h2 {
 .pagina-inicial .botao {
     display: inline-block;
     padding: 0.85rem 2rem;
-    border: 1px solid var(--hover-vinho);
+    border: 2px solid var(--cor-destaque-vermelho);
     border-radius: 2px;
-    background-color: var(--hover-vinho);
+    background-color: var(--cor-destaque-vermelho);
     color: var(--texto-claro);
     font-family: var(--fonte-links);
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
     text-decoration: none;
     text-transform: uppercase;
     transition: background-color var(--transicao-rapida), border-color var(--transicao-rapida),
@@ -748,8 +763,8 @@ h2 {
 }
 
 .pagina-inicial .botao:hover {
-    border-color: var(--cor-fundo-escuro);
-    background-color: var(--cor-fundo-escuro);
+    border-color: var(--hover-vinho);
+    background-color: var(--hover-vinho);
 }
 
 .pagina-inicial .botao:focus-visible {
@@ -758,13 +773,13 @@ h2 {
 }
 
 /* Versão só com contorno, para fundos escuros */
-.pagina-inicial .botao-claro {
+.pagina-inicial .botao-contorno {
     border-color: var(--cor-destaque-amarelo);
     background-color: transparent;
     color: var(--cor-destaque-amarelo);
 }
 
-.pagina-inicial .botao-claro:hover {
+.pagina-inicial .botao-contorno:hover {
     border-color: var(--cor-destaque-amarelo);
     background-color: var(--cor-destaque-amarelo);
     color: var(--texto-escuro);
@@ -777,73 +792,78 @@ h2 {
 
 /* ---------- 5.3 Abertura e atalhos ---------- */
 
-/* Grade de duas colunas (texto + foto), usada em Abertura, Vinhos e Trabalhe Conosco */
-.pagina-inicial .secao-dividida {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 4rem;
-    align-items: center;
-}
-
-.pagina-inicial .secao-dividida img {
-    display: block;
-    width: 100%;
-    height: auto;                    /* mantém a proporção original: a foto aparece inteira */
-    border-radius: var(--raio-cartao);
-    box-shadow: var(--sombra-foto);
-}
-
-/* Lista de atalhos: uma linha por página, com seta */
+/* 4 atalhos com foto de fundo */
 .pagina-inicial .atalhos {
-    margin-top: 2rem;
-    border-bottom: 1px solid var(--linha-suave);
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 2.5rem;
     list-style: none;
 }
 
 .pagina-inicial .atalho {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    column-gap: 1rem;
-    align-items: center;
-    padding: 0.9rem 0;
-    border-top: 1px solid var(--linha-suave);
-    color: var(--texto-escuro);
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 16rem;
+    overflow: hidden;
+    border-bottom: 4px solid var(--cor-destaque-vermelho);
+    border-radius: var(--raio-cartao);
+    color: var(--texto-claro);
+    text-align: left;
     text-decoration: none;
-    transition: color var(--transicao-rapida);
+    transition: border-color var(--transicao-rapida);
 }
 
-.pagina-inicial .atalho::after {
-    content: "\2192";                /* seta para a direita */
-    grid-column: 2;
-    grid-row: 1 / span 2;
-    font-size: 1.4rem;
-    transition: transform var(--transicao-rapida);
+.pagina-inicial .atalho img {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
 }
 
-.pagina-inicial .atalho .rotulo {
-    font-family: var(--fonte-elegante);
-    font-size: 1.6rem;
-    font-weight: 600;
-    line-height: 1.2;
+/* Degradê escuro para o texto ficar legível sobre a foto */
+.pagina-inicial .atalho::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--degrade-atalho);
 }
 
-.pagina-inicial .atalho .descricao {
-    grid-column: 1;
-    color: var(--texto-suave);
-    font-size: 0.9rem;
+.pagina-inicial .atalho:hover,
+.pagina-inicial .atalho:focus-visible {
+    border-color: var(--cor-destaque-amarelo);
 }
 
-.pagina-inicial .atalho:hover {
-    color: var(--hover-vinho);
-}
-
-.pagina-inicial .atalho:hover::after {
-    transform: translateX(0.35rem);
+.pagina-inicial .atalho:hover img {
+    transform: scale(1.06);
 }
 
 .pagina-inicial .atalho:focus-visible {
-    outline: 3px solid var(--hover-vinho);
-    outline-offset: 2px;
+    outline: 3px solid var(--cor-destaque-amarelo);
+    outline-offset: 3px;
+}
+
+.pagina-inicial .atalho .rotulo {
+    padding: 0 1.25rem 0.25rem;
+    font-family: var(--fonte-titulo);
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.pagina-inicial .atalho .descricao {
+    padding: 0 1.25rem 1.25rem;
+    color: var(--texto-claro-suave);
+    font-size: 0.85rem;
+    line-height: 1.4;
 }
 
 
@@ -851,12 +871,15 @@ h2 {
 
 .pagina-inicial .secao-depoimentos {
     background-color: var(--cor-fundo-escuro);
-    text-align: center;
+    color: var(--texto-claro);
 }
 
-.pagina-inicial .secao-depoimentos p {
-    margin-inline: auto;
-    color: var(--texto-claro-suave);
+.pagina-inicial .secao-depoimentos h2 {
+    color: var(--texto-claro);
+}
+
+.pagina-inicial .secao-depoimentos .chamada {
+    color: var(--cor-destaque-amarelo);
 }
 
 /* Fileira horizontal: rola com o dedo/mouse e "encaixa" em cada card */
@@ -867,6 +890,7 @@ h2 {
     padding: 1.75rem 0.25rem 1.75rem;   /* espaço para o card central "subir" sem ser cortado */
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    scroll-padding-inline: 0.25rem;     /* o encaixe respeita o padding: o 1º card começa em scrollLeft 0 */
     scrollbar-width: none;              /* esconde a barra de rolagem (Firefox) */
     list-style: none;
 }
@@ -894,8 +918,8 @@ h2 {
     align-items: center;
     gap: 0.75rem;
     width: 100%;
-    padding: 1.75rem 1.5rem;
-    border: 1px solid transparent;
+    padding: 1.5rem 1.25rem;
+    border-top: 4px solid var(--cor-destaque-vermelho);
     border-radius: var(--raio-cartao);
     background-color: var(--cor-cartao);
     box-shadow: var(--sombra-cartao);
@@ -906,7 +930,7 @@ h2 {
 /* Card central: o JavaScript marca com esta classe o card que está no meio da fileira */
 .pagina-inicial .cartao-depoimento.em-destaque {
     transform: translateY(-0.75rem);
-    border-color: var(--cor-destaque-amarelo);
+    border-top-color: var(--cor-destaque-amarelo);
     box-shadow: var(--sombra-cartao-destaque);
 }
 
@@ -914,38 +938,35 @@ h2 {
 .pagina-inicial .avatar {
     display: grid;
     place-items: center;
-    width: 3.25rem;
-    height: 3.25rem;
+    width: 3.5rem;
+    height: 3.5rem;
     border-radius: 50%;
-    background-color: var(--cor-fundo-escuro);
-    color: var(--cor-destaque-amarelo);
-    font-family: var(--fonte-elegante);
-    font-size: 1.7rem;
-    font-weight: 600;
+    background-color: var(--hover-vinho);
+    color: var(--texto-claro);
+    font-family: var(--fonte-titulo);
+    font-size: 1.6rem;
+    font-weight: 700;
 }
 
 .pagina-inicial .cartao-depoimento h3 {
     font-family: var(--fonte-links);
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 700;
 }
 
 .pagina-inicial .cartao-depoimento blockquote {
     flex: 1;
-    font-family: var(--fonte-elegante);
-    font-size: 1.2rem;
-    font-style: italic;
-    line-height: 1.5;
+    font-size: 0.95rem;
+    line-height: 1.55;
 }
 
-.pagina-inicial .secao-depoimentos .cartao-depoimento p {
-    color: inherit;
+.pagina-inicial .cartao-depoimento blockquote p {
     font-size: inherit;
 }
 
-.pagina-inicial .secao-depoimentos .cartao-depoimento .origem-avaliacao {
-    color: var(--texto-suave);
-    font-size: 0.8rem;
+.pagina-inicial .origem-avaliacao {
+    color: var(--texto-secundario);
+    font-size: 0.85rem;
 }
 
 /* Botões anterior / próximo (o JavaScript tira o atributo "hidden") */
@@ -965,7 +986,7 @@ h2 {
     place-items: center;
     width: 2.75rem;
     height: 2.75rem;
-    border: 1px solid var(--cor-destaque-amarelo);
+    border: 2px solid var(--cor-destaque-amarelo);
     border-radius: 50%;
     background-color: transparent;
     color: var(--cor-destaque-amarelo);
@@ -992,39 +1013,61 @@ h2 {
 
 /* ---------- 5.5 Carta de Vinhos ---------- */
 
-/* Lista simples de países, com ícone de garrafa/taça (SVG) */
-.pagina-inicial .paises-vinho {
+/* Grade de duas colunas, usada em Vinhos e Trabalhe Conosco (imagem + texto) */
+.pagina-inicial .secao-dividida {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3.5rem;
+    align-items: center;
+}
+
+.pagina-inicial .secao-dividida img {
+    display: block;
+    width: 100%;
+    height: auto;                    /* mantém a proporção original: a foto aparece inteira */
+    border-radius: var(--raio-cartao);
+    box-shadow: 0.75rem 0.75rem 0 var(--cor-fundo-escuro);
+}
+
+.pagina-inicial .secao-vinhos {
+    background-color: var(--cor-faixa);
+}
+
+.pagina-inicial .cartoes-vinho {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
     margin: 1.75rem 0;
-    border-bottom: 1px solid var(--linha-suave);
     list-style: none;
 }
 
-.pagina-inicial .paises-vinho li {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    column-gap: 1.25rem;
-    align-items: center;
-    padding: 0.9rem 0;
-    border-top: 1px solid var(--linha-suave);
+.pagina-inicial .cartoes-vinho li {
+    padding: 1.25rem 0.5rem;
+    border-bottom: 3px solid var(--cor-destaque-vermelho);
+    border-radius: var(--raio-cartao);
+    background-color: var(--cor-fundo-escuro-alternativo);
+    color: var(--texto-claro);
+    text-align: center;
 }
 
 .pagina-inicial .icone-vinho {
-    grid-row: 1 / span 2;
-    width: 3rem;
-    height: 2.6rem;
-    color: var(--hover-vinho);
+    width: 3.5rem;
+    height: 3rem;
+    color: var(--cor-destaque-amarelo);
 }
 
-.pagina-inicial .paises-vinho h3 {
-    font-family: var(--fonte-elegante);
-    font-size: 1.5rem;
-    font-weight: 600;
-    line-height: 1.2;
+.pagina-inicial .cartoes-vinho h3 {
+    margin-top: 0.5rem;
+    font-family: var(--fonte-titulo);
+    font-size: 1.25rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
 }
 
-.pagina-inicial .paises-vinho p {
-    color: var(--texto-suave);
-    font-size: 0.9rem;
+.pagina-inicial .cartoes-vinho p {
+    margin-inline: auto;
+    color: var(--texto-claro-suave);
+    font-size: 0.85rem;
     line-height: 1.4;
 }
 
@@ -1039,16 +1082,24 @@ h2 {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    color: var(--texto-claro);
 }
 
 .pagina-inicial .secao-unidade article {
     max-width: 34rem;
 }
 
+.pagina-inicial .secao-unidade h2 {
+    color: var(--texto-claro);
+}
+
+.pagina-inicial .secao-unidade .chamada,
+.pagina-inicial .secao-unidade .detalhe {
+    color: var(--cor-destaque-amarelo);
+}
+
 .pagina-inicial .secao-unidade .detalhe {
     margin-bottom: 1.5rem;
-    color: var(--cor-destaque-amarelo);
-    font-size: 0.9rem;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -1057,19 +1108,23 @@ h2 {
 
 /* ---------- 5.7 Trabalhe Conosco ---------- */
 
-.pagina-inicial .secao-trabalhe {
-    background-color: var(--cor-faixa);
+.pagina-inicial .secao-trabalhe img {
+    box-shadow: -0.75rem 0.75rem 0 var(--cor-destaque-vermelho);
 }
 
 .pagina-inicial .secao-trabalhe p {
-    margin-bottom: 1.75rem;
+    margin-bottom: 1.5rem;
 }
 
 
 /* ---------- 5.8 Tablet e celular ---------- */
 
-/* Tablet (até 900px): 2 depoimentos por vez */
+/* Tablet (até 900px): 2 atalhos por linha e 2 depoimentos por vez */
 @media (max-width: 900px) {
+
+    .pagina-inicial .atalhos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
     .pagina-inicial .carrossel > li {
         flex-basis: calc((100% - var(--gap-carrossel)) / 2);
@@ -1080,7 +1135,8 @@ h2 {
 @media (prefers-reduced-motion: reduce) {
 
     .pagina-inicial .cartao-depoimento,
-    .pagina-inicial .atalho::after {
+    .pagina-inicial .atalho,
+    .pagina-inicial .atalho img {
         transition: none;
     }
 }
@@ -1089,7 +1145,7 @@ h2 {
 @media (max-width: 700px) {
 
     .pagina-inicial main > section {
-        padding-block: 3.5rem;
+        padding-block: 3rem;
     }
 
     .pagina-inicial .carrossel > li {
@@ -1101,8 +1157,29 @@ h2 {
         gap: 2rem;
     }
 
-    /* A foto sempre aparece antes do texto */
+    /* A imagem sempre aparece antes do texto */
     .pagina-inicial .secao-dividida > figure {
         order: -1;
+    }
+
+    .pagina-inicial .secao-dividida img,
+    .pagina-inicial .secao-trabalhe img {
+        box-shadow: 0.5rem 0.5rem 0 var(--cor-fundo-escuro);
+    }
+
+    .pagina-inicial .cartoes-vinho {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Celulares pequenos (até 520px): um atalho por linha */
+@media (max-width: 520px) {
+
+    .pagina-inicial .atalhos {
+        grid-template-columns: 1fr;
+    }
+
+    .pagina-inicial .atalho {
+        min-height: 12rem;
     }
 }

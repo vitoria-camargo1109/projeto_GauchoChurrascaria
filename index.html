@@ -16,15 +16,16 @@
 
     <!--* JavaScript: botões do carrossel de depoimentos *-->
     <script src="js/depoimentos.js" defer></script>
+
 </head>
 
 <body class="pagina-inicial">
     <a href="#main" class="skip-link">Pular para o conteúdo principal</a>
 
     <header class="header_inicio">
-
+    
         <nav aria-label="Menu principal" class="menu">
-
+            
             <a href="index.html" aria-label="Voltar para a página inicial">
                 <img src="assets/logo/gaucho_logo.png" alt="Gaúcho Grill Figueiras - página inicial" class="logo">
             </a>
@@ -43,12 +44,12 @@
 
     <main id="main">
 
-        <!--* Ícones SVG reutilizados na lista de vinhos -->
+        <!--* Ícones SVG reutilizados nos cards de vinhos -->
         <svg class="visually-hidden" aria-hidden="true" focusable="false">
             <symbol id="icone-garrafa" viewBox="0 0 24 48">
                 <path fill="currentColor"
                     d="M10 2h4v8c0 2 3 4 3 8v26a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V18c0-4 3-6 3-8z" />
-                <rect x="8" y="27" width="8" height="12" rx="1" fill="var(--cor-fundo-claro)" />
+                <rect x="8" y="27" width="8" height="12" rx="1" fill="var(--cor-fundo-escuro-alternativo)" />
             </symbol>
             <symbol id="icone-taca" viewBox="0 0 24 48">
                 <path fill="currentColor" d="M5 2h14c0 10-1 17-7 19-6-2-7-9-7-19z" />
@@ -57,48 +58,48 @@
             </symbol>
         </svg>
 
-        <section class="secao-dividida apresentacao" aria-labelledby="titulo-apresentacao">
-            <article>
-                <h2 id="titulo-apresentacao">Venha viver a tradição <em>gaúcha</em></h2>
-                <p>Bem-vindo ao Gaúcho Grill Figueiras, onde a tradição do churrasco
-                    gaúcho encontra a excelência culinária!</p>
+        <section class="apresentacao" aria-labelledby="titulo-apresentacao">
+            <p class="chamada">Churrasco à moda gaúcha</p>
+            <h2 id="titulo-apresentacao">Venha viver a tradição gaúcha</h2>
+            <p>Bem-vindo ao Gaúcho Grill Figueiras, onde a tradição do churrasco
+                gaúcho encontra a excelência culinária!</p>
 
-                <nav aria-label="Atalhos">
-                    <ul class="atalhos">
-                        <li>
-                            <a class="atalho" href="paginas/cardapio.html">
-                                <span class="rotulo">Cardápio</span>
-                                <span class="descricao">Confira nossos cortes, porções e pratos especiais.</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="atalho" href="paginas/reserva.html">
-                                <span class="rotulo">Reserva</span>
-                                <span class="descricao">Garanta sua mesa com antecedência.</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="atalho" href="paginas/delivery.html">
-                                <span class="rotulo">Delivery</span>
-                                <span class="descricao">Peça suas carnes favoritas sem sair de casa.</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="atalho" href="paginas/quem_somos.html">
-                                <span class="rotulo">Quem Somos</span>
-                                <span class="descricao">Conheça nossa história e tradição gaúcha.</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </article>
-
-            <figure>
-                <img src="assets/img/imagem_1.jpg" alt="Salão do restaurante com mesa farta">
-            </figure>
+            <nav aria-label="Atalhos">
+                <ul class="atalhos">
+                    <li>
+                        <a class="atalho" href="paginas/cardapio.html">
+                            <img src="assets/img/imagem_1.jpg" alt="">
+                            <span class="rotulo">Cardápio</span>
+                            <span class="descricao">Confira nossos cortes, porções e pratos especiais.</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="atalho" href="paginas/reserva.html">
+                            <img src="assets/img/imagem_10.jpg" alt="">
+                            <span class="rotulo">Reserva</span>
+                            <span class="descricao">Garanta sua mesa com antecedência.</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="atalho" href="paginas/delivery.html">
+                            <img src="assets/img/imagem_7.jpg" alt="">
+                            <span class="rotulo">Delivery</span>
+                            <span class="descricao">Peça suas carnes favoritas sem sair de casa.</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="atalho" href="paginas/quem_somos.html">
+                            <img src="assets/img/imagem_8.jpg" alt="">
+                            <span class="rotulo">Quem Somos</span>
+                            <span class="descricao">Conheça nossa história e tradição gaúcha.</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </section>
 
         <section class="secao-depoimentos" aria-labelledby="titulo-depoimentos">
+            <p class="chamada">Quem já provou aprova</p>
             <h2 id="titulo-depoimentos">Depoimentos</h2>
             <p>Veja o que nossos clientes dizem sobre o Gaúcho Grill Figueiras.</p>
 
@@ -189,34 +190,37 @@
                     aria-label="Próximo depoimento"><span aria-hidden="true">&#8250;</span></button>
             </nav>
 
-            <p class="acao"><a class="botao botao-claro" href="paginas/depoimentos.html">Ver todos<span
+            <p class="acao"><a class="botao botao-contorno" href="paginas/depoimentos.html">Ver todos<span
                         class="visually-hidden"> os depoimentos</span></a></p>
         </section>
 
         <section class="secao-dividida secao-vinhos" aria-labelledby="titulo-vinhos">
             <figure>
-                <img src="assets/img/carta_vinho1.png" alt="Banner da Carta de vinhos - seleção do gaúcho">
+                <img src="assets/img/carta_vinho1.jpg" alt="Banner da Carta de vinhos - seleção do gaúcho">
             </figure>
 
             <article>
-                <h2 id="titulo-vinhos">Carta de <em>Vinhos</em></h2>
+                <p class="chamada">Seleção do Gaúcho</p>
+                <h2 id="titulo-vinhos">Carta de Vinhos</h2>
                 <p>Harmonize sua refeição com nossa seleção de vinhos.</p>
 
-                <ul class="paises-vinho">
+                <ul class="cartoes-vinho">
                     <li>
                         <svg class="icone-vinho" viewBox="0 0 56 48" aria-hidden="true" focusable="false">
                             <use href="#icone-garrafa" x="6" width="24" height="48" />
                             <use href="#icone-taca" x="30" width="24" height="48" />
                         </svg>
                         <h3>Argentina</h3>
-                        <p>4 rótulos, a partir de R$ 159,90</p>
+                        <p>4 rótulos</p>
+                        <p>a partir de R$ 159,90</p>
                     </li>
                     <li>
                         <svg class="icone-vinho" viewBox="0 0 56 48" aria-hidden="true" focusable="false">
                             <use href="#icone-garrafa" x="16" width="24" height="48" />
                         </svg>
                         <h3>Chile</h3>
-                        <p>5 rótulos, a partir de R$ 149,90</p>
+                        <p>5 rótulos</p>
+                        <p>a partir de R$ 149,90</p>
                     </li>
                     <li>
                         <svg class="icone-vinho" viewBox="0 0 56 48" aria-hidden="true" focusable="false">
@@ -224,7 +228,8 @@
                             <use href="#icone-taca" x="30" width="24" height="48" />
                         </svg>
                         <h3>Portugal</h3>
-                        <p>3 rótulos, a partir de R$ 129,90</p>
+                        <p>3 rótulos</p>
+                        <p>a partir de R$ 129,90</p>
                     </li>
                 </ul>
 
@@ -236,26 +241,28 @@
         <!--* A foto desta seção é o fundo (definida em variaveis.css: --img-secao-unidade) -->
         <section class="secao-unidade" aria-labelledby="titulo-unidade">
             <article>
-                <h2 id="titulo-unidade">Nossa <em>Unidade</em></h2>
-                <p>Uma casa, uma tradição. Carnes selecionadas, preparo na brasa e um ambiente acolhedor para
-                    reunir família e amigos. Estamos te esperando!</p>
+                <p class="chamada">Uma casa, uma tradição</p>
+                <h2 id="titulo-unidade">Nossa Unidade</h2>
+                <p>Carnes selecionadas, preparo na brasa e um ambiente acolhedor para reunir família e amigos.
+                    Estamos te esperando!</p>
                 <p class="detalhe">Todos os dias das 11h às 23h</p>
-                <a class="botao botao-claro" href="paginas/nossa_unidade.html">Saiba mais<span
-                        class="visually-hidden"> sobre nossa unidade</span></a>
+                <a class="botao" href="paginas/nossa_unidade.html">Saiba mais<span class="visually-hidden"> sobre
+                        nossa unidade</span></a>
             </article>
         </section>
 
         <section class="secao-dividida secao-trabalhe" aria-labelledby="titulo-trabalhe">
+            <figure>
+                <img src="assets/img/imagem_6.jpg" alt="Espetos grelhados na churrasqueira">
+            </figure>
+
             <article>
-                <h2 id="titulo-trabalhe">Trabalhe <em>Conosco</em></h2>
+                <p class="chamada">Venha para a brasa</p>
+                <h2 id="titulo-trabalhe">Trabalhe Conosco</h2>
                 <p>Faça parte da nossa equipe! Preencha o formulário e venha trabalhar com a gente.</p>
                 <a class="botao" href="paginas/trabalhe_conosco.html">Saiba mais<span class="visually-hidden"> sobre
                         as vagas</span></a>
             </article>
-
-            <figure>
-                <img src="assets/img/imagem_6.jpg" alt="Espetos grelhados na churrasqueira">
-            </figure>
         </section>
 
     </main>

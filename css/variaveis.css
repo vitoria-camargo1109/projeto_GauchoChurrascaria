@@ -12,7 +12,7 @@
    6. Fale Conosco e Depoimentos
    ========================================================================== */
 
-:root {
+   :root {
 
     /* ---------- 1. CORES ---------- */
 
@@ -26,7 +26,6 @@
     --texto-escuro: #1c1411;
     --texto-secundario: #a39a92;
     --texto-claro-suave: #d2cac0;              /* texto claro um pouco mais apagado, para fundos escuros */
-    --texto-suave: #6b5d52;                    /* texto cinza-marrom, para fundos claros */
 
     /* Títulos */
     --cor-titulo-escuro: #eec416;
@@ -44,10 +43,9 @@
     /* Apoio, bordas e divisores */
     --cor-apoio: #5c6b3a;
     --borda-divisores: #8a8178;
-    --linha-suave: rgba(28, 20, 17, 0.2);      /* linhas finas entre itens de lista */
 
     /* Página inicial: fundos, cards e títulos das seções */
-    --cor-faixa: #e6dfcf;                      /* fundo bege (Trabalhe Conosco) */
+    --cor-faixa: #e6dfcf;                      /* fundo bege da seção Carta de Vinhos */
     --cor-cartao: #fffdf8;                     /* fundo dos cards */
     --cor-titulo-secao: var(--texto-escuro);
 
@@ -56,7 +54,8 @@
 
     --fonte-menu: "Parisienne", cursive;        /* título do menu, banners e títulos do rodapé */
     --fonte-links: "Montserrat", sans-serif;    /* links do menu e do rodapé, textos da página inicial */
-    --fonte-elegante: "Cormorant Garamond", Georgia, "Times New Roman", serif;   /* títulos e citações */
+    --fonte-titulo: "Oswald", sans-serif;       /* títulos da página inicial (letra alta e forte) */
+    --fonte-elegante: "Cormorant Garamond", Georgia, "Times New Roman", serif;
     --fonte-cursiva: "Great Vibes", cursive;    /* títulos do Fale Conosco */
 
 
@@ -66,9 +65,9 @@
     --altura-menu: 5rem;        /* altura do menu fixo (e margem dos banners) */
     --altura-banner: 24rem;
     --raio-padrao: 8px;
-    --raio-cartao: 4px;
+    --raio-cartao: 6px;
     --largura-conteudo: 1100px; /* largura máxima do conteúdo da página inicial */
-    --espaco-secao: 5rem;       /* espaço acima e abaixo de cada seção */
+    --espaco-secao: 4rem;       /* espaço acima e abaixo de cada seção */
     --gap-carrossel: 1.5rem;    /* espaço entre os depoimentos */
 
 
@@ -79,7 +78,7 @@
 
     --img-banner-inicial: url("../assets/img/banner_ficticio.jpg");
     --img-banner-cardapio: url("../assets/img/banner_ficticio.jpg");
-    --img-banner-vinho: url("../assets/img/carta_vinho1.png");
+    --img-banner-vinho: url("../assets/img/carta_vinho_banner.png");
     --img-banner-delivery: url("../assets/img/imagem_7.jpg");
     --img-banner-depoimentos: url("../assets/img/imagem_8.jpg");
     --img-banner-fale-conosco: url("../assets/img/banner_ficticio.jpg");
@@ -98,9 +97,9 @@
     --sombra-texto-banner: 2px 2px 8px rgba(0, 0, 0, 0.8);
     --transicao-rapida: 0.2s;
     --sombra-cartao: 0 6px 18px rgba(28, 20, 17, 0.12);
-    --sombra-foto: 0 18px 40px rgba(28, 20, 17, 0.22);
     --sombra-cartao-destaque: 0 16px 32px rgba(0, 0, 0, 0.45);
     --pelicula-forte: linear-gradient(rgba(14, 9, 7, 0.72), rgba(14, 9, 7, 0.72));   /* sobre fotos com texto */
+    --degrade-atalho: linear-gradient(to top, rgba(14, 9, 7, 0.9), rgba(14, 9, 7, 0.1) 70%);
 
 
     /* ---------- 6. FALE CONOSCO E DEPOIMENTOS ---------- */
