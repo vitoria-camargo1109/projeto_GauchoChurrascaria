@@ -15,7 +15,7 @@
    1. RESET
    ========================================================================== */
 
-   * {
+* {
     margin: 0;
     padding: 0;
 }
@@ -49,7 +49,7 @@ h2 {
     width: 1px;
     height: 1px;
     overflow: hidden;
-    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
     white-space: nowrap;
 }
 
@@ -1013,7 +1013,7 @@ h2 {
 
 /* ---------- 5.5 Carta de Vinhos ---------- */
 
-/* Grade de duas colunas, usada em Vinhos e Trabalhe Conosco (imagem + texto) */
+/* Grade de duas colunas, usada em Vinhos e Trabalhe Conosco (texto à esquerda, foto à direita) */
 .pagina-inicial .secao-dividida {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1109,7 +1109,7 @@ h2 {
 /* ---------- 5.7 Trabalhe Conosco ---------- */
 
 .pagina-inicial .secao-trabalhe img {
-    box-shadow: -0.75rem 0.75rem 0 var(--cor-destaque-vermelho);
+    box-shadow: 0.75rem 0.75rem 0 var(--cor-destaque-vermelho);
 }
 
 .pagina-inicial .secao-trabalhe p {
