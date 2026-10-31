@@ -9,13 +9,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <!--* link dos icones telefone e whatsapp-->
 
+    <!--* Fonte cursiva dos títulos -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
     <!--* CSS -->
     <link rel="stylesheet" href="../css/variaveis.css">
     <link rel="stylesheet" href="../css/header_footer.css">
     <link rel="stylesheet" href="../css/base.css">
+
+    <!--* JavaScript: máscara do telefone, botões de dia e horário e contador de pessoas -->
+    <script src="../js/formulario.js"></script>
 </head>
 
-<body>
+<body class="pagina-reserva">
     <a href="#main" class="skip-link">Pular para o conteúdo principal</a>
 
     <header>
@@ -40,21 +46,22 @@
         <section>
             <h2>Reserva de Mesa</h2>
             <p>Faça sua reserva e garanta sua mesa!</p>
-            <form>
+            <form action="#" method="post" autocomplete="on">
                 <fieldset>
                     <legend>Dados da Reserva</legend>
 
                     <p>
                         <label for="nome">Nome:</label><br>
-                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required
-                            autocomplete="name">
+                        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" minlength="3"
+                            maxlength="80" autocomplete="name" autocapitalize="words" spellcheck="false" required>
                     </p>
 
                     <p>
                         <label for="telefone">Telefone:</label><br>
                         <input type="tel" id="telefone" name="telefone" placeholder="(11) 91234-5678"
-                            pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}" aria-describedby="dica-telefone-reserva"
-                            autocomplete="tel" required>
+                            pattern="\([0-9]{2}\) [0-9]{4,5}-[0-9]{4}" maxlength="15" inputmode="tel"
+                            data-mascara="telefone" aria-describedby="dica-telefone-reserva" autocomplete="tel"
+                            required>
                         <small id="dica-telefone-reserva">Formato: (11) 91234-5678</small>
                     </p>
 
@@ -65,22 +72,23 @@
 
                     <p>
                         <label for="horario">Horário:</label><br>
-                        <input type="time" id="horario" name="horario" required>
+                        <input type="time" id="horario" name="horario" min="11:00" max="23:00" step="900" required>
                     </p>
 
                     <p>
                         <label for="pessoas">
                             Quantidade de pessoas:
                         </label><br>
-                        <input type="number" id="pessoas" name="pessoas" min="1" max="20" required>
+                        <input type="number" id="pessoas" name="pessoas" placeholder="Ex: 4" min="1" max="20"
+                            step="1" inputmode="numeric" required>
                     </p>
 
                     <p>
                         <label for="observacoes">
                             Observações:
                         </label> <br>
-                        <textarea cols="25" rows="4" id="observacoes" name="observacoes" placeholder="Ex: aniversário"
-                            required></textarea>
+                        <textarea cols="25" rows="4" id="observacoes" name="observacoes" maxlength="300"
+                            autocomplete="off" placeholder="Ex: aniversário, cadeirinha para criança"></textarea>
                     </p>
 
                     <button type="submit">
@@ -95,9 +103,11 @@
             <h2>Informações da reserva</h2>
             <p>Faça sua reserva com antecedência para garantir sua mesa.</p>
 
-            <article>
+            <article class="card-contato">
                 <h3>Observações</h3>
                 <p>Após realizar a reserva, entraremos em contato para confirmação.</p>
+                <p>Prefere reservar por telefone ou WhatsApp? Use os contatos
+                    <a href="#rodape">no rodapé desta página</a>.</p>
             </article>
         </section>
     </main>

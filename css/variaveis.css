@@ -12,7 +12,7 @@
    6. Fale Conosco e Depoimentos
    ========================================================================== */
 
-   :root {
+:root {
 
     /* ---------- 1. CORES ---------- */
 
@@ -78,7 +78,7 @@
 
     --img-banner-inicial: url("../assets/img/banner_ficticio.jpg");
     --img-banner-cardapio: url("../assets/img/banner_ficticio.jpg");
-    --img-banner-vinho: url("../assets/img/carta_vinho_banner.png");
+    --img-banner-vinho: url("../assets/img/carta_vinho1.png");
     --img-banner-delivery: url("../assets/img/imagem_7.jpg");
     --img-banner-depoimentos: url("../assets/img/imagem_8.jpg");
     --img-banner-fale-conosco: url("../assets/img/banner_ficticio.jpg");
@@ -96,6 +96,9 @@
     --degrade-menu-rodape: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
     --sombra-texto-banner: 2px 2px 8px rgba(0, 0, 0, 0.8);
     --transicao-rapida: 0.2s;
+    --transicao-media: 0.3s;            /* efeitos ao passar o mouse */
+    --duracao-entrada: 0.8s;            /* seções aparecendo ao rolar a página */
+    --deslocamento-entrada: 2rem;       /* distância que cada bloco percorre ao aparecer */
     --sombra-cartao: 0 6px 18px rgba(28, 20, 17, 0.12);
     --sombra-cartao-destaque: 0 16px 32px rgba(0, 0, 0, 0.45);
     --pelicula-forte: linear-gradient(rgba(14, 9, 7, 0.72), rgba(14, 9, 7, 0.72));   /* sobre fotos com texto */
