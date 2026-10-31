@@ -8,6 +8,7 @@
    3. Acessibilidade (texto oculto e skip-link)
    4. Páginas Fale Conosco e Depoimentos (fundo, layout e cores compartilhados)
    5. Página inicial
+   6. Cardápio
    ========================================================================== */
 
 
@@ -70,9 +71,10 @@ h2 {
 
 
 /* ==========================================================================
-   4. PÁGINAS FALE CONOSCO E DEPOIMENTOS
-      <body class="pagina-fale-conosco"> e <body class="pagina-depoimentos">
-      As duas páginas compartilham fundo, layout da main e cores (variáveis --fc-*).
+   4. PÁGINAS FALE CONOSCO, RESERVA E DEPOIMENTOS
+      <body class="pagina-fale-conosco">, <body class="pagina-reserva"> e <body class="pagina-depoimentos">
+      As páginas compartilham fundo, layout da main e cores (variáveis --fc-*).
+      A Reserva usa o mesmo formulário e o mesmo card do Fale Conosco (seções 4.2 a 4.4).
 
    4.1 Fundo e layout (as duas páginas)
    4.2 Fale Conosco: títulos com ornamento
@@ -84,10 +86,12 @@ h2 {
    4.8 Depoimentos: introdução e cartões
    4.9 Depoimentos: botão "Ver depoimento"
    4.10 Depoimentos: celular
+   4.11 Reserva: ajustes do formulário
    ========================================================================== */
 
 /* ---------- 4.1 Fundo e layout (as duas páginas) ---------- */
 
+.pagina-reserva,
 .pagina-fale-conosco,
 .pagina-depoimentos {
     background:
@@ -95,6 +99,7 @@ h2 {
         var(--fc-marfim);
 }
 
+.pagina-reserva main,
 .pagina-fale-conosco main,
 .pagina-depoimentos main {
     margin-inline: auto;
@@ -104,6 +109,7 @@ h2 {
     font-size: 1.15rem;
 }
 
+.pagina-reserva main,
 .pagina-fale-conosco main {
     max-width: var(--fc-largura-max);
 }
@@ -112,6 +118,7 @@ h2 {
     max-width: var(--dep-largura-max);
 }
 
+.pagina-reserva main > * + *,
 .pagina-fale-conosco main > * + * {
     margin-top: 4rem;
 }
@@ -123,6 +130,7 @@ h2 {
 }
 
 /* Âncora do rodapé (link "no rodapé desta página") */
+.pagina-reserva #rodape,
 .pagina-fale-conosco #rodape {
     scroll-margin-top: 1rem;
 }
@@ -130,6 +138,7 @@ h2 {
 
 /* ---------- 4.2 Fale Conosco: títulos com ornamento ---------- */
 
+.pagina-reserva main h2,
 .pagina-fale-conosco main h2,
 .pagina-fale-conosco main > article > h3 {
     margin: 0 0 2.5rem;
@@ -142,6 +151,7 @@ h2 {
 }
 
 /* Losango com linhas laterais embaixo do título */
+.pagina-reserva main h2::after,
 .pagina-fale-conosco main h2::after,
 .pagina-fale-conosco main > article > h3::after {
     content: "◆";
@@ -162,19 +172,22 @@ h2 {
 
 /* ---------- 4.3 Fale Conosco: formulário ---------- */
 
+.pagina-reserva main form,
 .pagina-fale-conosco main form {
     position: relative;
     padding: clamp(2rem, 5vw, 3.5rem);
     border-radius: var(--fc-raio);
-    background:
-        radial-gradient(circle at top right, rgba(var(--fc-marfim-rgb), 0.06), transparent 55%),
-        linear-gradient(165deg, var(--fc-carvao-claro), var(--fc-carvao));
+    background-color: var(--fc-carvao);
+    background-image: var(--pelicula-forte), var(--img-menu-rodape);   /* mesma textura do rodapé */
+    background-size: cover;
+    background-position: center;
     box-shadow:
         0 30px 60px rgba(var(--fc-carvao-rgb), 0.35),
         0 0 0 1px rgba(var(--fc-marfim-rgb), 0.25);
 }
 
 /* Moldura dupla interna */
+.pagina-reserva main form::before,
 .pagina-fale-conosco main form::before {
     content: "";
     position: absolute;
@@ -185,6 +198,7 @@ h2 {
 }
 
 /* Grade de 2 colunas */
+.pagina-reserva main fieldset,
 .pagina-fale-conosco main fieldset {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -195,6 +209,7 @@ h2 {
     border: 0;
 }
 
+.pagina-reserva main legend,
 .pagina-fale-conosco main legend {
     float: left;
     grid-column: 1 / -1;
@@ -208,12 +223,15 @@ h2 {
 }
 
 /* Observação e botão ocupam a largura toda */
+.pagina-reserva main fieldset p:has(textarea),
 .pagina-fale-conosco main fieldset p:has(textarea),
+.pagina-reserva main fieldset button,
 .pagina-fale-conosco main fieldset button {
     grid-column: 1 / -1;
 }
 
 /* Cada campo: rótulo + campo + dica */
+.pagina-reserva main form p,
 .pagina-fale-conosco main form p {
     display: grid;
     align-content: start;
@@ -221,10 +239,12 @@ h2 {
     margin: 0;
 }
 
+.pagina-reserva main form p br,
 .pagina-fale-conosco main form p br {
     display: none;
 }
 
+.pagina-reserva main form label,
 .pagina-fale-conosco main form label {
     color: var(--fc-marfim);
     font-size: 0.85rem;
@@ -233,6 +253,7 @@ h2 {
     text-transform: uppercase;
 }
 
+.pagina-reserva main form small,
 .pagina-fale-conosco main form small {
     color: rgba(var(--fc-marfim-rgb), 0.65);
     font-size: 0.95rem;
@@ -240,8 +261,11 @@ h2 {
 }
 
 /* Campos: só uma linha clara embaixo */
+.pagina-reserva main form input,
 .pagina-fale-conosco main form input,
+.pagina-reserva main form select,
 .pagina-fale-conosco main form select,
+.pagina-reserva main form textarea,
 .pagina-fale-conosco main form textarea {
     width: 100%;
     box-sizing: border-box;
@@ -256,12 +280,14 @@ h2 {
     transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
 }
 
+.pagina-reserva main form ::placeholder,
 .pagina-fale-conosco main form ::placeholder {
     color: rgba(var(--fc-marfim-rgb), 0.4);
     font-style: italic;
 }
 
 /* Textarea: caixa completa */
+.pagina-reserva main form textarea,
 .pagina-fale-conosco main form textarea {
     min-height: 130px;
     padding: 0.9rem 1rem;
@@ -271,6 +297,7 @@ h2 {
 }
 
 /* Select: seta clara própria */
+.pagina-reserva main form select,
 .pagina-fale-conosco main form select {
     appearance: none;
     padding-right: 2rem;
@@ -280,12 +307,14 @@ h2 {
     cursor: pointer;
 }
 
+.pagina-reserva main form select option,
 .pagina-fale-conosco main form select option {
     background: var(--fc-campo-escuro);
     color: var(--fc-marfim);
 }
 
 /* Mantém o fundo escuro quando o navegador autopreenche */
+.pagina-reserva main form input:-webkit-autofill,
 .pagina-fale-conosco main form input:-webkit-autofill {
     -webkit-text-fill-color: var(--fc-marfim);
     box-shadow: 0 0 0 1000px var(--fc-campo-escuro) inset;
@@ -293,13 +322,16 @@ h2 {
 }
 
 /* Foco */
+.pagina-reserva main form input:focus,
 .pagina-fale-conosco main form input:focus,
+.pagina-reserva main form select:focus,
 .pagina-fale-conosco main form select:focus {
     outline: none;
     border-bottom-color: var(--fc-branco);
     box-shadow: 0 2px 0 0 var(--fc-branco);
 }
 
+.pagina-reserva main form textarea:focus,
 .pagina-fale-conosco main form textarea:focus {
     outline: none;
     border-color: var(--fc-branco);
@@ -307,14 +339,18 @@ h2 {
 }
 
 /* Inválido (só depois que a pessoa mexe no campo) */
+.pagina-reserva main form input:user-invalid,
 .pagina-fale-conosco main form input:user-invalid,
+.pagina-reserva main form select:user-invalid,
 .pagina-fale-conosco main form select:user-invalid,
+.pagina-reserva main form textarea:user-invalid,
 .pagina-fale-conosco main form textarea:user-invalid {
     border-color: var(--fc-erro);
     box-shadow: 0 2px 0 0 var(--fc-erro);
 }
 
 /* Botão: contorno claro que se preenche no hover */
+.pagina-reserva main form button[type="submit"],
 .pagina-fale-conosco main form button[type="submit"] {
     justify-self: center;
     margin-top: 0.5rem;
@@ -332,12 +368,14 @@ h2 {
     transition: background 0.35s, color 0.35s, box-shadow 0.35s;
 }
 
+.pagina-reserva main form button[type="submit"]:hover,
 .pagina-fale-conosco main form button[type="submit"]:hover {
     background: var(--fc-marfim);
     color: var(--fc-carvao);
     box-shadow: 0 10px 28px rgba(var(--fc-marfim-rgb), 0.2);
 }
 
+.pagina-reserva main form button[type="submit"]:focus-visible,
 .pagina-fale-conosco main form button[type="submit"]:focus-visible {
     outline: 2px solid var(--fc-branco);
     outline-offset: 4px;
@@ -346,6 +384,7 @@ h2 {
 
 /* ---------- 4.4 Fale Conosco: card "Outras formas de contato" ---------- */
 
+.pagina-reserva .card-contato,
 .pagina-fale-conosco .card-contato {
     position: relative;
     padding: 2.5rem 2.5rem 2.25rem;
@@ -357,6 +396,7 @@ h2 {
 }
 
 /* Moldura interna */
+.pagina-reserva .card-contato::before,
 .pagina-fale-conosco .card-contato::before {
     content: "";
     position: absolute;
@@ -365,6 +405,7 @@ h2 {
     pointer-events: none;
 }
 
+.pagina-reserva .card-contato h3,
 .pagina-fale-conosco .card-contato h3 {
     margin: 0 0 0.75rem;
     color: var(--fc-vermelho);
@@ -374,6 +415,7 @@ h2 {
     line-height: 1.1;
 }
 
+.pagina-reserva .card-contato p,
 .pagina-fale-conosco .card-contato p {
     margin: 0;
     line-height: 1.8;
@@ -383,60 +425,58 @@ h2 {
 /* ---------- 4.5 Fale Conosco: perguntas frequentes (FAQ) ---------- */
 /* HTML: <article> > <h3> + vários <section class="faq-item"> */
 
-.pagina-fale-conosco main > article {
-    counter-reset: faq;              /* zera a numeração romana (I, II, III) */
-}
-
 .pagina-fale-conosco .faq-item {
-    counter-increment: faq;
-    position: relative;
     margin-bottom: 1.25rem;
-    padding: 1.75rem 2rem 1.75rem 5rem;
-    border: 1px solid rgba(var(--fc-vermelho-rgb), 0.3);
-    border-left: 3px solid var(--fc-vermelho);
+    padding: 1.75rem 2.25rem;
+    border: 1px solid rgba(var(--fc-marfim-rgb), 0.25);
+    border-bottom: 3px solid var(--fc-vermelho);
     border-radius: var(--fc-raio);
-    background: var(--fc-cartao);
-    box-shadow: 0 8px 22px rgba(var(--fc-texto-rgb), 0.06);
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-}
-
-/* Número romano à esquerda */
-.pagina-fale-conosco .faq-item::before {
-    content: counter(faq, upper-roman);
-    position: absolute;
-    top: 1.45rem;
-    left: 1.5rem;
-    min-width: 2.2rem;
-    color: var(--fc-vermelho);
-    font-family: var(--fonte-elegante);
-    font-size: 1.7rem;
-    font-weight: 600;
+    background-color: var(--fc-carvao);
+    background-image: var(--pelicula-forte), var(--img-menu-rodape);   /* mesma textura do formulário */
+    background-size: cover;
+    background-position: center;
+    color: var(--texto-claro);
+    transition: border-color var(--transicao-media);
 }
 
 .pagina-fale-conosco .faq-item:hover {
-    transform: translateY(-3px);
-    border-color: var(--fc-vermelho);
-    box-shadow: 0 18px 36px rgba(var(--fc-texto-rgb), 0.12);
+    border-color: var(--cor-destaque-amarelo);
 }
 
 .pagina-fale-conosco .faq-item h4 {
-    margin: 0 0 0.5rem;
-    color: var(--fc-vermelho-escuro);
+    margin: 0 0 0.6rem;
+    color: var(--cor-titulo-escuro);
     font-family: var(--fonte-elegante);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 700;
 }
 
 .pagina-fale-conosco .faq-item p {
     margin: 0;
+    color: var(--texto-claro-suave);
     line-height: 1.75;
+}
+
+/* Links dentro dos cards escuros */
+.pagina-fale-conosco .faq-item a {
+    border-bottom-color: var(--cor-destaque-amarelo);
+    color: var(--cor-destaque-amarelo);
+}
+
+.pagina-fale-conosco .faq-item a:hover {
+    border-bottom-color: var(--texto-claro);
+    color: var(--texto-claro);
+}
+
+.pagina-fale-conosco .faq-item a:focus-visible {
+    outline-color: var(--cor-destaque-amarelo);
 }
 
 
 /* ---------- 4.6 Fale Conosco: links (card de contato e FAQ) ---------- */
 
-.pagina-fale-conosco .card-contato a,
-.pagina-fale-conosco .faq-item a {
+.pagina-reserva .card-contato a,
+.pagina-fale-conosco .card-contato a {
     border-bottom: 1px solid var(--fc-vermelho);
     color: var(--fc-vermelho-escuro);
     font-weight: 700;
@@ -444,14 +484,14 @@ h2 {
     transition: color var(--transicao-rapida), border-color var(--transicao-rapida);
 }
 
-.pagina-fale-conosco .card-contato a:hover,
-.pagina-fale-conosco .faq-item a:hover {
+.pagina-reserva .card-contato a:hover,
+.pagina-fale-conosco .card-contato a:hover {
     border-bottom-color: var(--fc-vermelho-escuro);
     color: var(--fc-vermelho);
 }
 
-.pagina-fale-conosco .card-contato a:focus-visible,
-.pagina-fale-conosco .faq-item a:focus-visible {
+.pagina-reserva .card-contato a:focus-visible,
+.pagina-fale-conosco .card-contato a:focus-visible {
     outline: 2px solid var(--fc-vermelho);
     outline-offset: 3px;
 }
@@ -461,32 +501,30 @@ h2 {
 
 @media (max-width: 700px) {
 
+    .pagina-reserva main,
     .pagina-fale-conosco main {
         font-size: 1.05rem;
     }
 
+    .pagina-reserva main fieldset,
     .pagina-fale-conosco main fieldset {
         grid-template-columns: 1fr;
         gap: 1.75rem;
     }
 
+    .pagina-reserva main form button[type="submit"],
     .pagina-fale-conosco main form button[type="submit"] {
         width: 100%;
         padding-inline: 1rem;
     }
 
+    .pagina-reserva .card-contato,
     .pagina-fale-conosco .card-contato {
         padding: 2rem 1.25rem;
     }
 
     .pagina-fale-conosco .faq-item {
-        padding: 1.25rem 1.25rem 1.25rem 3.75rem;
-    }
-
-    .pagina-fale-conosco .faq-item::before {
-        top: 1.1rem;
-        left: 1rem;
-        font-size: 1.4rem;
+        padding: 1.5rem 1.5rem;
     }
 }
 
@@ -659,6 +697,260 @@ h2 {
 
     .pagina-depoimentos main article h3 + p {
         text-align: left;
+    }
+}
+
+
+/* ---------- 4.11 Reserva: ajustes do formulário ---------- */
+/* O restante do estilo vem das regras compartilhadas acima (4.1 a 4.4) */
+
+/* Título e frase de apresentação acima do formulário */
+.pagina-reserva main > section:first-of-type > h2 {
+    margin-bottom: 1.5rem;
+}
+
+.pagina-reserva main > section:first-of-type > p {
+    margin: 0 auto 3rem;
+    max-width: 32rem;
+    color: var(--fc-texto-suave);
+    font-size: 1.45rem;
+    font-style: italic;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Grade de 6 colunas: nome e telefone (3 + 3); data, horário e pessoas (2 + 2 + 2) */
+.pagina-reserva main fieldset {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.pagina-reserva main fieldset p:nth-of-type(-n + 2) {
+    grid-column: span 3;
+}
+
+.pagina-reserva main fieldset p:nth-of-type(n + 3):nth-of-type(-n + 5) {
+    grid-column: span 2;
+}
+
+.pagina-reserva main fieldset p:has(textarea) {
+    grid-column: 1 / -1;
+}
+
+/* Sem JavaScript, o calendário e o relógio do navegador aparecem com ícones claros */
+.pagina-reserva main form input::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+
+/* Data: campo de texto + botão do calendário */
+.pagina-reserva main form .campo-data {
+    position: relative;
+    display: block;
+}
+
+.pagina-reserva main form .campo-data input {
+    padding-right: 2.75rem;
+}
+
+.pagina-reserva main form .botao-calendario {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--fc-marfim);
+    font-size: 1.15rem;
+    line-height: 1;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: color 0.25s;
+}
+
+.pagina-reserva main form .botao-calendario:hover {
+    color: var(--fc-branco);
+}
+
+.pagina-reserva main form .botao-calendario:focus-visible,
+.pagina-reserva main form .calendario button:focus-visible {
+    outline: 2px solid var(--fc-branco);
+    outline-offset: 2px;
+}
+
+/* Calendário: aparece embaixo do campo */
+.pagina-reserva main form .calendario {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    z-index: 10;
+    display: block;
+    width: min(21rem, 100%);
+    padding: 1rem;
+    border: 1px solid rgba(var(--fc-marfim-rgb), 0.4);
+    border-radius: var(--fc-raio);
+    background-color: var(--fc-carvao-claro);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+}
+
+.pagina-reserva main form .calendario[hidden] {
+    display: none;
+}
+
+.pagina-reserva main form .calendario-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    color: var(--fc-marfim);
+    font-size: 1.2rem;
+    text-transform: capitalize;
+}
+
+.pagina-reserva main form .calendario-topo button {
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--fc-marfim);
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.pagina-reserva main form .calendario-topo button:disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+}
+
+.pagina-reserva main form .calendario table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+.pagina-reserva main form .calendario th {
+    padding-bottom: 0.4rem;
+    color: rgba(var(--fc-marfim-rgb), 0.6);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+}
+
+.pagina-reserva main form .calendario td {
+    padding: 1px;
+    text-align: center;
+}
+
+.pagina-reserva main form .calendario td button {
+    width: 100%;
+    height: 2.4rem;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: var(--fc-raio);
+    background: transparent;
+    color: var(--fc-marfim);
+    font-family: var(--fonte-elegante);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.pagina-reserva main form .calendario td button:hover:not(:disabled) {
+    background-color: rgba(var(--fc-marfim-rgb), 0.18);
+}
+
+.pagina-reserva main form .calendario td button.hoje {
+    border-color: rgba(var(--fc-marfim-rgb), 0.6);
+}
+
+.pagina-reserva main form .calendario td button.escolhido {
+    background-color: var(--fc-marfim);
+    color: var(--fc-carvao);
+}
+
+.pagina-reserva main form .calendario td button:disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+}
+
+/* Quantidade de pessoas: botão − , número e botão + */
+.pagina-reserva main form .contador {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.pagina-reserva main form .contador input {
+    width: 4.5rem;
+    border: 1px solid rgba(var(--fc-marfim-rgb), 0.4);
+    border-radius: var(--fc-raio);
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.pagina-reserva main form .contador button {
+    width: 2.9rem;
+    height: 2.9rem;
+    padding: 0;
+    border: 1px solid rgba(var(--fc-marfim-rgb), 0.4);
+    border-radius: var(--fc-raio);
+    background: transparent;
+    color: var(--fc-marfim);
+    font-family: var(--fonte-elegante);
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.25s, border-color 0.25s, color 0.25s;
+}
+
+.pagina-reserva main form .contador button:hover:not(:disabled) {
+    border-color: var(--fc-marfim);
+    background-color: var(--fc-marfim);
+    color: var(--fc-carvao);
+}
+
+.pagina-reserva main form .contador button:focus-visible {
+    outline: 2px solid var(--fc-branco);
+    outline-offset: 3px;
+}
+
+.pagina-reserva main form .contador button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* Frase de apresentação da segunda seção */
+.pagina-reserva main > section + section > p {
+    margin: 0 auto 2.5rem;
+    max-width: 32rem;
+    color: var(--fc-texto-suave);
+    font-size: 1.3rem;
+    font-style: italic;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.pagina-reserva .card-contato p + p {
+    margin-top: 0.75rem;
+}
+
+@media (max-width: 700px) {
+
+    .pagina-reserva main fieldset {
+        grid-template-columns: 1fr;
+    }
+
+    .pagina-reserva main fieldset p:nth-of-type(n):nth-of-type(n) {
+        grid-column: auto;
+    }
+
+    .pagina-reserva main legend,
+    .pagina-fale-conosco main legend {
+        float: none;                  /* o título não fica mais ao lado do primeiro campo */
+        display: block;
     }
 }
 
@@ -1332,5 +1624,225 @@ h2 {
     .pagina-inicial .secao-dividida img:hover,
     .pagina-inicial .carrossel-controles button:hover:not(:disabled) {
         transform: none;
+    }
+}
+
+
+/* ==========================================================================
+   6. CARDÁPIO
+      <body class="pagina-cardapio">
+      Cores neutras: o vermelho aparece só no que é importante
+      (item da categoria atual/ao passar o mouse e avisos de promoção).
+   ========================================================================== */
+
+.pagina-cardapio main {
+    margin-inline: auto;
+    padding: 4rem 1.5rem 5rem;
+    max-width: var(--cardapio-largura);
+}
+
+/* ---------- Título e introdução ---------- */
+
+.pagina-cardapio main h2 {
+    margin-bottom: 1rem;
+    color: var(--texto-escuro);
+    font-family: var(--fonte-elegante);
+    font-size: clamp(2.6rem, 6vw, 3.6rem);
+    font-weight: 600;
+    text-align: center;
+}
+
+.pagina-cardapio .introducao {
+    margin: 0 auto 2.5rem;
+    max-width: 38rem;
+    color: var(--cardapio-texto-suave);
+    font-family: var(--fonte-elegante);
+    font-size: 1.3rem;
+    font-style: italic;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* ---------- Lista de categorias (links para as seções) ---------- */
+
+.pagina-cardapio .categorias ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 4.5rem;
+    list-style: none;
+}
+
+.pagina-cardapio .categorias a {
+    padding-bottom: 0.15rem;
+    border-bottom: 1px solid transparent;
+    color: var(--cardapio-texto-suave);
+    font-family: var(--fonte-links);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color var(--transicao-rapida), border-color var(--transicao-rapida);
+}
+
+.pagina-cardapio .categorias a:hover,
+.pagina-cardapio .categorias a:focus-visible {
+    border-bottom-color: var(--cor-destaque-vermelho);
+    color: var(--cor-destaque-vermelho);
+}
+
+/* ---------- Seções ---------- */
+
+.pagina-cardapio main section {
+    margin-bottom: 4.5rem;
+    scroll-margin-top: calc(var(--altura-menu) + 1rem);   /* não fica escondida atrás do menu fixo */
+}
+
+.pagina-cardapio main h3 {
+    margin-bottom: 0.75rem;
+    color: var(--texto-escuro);
+    font-family: var(--fonte-elegante);
+    font-size: clamp(1.9rem, 4vw, 2.4rem);
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+.pagina-cardapio main h3 b {
+    font-weight: 600;
+}
+
+.pagina-cardapio main h4 {
+    margin-bottom: 0.5rem;
+    color: var(--cardapio-texto-suave);
+    font-family: var(--fonte-links);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+/* Observações da seção (acompanhamentos, etc.) */
+.pagina-cardapio main section p {
+    margin: 0.75rem 0;
+    color: var(--cardapio-texto-suave);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Aviso importante (promoções): único texto colorido da página */
+.pagina-cardapio main section p.destaque {
+    color: var(--cor-destaque-vermelho);
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+/* ---------- Tabelas ---------- */
+
+.pagina-cardapio table {
+    margin-top: 1rem;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* O título da tabela existe para leitores de tela */
+.pagina-cardapio caption {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.pagina-cardapio thead th {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--texto-escuro);
+    color: var(--cardapio-texto-suave);
+    font-family: var(--fonte-links);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-align: right;
+    text-transform: uppercase;
+}
+
+.pagina-cardapio thead th:first-child {
+    text-align: left;
+}
+
+.pagina-cardapio tbody th,
+.pagina-cardapio tbody td {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--cardapio-linha);
+    vertical-align: top;
+}
+
+/* Nome do prato (em destaque) e descrição (mais discreta, logo abaixo) */
+.pagina-cardapio tbody th {
+    color: var(--cardapio-texto-suave);
+    font-family: var(--fonte-links);
+    font-size: 0.88rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.pagina-cardapio tbody th b {
+    display: block;
+    color: var(--texto-escuro);
+    font-family: var(--fonte-elegante);
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.pagina-cardapio tbody th br {
+    display: none;                    /* o nome já ocupa a própria linha */
+}
+
+/* Preços: alinhados à direita, números do mesmo tamanho */
+.pagina-cardapio tbody td,
+.pagina-cardapio thead th:not(:first-child) {
+    width: var(--cardapio-largura-preco);
+    padding-left: 1rem;
+    text-align: right;
+}
+
+.pagina-cardapio tbody td {
+    color: var(--texto-escuro);
+    font-family: var(--fonte-links);
+    font-size: 0.95rem;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+}
+
+.pagina-cardapio tbody td:empty::before {
+    content: "—";
+    color: var(--cardapio-linha);
+}
+
+/* ---------- Celular ---------- */
+
+@media (max-width: 700px) {
+
+    .pagina-cardapio main {
+        padding: 3rem 1rem 4rem;
+    }
+
+    .pagina-cardapio main section {
+        margin-bottom: 3.5rem;
+    }
+
+    .pagina-cardapio tbody td,
+    .pagina-cardapio thead th:not(:first-child) {
+        width: 5.5rem;
+        padding-left: 0.5rem;
+    }
+
+    .pagina-cardapio tbody td {
+        font-size: 0.85rem;
+    }
+
+    .pagina-cardapio tbody th b {
+        font-size: 1.15rem;
     }
 }
