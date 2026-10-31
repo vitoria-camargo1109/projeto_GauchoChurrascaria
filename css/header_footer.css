@@ -1,0 +1,319 @@
+/* ==========================================================================
+   HEADER_FOOTER.CSS
+   Cabeçalho (menu + banner) e rodapé, iguais em todas as páginas.
+
+   Índice
+   1. Fontes
+   2. Menu principal (nav) e logo
+   3. Banners
+   4. Rodapé
+   5. Rodapé no celular e tablet
+   ========================================================================== */
+
+/* ---------- 1. FONTES ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400..700&family=Oswald:wght@500;700&family=Parisienne&display=swap');
+
+
+/* ==========================================================================
+   2. MENU PRINCIPAL
+   ========================================================================== */
+
+header {
+    background-color: var(--cor-fundo-escuro);
+}
+
+/* Faixa fixa no topo: <nav aria-label="Menu principal" class="menu"> */
+.menu {
+    position: fixed;                 /* acompanha a rolagem da página */
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;       /* links no canto direito */
+    gap: 1.5rem;
+    padding: 0 2rem;
+    background-image: var(--degrade-menu-rodape), var(--img-menu-rodape);
+}
+
+/* Título ao lado do logo: mantém a fonte cursiva e fica em uma linha só */
+.menu h1 {
+    margin-right: auto;              /* empurra os links para a direita */
+    color: var(--texto-claro);
+    font-family: var(--fonte-menu);
+    font-size: 2rem;
+    font-weight: 500;
+    word-spacing: 0.2rem;
+    white-space: nowrap;             /* impede a quebra em 2 linhas */
+}
+
+/* Links do menu: Montserrat */
+.menu a {
+    padding: 0.2rem;
+    color: var(--texto-claro);
+    text-decoration: none;
+    font-family: var(--fonte-links);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.menu a:hover {
+    color: var(--cor-destaque-vermelho);
+    transition: color var(--transicao-rapida);
+}
+
+.menu a[aria-current="page"] {
+    background-color: transparent;
+    color: var(--cor-destaque-vermelho);
+}
+
+/* O primeiro link do menu é o logo: sem padding e empurra os demais */
+.menu a:first-child,
+.menu a:first-child:hover {
+    background-color: transparent;
+}
+
+.menu a:first-child {
+    margin-right: auto;
+    padding: 0;
+}
+
+/* Quando o título vem logo depois do logo, ele fica colado no logo
+   (o espaço entre os dois é o "gap" do .menu) */
+.menu a:first-child:has(+ h1) {
+    margin-right: 0;
+}
+
+/* ---------- Logo ---------- */
+.link_logo {
+    display: inline-block;           /* permite usar margem no link */
+    margin: 0 1.5rem;
+}
+
+.logo {
+    display: block;                  /* tira o espaço extra de imagens inline */
+    height: var(--altura-menu);
+    width: auto;
+}
+
+
+/* ==========================================================================
+   3. BANNERS
+   ========================================================================== */
+
+/* Parte comum a todos os banners */
+.banner_inicial,
+.banner_cardapio,
+.banner_vinho,
+.banner_delivery,
+.banner_depoimentos,
+.banner_fale_conosco,
+.banner_nossa_unidade,
+.banner_quem_somos,
+.banner_reserva,
+.banner_trabalhe_conosco {
+    margin-top: var(--altura-menu);
+    min-height: var(--altura-banner);
+    display: flex;                   /* centraliza o título */
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: var(--texto-claro);
+    text-shadow: var(--sombra-texto-banner);
+    font-family: var(--fonte-menu);
+    font-size: 5.5rem;
+}
+
+/* O que muda em cada banner: só a imagem (a película escura é a mesma) */
+.banner_inicial         { background-image: var(--pelicula-escura), var(--img-banner-inicial); }
+.banner_cardapio        { background-image: var(--pelicula-escura), var(--img-banner-cardapio); }
+.banner_vinho           { background-image: var(--pelicula-escura), var(--img-banner-vinho); }
+.banner_delivery        { background-image: var(--pelicula-escura), var(--img-banner-delivery); }
+.banner_depoimentos     { background-image: var(--pelicula-escura), var(--img-banner-depoimentos); }
+.banner_fale_conosco    { background-image: var(--pelicula-escura), var(--img-banner-fale-conosco); }
+.banner_nossa_unidade   { background-image: var(--pelicula-escura), var(--img-banner-nossa-unidade); }
+.banner_quem_somos      { background-image: var(--pelicula-escura), var(--img-banner-quem-somos); }
+.banner_reserva         { background-image: var(--pelicula-escura), var(--img-banner-reserva); }
+.banner_trabalhe_conosco { background-image: var(--pelicula-escura), var(--img-banner-trabalhe-conosco); }
+
+
+/* ==========================================================================
+   4. RODAPÉ
+   ========================================================================== */
+
+footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    padding: 3rem 4rem 1.5rem;
+    border-top: 4px solid var(--cor-destaque-vermelho);
+    background-color: var(--cor-fundo-escuro);
+    background-image: var(--degrade-menu-rodape), var(--img-menu-rodape);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--texto-claro);
+}
+
+/* ---------- Colunas ---------- */
+.coluna_footer h2 {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--cor-destaque-vermelho);   /* o vermelho fica só no sublinhado */
+    color: var(--texto-claro);
+    font-family: var(--fonte-menu);
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.coluna_footer p {
+    margin-bottom: 1rem;
+    color: var(--texto-secundario);
+    line-height: 1.6;
+}
+
+/* ---------- Links do rodapé ---------- */
+footer a {
+    color: var(--texto-claro);
+    text-decoration: none;
+    transition: color var(--transicao-rapida);
+}
+
+footer a:hover,
+footer a[aria-current="page"] {
+    color: var(--cor-destaque-vermelho);
+}
+
+footer a:focus-visible {
+    outline: 2px solid var(--texto-claro);   /* anel de foco: só aparece no teclado */
+    outline-offset: 3px;
+}
+
+/* ---------- Listas sem marcadores ---------- */
+.lista_contato,
+.lista_redes {
+    list-style: none;
+}
+
+/* ---------- Contato: ícone + texto ---------- */
+.lista_contato li {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 0.9rem;
+    line-height: 1.5;
+}
+
+.lista_contato i {
+    color: var(--cor-destaque-vermelho);
+    font-size: 1.1rem;
+}
+
+address {
+    font-style: normal;
+}
+
+/* ---------- Redes sociais: ícones redondos ---------- */
+.lista_redes {
+    display: flex;
+    gap: 1rem;
+}
+
+.lista_redes a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 2px solid var(--borda-divisores);
+    border-radius: 50%;
+    font-size: 1.25rem;
+}
+
+.lista_redes a:hover {
+    background-color: var(--cor-destaque-vermelho);
+    border-color: var(--cor-destaque-vermelho);
+    color: var(--texto-escuro);
+}
+
+/* ---------- Formulário "Cadastre-se" ---------- */
+.form_lista {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.form_lista input {
+    padding: 0.75rem 1rem;
+    border: 2px solid transparent;
+    border-radius: var(--raio-padrao);
+    background-color: var(--cor-fundo-claro);
+    color: var(--texto-escuro);
+    font-size: 1rem;
+}
+
+.form_lista input:focus {
+    outline: none;
+    border-color: var(--cor-destaque-vermelho);
+}
+
+.form_lista button {
+    align-self: center;
+    padding: 0.6rem 1.5rem;
+    border: none;
+    border-radius: var(--raio-padrao);
+    background-color: var(--cor-destaque-vermelho);
+    color: var(--texto-claro);
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color var(--transicao-rapida);
+}
+
+.form_lista button:hover {
+    background-color: var(--hover-vinho);
+}
+
+/* ---------- Menu do rodapé e copyright (largura total) ---------- */
+.menu_footer,
+.copyright {
+    grid-column: 1 / -1;             /* da primeira à última coluna */
+    text-align: center;
+}
+
+.menu_footer {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--borda-divisores);
+    font-family: var(--fonte-links);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.copyright {
+    margin: 0;
+    color: var(--texto-secundario);
+    font-size: 0.9rem;
+}
+
+
+/* ==========================================================================
+   5. RODAPÉ NO CELULAR E TABLET (até 900px): uma coluna só
+   ========================================================================== */
+@media (max-width: 900px) {
+
+    footer {
+        grid-template-columns: 1fr;
+        padding: 2rem 1.5rem 1rem;
+    }
+
+    .menu_footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+}
