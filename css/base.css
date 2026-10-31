@@ -88,8 +88,7 @@ h2 {
    4.10 Depoimentos: celular
    4.11 Reserva: ajustes do formulário
    ========================================================================== */
-
-/* ---------- 4.1 Fundo e layout (as duas páginas) ---------- */
+/* ---------- 4.1 Fundo e layout (as três páginas) ---------- */
 
 .pagina-reserva,
 .pagina-fale-conosco,
@@ -123,8 +122,7 @@ h2 {
     margin-top: 4rem;
 }
 
-/* O banner já mostra o título da página, então o h2 do meio fica escondido */
-.pagina-fale-conosco main > section:first-of-type > h2,
+/* O banner já mostra o título da página, então o h2 do meio fica escondido (só nos Depoimentos) */
 .pagina-depoimentos main > section > h2 {
     display: none;
 }
@@ -136,7 +134,7 @@ h2 {
 }
 
 
-/* ---------- 4.2 Fale Conosco: títulos com ornamento ---------- */
+/* ---------- 4.2 Títulos com ornamento ---------- */
 
 .pagina-reserva main h2,
 .pagina-fale-conosco main h2,
@@ -170,15 +168,15 @@ h2 {
 }
 
 
-/* ---------- 4.3 Fale Conosco: formulário ---------- */
+/* ---------- 4.3 Formulário (Fale Conosco e Reserva) ---------- */
 
 .pagina-reserva main form,
 .pagina-fale-conosco main form {
     position: relative;
     padding: clamp(2rem, 5vw, 3.5rem);
     border-radius: var(--fc-raio);
-    background-color: var(--fc-carvao);
-    background-image: var(--pelicula-forte), var(--img-menu-rodape);   /* mesma textura do rodapé */
+    background-color: var(--cor-fundo-escuro);                              /* mesma cor do menu e do rodapé */
+    background-image: var(--degrade-menu-rodape), var(--img-menu-rodape);   /* mesma textura do rodapé */
     background-size: cover;
     background-position: center;
     box-shadow:
@@ -244,9 +242,10 @@ h2 {
     display: none;
 }
 
+/* Rótulos em dourado suave */
 .pagina-reserva main form label,
 .pagina-fale-conosco main form label {
-    color: var(--fc-marfim);
+    color: #d4af37;
     font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.22em;
@@ -382,7 +381,7 @@ h2 {
 }
 
 
-/* ---------- 4.4 Fale Conosco: card "Outras formas de contato" ---------- */
+/* ---------- 4.4 Card "Outras formas de contato" ---------- */
 
 .pagina-reserva .card-contato,
 .pagina-fale-conosco .card-contato {
@@ -428,24 +427,22 @@ h2 {
 .pagina-fale-conosco .faq-item {
     margin-bottom: 1.25rem;
     padding: 1.75rem 2.25rem;
-    border: 1px solid rgba(var(--fc-marfim-rgb), 0.25);
-    border-bottom: 3px solid var(--fc-vermelho);
+    border: 1px solid rgba(var(--fc-texto-rgb), 0.15);
     border-radius: var(--fc-raio);
-    background-color: var(--fc-carvao);
-    background-image: var(--pelicula-forte), var(--img-menu-rodape);   /* mesma textura do formulário */
-    background-size: cover;
-    background-position: center;
-    color: var(--texto-claro);
-    transition: border-color var(--transicao-media);
+    background-color: var(--fc-cartao);              /* mesmo creme do card de contato */
+    box-shadow: 0 10px 26px rgba(var(--fc-texto-rgb), 0.07);
+    color: var(--fc-texto);
+    transition: border-color var(--transicao-media), box-shadow var(--transicao-media);
 }
 
 .pagina-fale-conosco .faq-item:hover {
-    border-color: var(--cor-destaque-amarelo);
+    border-color: rgba(var(--fc-texto-rgb), 0.35);
+    box-shadow: 0 14px 30px rgba(var(--fc-texto-rgb), 0.12);
 }
 
 .pagina-fale-conosco .faq-item h4 {
     margin: 0 0 0.6rem;
-    color: var(--cor-titulo-escuro);
+    color: var(--fc-texto);
     font-family: var(--fonte-elegante);
     font-size: 1.5rem;
     font-weight: 700;
@@ -453,27 +450,31 @@ h2 {
 
 .pagina-fale-conosco .faq-item p {
     margin: 0;
-    color: var(--texto-claro-suave);
+    color: var(--fc-texto-suave);
     line-height: 1.75;
 }
 
-/* Links dentro dos cards escuros */
+/* Links dentro dos cards do FAQ: vinho, como no card de contato */
 .pagina-fale-conosco .faq-item a {
-    border-bottom-color: var(--cor-destaque-amarelo);
-    color: var(--cor-destaque-amarelo);
+    border-bottom: 1px solid var(--fc-vermelho-escuro);
+    color: var(--fc-vermelho-escuro);
+    font-weight: 700;
+    text-decoration: none;
+    transition: color var(--transicao-rapida), border-color var(--transicao-rapida);
 }
 
 .pagina-fale-conosco .faq-item a:hover {
-    border-bottom-color: var(--texto-claro);
-    color: var(--texto-claro);
+    border-bottom-color: var(--fc-vermelho);
+    color: var(--fc-vermelho);
 }
 
 .pagina-fale-conosco .faq-item a:focus-visible {
-    outline-color: var(--cor-destaque-amarelo);
+    outline: 2px solid var(--fc-vermelho);
+    outline-offset: 3px;
 }
 
 
-/* ---------- 4.6 Fale Conosco: links (card de contato e FAQ) ---------- */
+/* ---------- 4.6 Links do card de contato ---------- */
 
 .pagina-reserva .card-contato a,
 .pagina-fale-conosco .card-contato a {
@@ -497,7 +498,7 @@ h2 {
 }
 
 
-/* ---------- 4.7 Fale Conosco: celular (até 700px) ---------- */
+/* ---------- 4.7 Celular (até 700px) ---------- */
 
 @media (max-width: 700px) {
 
@@ -527,7 +528,6 @@ h2 {
         padding: 1.5rem 1.5rem;
     }
 }
-
 
 /* ---------- 4.8 Depoimentos: introdução e cartões ---------- */
 
