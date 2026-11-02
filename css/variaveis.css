@@ -128,4 +128,12 @@
     --dep-raio: 6px;              /* Depoimentos */
     --fc-largura-max: 1240px;     /* Fale Conosco */
     --dep-largura-max: 960px;     /* Depoimentos */
+
+    /* ---------- 7. QUEM SOMOS E NOSSA UNIDADE ---------- */
+    --vermelho: var(--cor-destaque-vermelho);
+    --dourado: var(--cor-destaque-amarelo);
+    --marrom-claro: var(--cor-fundo-escuro-alternativo);
+    --creme-escuro: var(--cor-faixa);
+ 
+    --fonte-script: var(--fonte-menu);
 }
