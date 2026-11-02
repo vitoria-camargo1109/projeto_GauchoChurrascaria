@@ -1860,6 +1860,7 @@ h2 {
     color: var(--vermelho);
     }
     .nu-titulo {
+    color: var(--texto-escuro);
     font-family: var(--fonte-titulo);
      font-weight: 700;
      text-transform: uppercase;
@@ -1880,6 +1881,7 @@ h2 {
  
 
     .nu-botao {
+    font-family: var(--fonte-links);
     box-sizing: border-box;
     display: inline-block;
     padding: 16px 34px;
@@ -1965,7 +1967,7 @@ h2 {
     .mapa iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 4px; }
  
 
-    .chamada { text-align: center; padding: 100px 0; }
+    .chamada { text-align: center; padding: 5rem 0; }
     .chamada .nu-botao { margin-top: 32px; }
  
 
@@ -1980,3 +1982,156 @@ h2 {
     @media (prefers-reduced-motion: reduce) {
     .cartao, .nu-botao { transition: none; }
     }
+
+    .qs {
+    background:
+        radial-gradient(ellipse at top, rgba(var(--fc-vermelho-rgb), 0.06), transparent 60%),
+        var(--fc-marfim);
+}
+ 
+.qs main {
+    margin-inline: auto;
+    padding: 4rem 1.25rem 6rem;
+    max-width: var(--qs-largura-max);
+    color: var(--fc-texto);
+    font-family: var(--fonte-elegante);
+    font-size: 1.15rem;
+}
+ 
+.qs main > section > h2 {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+ 
+
+.qs main > section > p {
+    margin: 0 auto 3.5rem;
+    max-width: var(--qs-largura-frase);
+    color: var(--fc-vermelho-escuro);
+    font-size: 1.5rem;
+    font-style: italic;
+    line-height: 1.6;
+    text-align: center;
+}
+ 
+.qs main > section > p::after {
+    content: "◆";
+    display: block;
+    width: var(--qs-ornamento-largura);
+    height: 14px;
+    margin: 1.2rem auto 0;
+    color: var(--fc-vermelho);
+    font-family: Arial, sans-serif;
+    font-size: 0.7rem;
+    font-style: normal;
+    line-height: 14px;
+    text-align: center;
+    background:
+        linear-gradient(90deg, transparent, var(--fc-vermelho)) left center / var(--qs-ornamento-linha) 1px no-repeat,
+        linear-gradient(270deg, transparent, var(--fc-vermelho)) right center / var(--qs-ornamento-linha) 1px no-repeat;
+}
+ 
+ 
+.qs main article {
+    padding: clamp(1.75rem, 5vw, 3.5rem);
+    border: var(--qs-borda-card);
+    border-left: var(--qs-borda-destaque);
+    border-radius: var(--qs-raio);
+    background: var(--fc-cartao);
+    box-shadow: var(--qs-sombra-card);
+    transition: box-shadow var(--transicao-media), border-color var(--transicao-media);
+}
+ 
+.qs main article:hover {
+    border-color: var(--fc-vermelho);
+    box-shadow: var(--qs-sombra-card-hover);
+}
+ 
+.qs main article h3 {
+    margin: 0 0 2rem;
+    color: var(--texto-escuro);
+    font-family: var(--fonte-titulo);
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.qs main article h3::after {
+    content: "";
+    display: block;
+    width: 4rem;
+    height: 4px;
+    margin: 0.75rem auto 0;
+    background-color: var(--fc-vermelho);
+}
+ 
+
+.qs main video {
+    display: block;
+    width: 100%;
+    height: auto;                     /* ignora o height="500" do HTML */
+    aspect-ratio: var(--qs-video-proporcao);
+    border-radius: var(--qs-raio);
+    background-color: var(--fc-carvao);
+    box-shadow: var(--qs-sombra-video);
+}
+
+
+.qs main article h4 {
+    margin: 2.5rem 0 0.9rem;
+    color: var(--fc-vermelho-escuro);
+    font-family: var(--fonte-links);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-align: center;
+    text-transform: uppercase;
+}
+ 
+.qs main audio {
+    display: block;
+    width: 100%;
+    margin-bottom: 2.5rem;
+}
+ 
+.qs main audio a {
+    color: var(--fc-vermelho-escuro);
+    font-weight: 700;
+}
+ 
+
+.qs main article p {
+    margin: 0 0 1.25rem;
+    color: var(--fc-texto);
+    line-height: 1.85;
+}
+ 
+
+.qs main audio + p::first-letter {
+    float: left;
+    padding: 0.2rem 0.6rem 0 0;
+    color: var(--fc-vermelho);
+    font-family: var(--fonte-titulo);
+    font-size: var(--qs-letra-capitular);
+    font-weight: 700;
+    line-height: 0.8;
+}
+ 
+
+.qs main article > p:last-child {
+    margin: 2rem 0 0;
+    padding-top: 1.75rem;
+    border-top: var(--qs-borda-card);
+    color: var(--fc-vermelho-escuro);
+    font-size: 1.35rem;
+    font-style: italic;
+    font-weight: 700;
+    text-align: center;
+}
