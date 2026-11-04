@@ -2169,3 +2169,251 @@ n{
     font-weight: 700;
     text-align: center;
 }
+
+/* ==========================================================================
+   7. DELIVERY  (<body class="pagina-delivery">)
+   Fundo claro, cartões sem borda (só sombra suave), botão vinho.
+   ========================================================================== */
+
+.pagina-delivery {
+    background:
+        radial-gradient(ellipse at top, rgba(var(--fc-vermelho-rgb), 0.06), transparent 60%),
+        var(--fc-marfim);
+}
+
+.pagina-delivery main {
+    display: grid;
+    gap: 4.5rem;
+    margin-inline: auto;
+    padding: 4rem 1.25rem 6rem;
+    max-width: var(--dep-largura-max);
+    color: var(--fc-texto);
+    font-family: var(--fonte-elegante);
+    font-size: 1.15rem;
+}
+
+/* ---------- Abertura ---------- */
+
+.pagina-delivery .delivery-abertura {
+    text-align: center;
+}
+
+.pagina-delivery .delivery-chamada {
+    margin-bottom: 0.5rem;
+    color: var(--fc-texto-suave);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+}
+
+.pagina-delivery main h2 {
+    margin-bottom: 1rem;
+    color: var(--fc-vermelho-escuro);
+    font-family: var(--fonte-cursiva);
+    font-size: clamp(3rem, 8vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+.pagina-delivery .delivery-intro {
+    margin: 0 auto 2rem;
+    max-width: 34rem;
+    color: var(--fc-texto-suave);
+    font-size: 1.45rem;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+/* ---------- Botões (sem borda) ---------- */
+
+.pagina-delivery .delivery-botao,
+.pagina-delivery .delivery-botao-escuro {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border-radius: var(--fc-raio);
+    font-family: var(--fonte-elegante);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color var(--transicao-media), transform var(--transicao-media),
+                box-shadow var(--transicao-media);
+}
+
+.pagina-delivery .delivery-botao {
+    background-color: var(--fc-vermelho-escuro);
+    color: var(--fc-branco);
+}
+
+.pagina-delivery .delivery-botao:hover {
+    background-color: var(--fc-vermelho);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(var(--fc-vermelho-rgb), 0.25);
+}
+
+.pagina-delivery .delivery-botao-escuro {
+    background-color: var(--fc-texto);
+    color: var(--fc-marfim);
+}
+
+.pagina-delivery .delivery-botao-escuro:hover {
+    background-color: var(--fc-carvao);
+    transform: translateY(-2px);
+}
+
+.pagina-delivery .delivery-botao:focus-visible,
+.pagina-delivery .delivery-botao-escuro:focus-visible {
+    outline: 3px solid var(--fc-texto);
+    outline-offset: 3px;
+}
+
+/* ---------- Títulos das seções ---------- */
+
+.pagina-delivery main h3 {
+    color: var(--fc-vermelho-escuro);
+    font-family: var(--fonte-cursiva);
+    font-size: 2.6rem;
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+.pagina-delivery .delivery-passos > h3 {
+    margin-bottom: 2rem;
+    font-size: clamp(2.4rem, 6vw, 3.2rem);
+    text-align: center;
+}
+
+/* ---------- Como pedir: 3 passos numerados ---------- */
+
+.pagina-delivery .delivery-passos ol {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    list-style: none;
+    counter-reset: passo;
+}
+
+.pagina-delivery .delivery-passos li {
+    counter-increment: passo;
+    padding: 2rem 1.75rem;
+    border-radius: var(--fc-raio);
+    background-color: var(--fc-cartao);
+    box-shadow: 0 10px 26px rgba(var(--fc-texto-rgb), 0.08);
+    transition: transform var(--transicao-media), box-shadow var(--transicao-media);
+}
+
+.pagina-delivery .delivery-passos li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 34px rgba(var(--fc-texto-rgb), 0.14);
+}
+
+.pagina-delivery .delivery-passos li::before {
+    content: counter(passo);
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--fc-vermelho-escuro);
+    font-family: var(--fonte-cursiva);
+    font-size: 3.5rem;
+    line-height: 1;
+}
+
+.pagina-delivery .delivery-passos h4 {
+    margin-bottom: 0.4rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.pagina-delivery .delivery-passos li p {
+    color: var(--fc-texto-suave);
+    line-height: 1.6;
+}
+
+/* ---------- Horário e região ---------- */
+
+.pagina-delivery .delivery-infos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.pagina-delivery .delivery-infos article {
+    padding: 2rem 1.75rem;
+    border-radius: var(--fc-raio);
+    background-color: var(--fc-cartao);
+    box-shadow: 0 10px 26px rgba(var(--fc-texto-rgb), 0.08);
+}
+
+.pagina-delivery .delivery-infos h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
+    font-size: 2.2rem;
+}
+
+.pagina-delivery .delivery-infos i {
+    font-family: "bootstrap-icons";
+    font-size: 1.4rem;
+}
+
+.pagina-delivery .delivery-infos p {
+    line-height: 1.6;
+}
+
+/* ---------- Vinhos ---------- */
+
+.pagina-delivery .delivery-vinhos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 2.5rem 2.5rem;
+    border-radius: var(--fc-raio);
+    background-color: var(--cor-faixa);
+}
+
+.pagina-delivery .delivery-vinhos h3 {
+    margin-bottom: 0.4rem;
+}
+
+.pagina-delivery .delivery-vinhos p {
+    color: var(--fc-texto-suave);
+}
+
+/* ---------- Celular ---------- */
+
+@media (max-width: 700px) {
+
+    .pagina-delivery main {
+        gap: 3.5rem;
+        font-size: 1.05rem;
+    }
+
+    .pagina-delivery .delivery-passos ol,
+    .pagina-delivery .delivery-infos {
+        grid-template-columns: 1fr;
+    }
+
+    .pagina-delivery .delivery-vinhos {
+        padding: 2rem 1.5rem;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .pagina-delivery .delivery-botao {
+        width: 100%;
+        padding-inline: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .pagina-delivery .delivery-botao:hover,
+    .pagina-delivery .delivery-botao-escuro:hover,
+    .pagina-delivery .delivery-passos li:hover {
+        transform: none;
+    }
+}
