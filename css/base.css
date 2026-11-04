@@ -1675,6 +1675,7 @@ n{
     max-width: var(--cardapio-largura);
 }
 
+
 /* ---------- Título e introdução ---------- */
 
 .pagina-cardapio main h2 {
@@ -1769,7 +1770,26 @@ n{
     font-weight: 600;
 }
 
+/* Adaptação para celular */
+
+@media (max-width: 700px) {
+    .pagina-cardapio .secao-saladas {
+        padding: 12px;
+    }
+
+    .pagina-cardapio .secao-saladas h3 {
+        margin: -12px -12px 15px;
+    }
+
+    .pagina-cardapio .tabela-saladas th,
+    .pagina-cardapio .tabela-saladas td {
+        padding: 10px 7px;
+        font-size: 13px;
+    }
+}
+
 /* ---------- Tabelas ---------- */
+
 
 .pagina-cardapio table {
     margin-top: 1rem;
@@ -1854,6 +1874,28 @@ n{
     color: var(--cardapio-linha);
 }
 
+/* Adaptação para celular */
+
+@media (max-width: 700px) {
+    .pagina-cardapio .secao-saladas {
+        padding: 12px;
+}
+}
+
+.pagina-cardapio .secao-saladas h3 {
+     margin: -12px -12px 15px;
+}
+
+.pagina-cardapio .tabela-saladas th,
+.pagina-cardapio .tabela-saladas td {
+     padding: 10px 7px;
+     font-size: 13px;
+}
+
+
+
+
+
 /* ---------- Celular ---------- */
 
 @media (max-width: 700px) {
@@ -1881,7 +1923,11 @@ n{
     }
 }
 
+<<<<<<< HEAD
+/* ---------- QUEM SOMOS E NOSSA UNIDADE ---------*/
+=======
     /* ---------- QUEM SOMOS E NOSSA UNIDADE ---------*/
+>>>>>>> origin
     
     .nu-conteudo { width: min(1180px, 92%); margin: 0 auto; }
     .nu-centro { text-align: center; }
@@ -2021,16 +2067,27 @@ n{
     background:
         radial-gradient(ellipse at top, rgba(var(--fc-vermelho-rgb), 0.06), transparent 60%),
         var(--fc-marfim);
+<<<<<<< HEAD
+    }
+ 
+ .qs main 
+{
+=======
 }
  
 .qs main {
+>>>>>>> origin
     margin-inline: auto;
     padding: 4rem 1.25rem 6rem;
     max-width: var(--qs-largura-max);
     color: var(--fc-texto);
     font-family: var(--fonte-elegante);
     font-size: 1.15rem;
+<<<<<<< HEAD
+ }
+=======
 }
+>>>>>>> origin
  
 .qs main > section > h2 {
     position: absolute;
@@ -2159,7 +2216,12 @@ n{
 }
  
 
+<<<<<<< HEAD
+.qs main article > p:last-child 
+{
+=======
 .qs main article > p:last-child {
+>>>>>>> origin
     margin: 2rem 0 0;
     padding-top: 1.75rem;
     border-top: var(--qs-borda-card);
@@ -2168,4 +2230,8 @@ n{
     font-style: italic;
     font-weight: 700;
     text-align: center;
+<<<<<<< HEAD
+};
+=======
 }
+>>>>>>> origin
