@@ -1903,7 +1903,9 @@ h2 {
 
 
 /* ---------- 6.5 Botões para virar as páginas ---------- */
-/* O JavaScript tira o atributo "hidden" da barra */
+/* O JavaScript tira o atributo "hidden" da barra.
+   A barra acompanha a rolagem (sticky) e fica sempre visível na parte de baixo
+   da tela: dá para virar a página sem descer o cardápio todo. */
 
 .pagina-livro .livro-controles {
     position: sticky;
@@ -1913,47 +1915,48 @@ h2 {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 0.75rem 1rem;
+    gap: 0.5rem 0.75rem;
     width: fit-content;
     max-width: 100%;
-    margin: 2.5rem auto 0;
-    padding: 0.75rem 1.5rem;
+    margin: 2rem auto 0;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid rgba(var(--fc-vermelho-rgb), 0.35);
     border-radius: 999px;
-    background-color: var(--cor-fundo-escuro);
-    background-image: var(--degrade-menu-rodape), var(--img-menu-rodape);    /* mesma textura do menu e do rodapé */
-    background-size: cover;
-    background-position: center;
-    box-shadow: 0 14px 30px rgba(var(--fc-carvao-rgb), 0.35);
-    color: var(--fc-marfim);
+    background-color: rgba(255, 253, 248, 0.95);      /* mesmo creme do livro, quase opaco */
+    box-shadow: 0 8px 24px rgba(var(--fc-texto-rgb), 0.18);
+    backdrop-filter: blur(6px);
+    color: var(--fc-texto);
 }
 
 .pagina-livro .livro-controles[hidden] {
     display: none;
 }
 
+/* Botões: contorno vinho, preenchem no hover (altura mínima de 44px para o toque) */
 .pagina-livro .livro-controles button {
-    padding: 0.55rem 1.25rem;
-    border: 1px solid var(--fc-marfim);
+    min-height: 2.75rem;
+    padding: 0.5rem 1.25rem;
+    border: 1px solid var(--fc-vermelho-escuro);
     border-radius: 999px;
     background: transparent;
-    color: var(--fc-marfim);
+    color: var(--fc-vermelho-escuro);
     font-family: var(--fonte-elegante);
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     cursor: pointer;
     transition: background-color var(--transicao-media), color var(--transicao-media);
 }
 
 .pagina-livro .livro-controles button:hover:not(:disabled) {
-    background-color: var(--fc-marfim);
-    color: var(--fc-carvao);
+    background-color: var(--fc-vermelho-escuro);
+    color: var(--fc-branco);
 }
 
 .pagina-livro .livro-controles button:focus-visible {
-    outline: 2px solid var(--fc-branco);
-    outline-offset: 3px;
+    outline: 3px solid var(--fc-texto);
+    outline-offset: 2px;
 }
 
 .pagina-livro .livro-controles button:disabled {
@@ -1961,9 +1964,11 @@ h2 {
     cursor: not-allowed;
 }
 
+/* Texto "Bebidas · página 9 de 13" */
 .pagina-livro .livro-indicador {
-    min-width: 12rem;
+    min-width: 11rem;
     margin: 0;
+    color: var(--fc-texto-suave);
     font-size: 1.05rem;
     font-style: italic;
     text-align: center;
@@ -1971,38 +1976,38 @@ h2 {
 
 
 /* ---------- 6.6 Animação de virar a página ---------- */
+/* Limpa e rápida: a folha nova só desliza um pouco e aparece (fade).
+   O js/cardapio.js coloca e tira estas classes. */
 
 .pagina-livro .virando-proxima {
-    transform-origin: left center;
-    animation: virar-proxima 0.6s ease-out;
+    animation: folha-proxima 0.35s ease-out;
 }
 
 .pagina-livro .virando-anterior {
-    transform-origin: right center;
-    animation: virar-anterior 0.6s ease-out;
+    animation: folha-anterior 0.35s ease-out;
 }
 
-@keyframes virar-proxima {
+@keyframes folha-proxima {
     from {
         opacity: 0;
-        transform: perspective(1400px) rotateY(-60deg);
+        transform: translateX(1.25rem);
     }
 
     to {
         opacity: 1;
-        transform: perspective(1400px) rotateY(0);
+        transform: none;
     }
 }
 
-@keyframes virar-anterior {
+@keyframes folha-anterior {
     from {
         opacity: 0;
-        transform: perspective(1400px) rotateY(60deg);
+        transform: translateX(-1.25rem);
     }
 
     to {
         opacity: 1;
-        transform: perspective(1400px) rotateY(0);
+        transform: none;
     }
 }
 
@@ -2050,22 +2055,26 @@ h2 {
         font-size: 1.15rem;
     }
 
+    /* Barra mais compacta: o indicador fica em cima e os 3 botões embaixo */
     .pagina-livro .livro-controles {
-        gap: 0.5rem;
-        padding: 0.6rem 0.9rem;
+        width: calc(100% - 1rem);
+        gap: 0.4rem;
+        padding: 0.5rem;
         border-radius: var(--fc-raio);
     }
 
     .pagina-livro .livro-controles button {
-        padding: 0.5rem 0.8rem;
+        flex: 1 1 0;
+        padding: 0.5rem 0.4rem;
         font-size: 0.8rem;
-        letter-spacing: 0.06em;
+        letter-spacing: 0.04em;
     }
 
     .pagina-livro .livro-indicador {
         order: -1;                    /* o texto da página fica em cima dos botões */
         width: 100%;
         min-width: 0;
+        font-size: 0.95rem;
     }
 }
 
@@ -2323,7 +2332,7 @@ h2 {
    8. CARTA DE VINHOS  (<body class="pagina-panfleto">)
       Panfleto de 3 dobras: topo, uma coluna por país e rodapé de avisos.
       Fundo, layout e título vêm da seção 4; a frase de apresentação, da 6.1.
-      Mesmo fundo escuro e mesma textura do menu, do rodapé e dos formulários.
+      Folha clara com a imagem fundo-vinho.png ao fundo (variável --img-fundo-vinho).
 
    8.1 Panfleto
    8.2 Tablet e celular
@@ -2331,29 +2340,32 @@ h2 {
 
 /* ---------- 8.1 Panfleto ---------- */
 
+/* Folha creme: a imagem fica por baixo e uma película clara por cima garante a leitura.
+   Para a imagem aparecer mais, diminua o 0.88 (ex.: 0.7); para aparecer menos, aumente. */
 .pagina-panfleto .panfleto {
     position: relative;
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     padding: clamp(1.5rem, 4vw, 3rem);
+    border: 1px solid rgba(var(--fc-texto-rgb), 0.15);
     border-radius: var(--fc-raio);
-    background-color: var(--cor-fundo-escuro);
-    background-image: var(--degrade-menu-rodape), var(--img-menu-rodape);
-    background-size: cover;
+    background-color: var(--fc-cartao);
+    background-image:
+        linear-gradient(rgba(255, 253, 248, 0.6), rgba(255, 253, 248, 0.6)),
+        var(--img-fundo-vinho);
     background-position: center;
-    box-shadow:
-        0 30px 60px rgba(var(--fc-carvao-rgb), 0.35),
-        0 0 0 1px rgba(var(--fc-marfim-rgb), 0.25);
-    color: var(--fc-marfim);
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0 24px 50px rgba(var(--fc-texto-rgb), 0.18);
+    color: var(--fc-texto);
 }
 
-/* Moldura dourada interna */
+/* Moldura fina vinho dentro da folha */
 .pagina-panfleto .panfleto::before {
     content: "";
     position: absolute;
     inset: 10px;
-    border: 1px solid var(--cor-destaque-amarelo);
-    opacity: 0.45;
+    border: 1px solid rgba(var(--fc-vermelho-rgb), 0.35);
     pointer-events: none;
 }
 
@@ -2366,7 +2378,7 @@ h2 {
 
 .pagina-panfleto .panfleto-marca {
     margin-bottom: 0.25rem;
-    color: var(--cor-destaque-amarelo);
+    color: var(--fc-vermelho-escuro);
     font-size: 0.95rem;
     font-weight: 700;
     letter-spacing: 0.35em;
@@ -2375,7 +2387,7 @@ h2 {
 
 .pagina-panfleto .panfleto-frase {
     margin: 0 0 2rem;
-    color: var(--fc-marfim);
+    color: var(--fc-texto);
     font-family: var(--fonte-cursiva);
     font-size: clamp(2.2rem, 5vw, 3.2rem);
     line-height: 1.2;
@@ -2387,11 +2399,11 @@ h2 {
 }
 
 .pagina-panfleto .panfleto-pais + .panfleto-pais {
-    border-left: 1px dashed var(--borda-divisores);       /* a "dobra" */
+    border-left: 1px dashed rgba(var(--fc-vermelho-rgb), 0.35);   /* a "dobra" */
 }
 
 .pagina-panfleto .panfleto-pais h3 {
-    color: var(--cor-destaque-amarelo);
+    color: var(--fc-vermelho-escuro);
     font-family: var(--fonte-cursiva);
     font-size: 3rem;
     font-weight: 400;
@@ -2401,7 +2413,7 @@ h2 {
 
 .pagina-panfleto .pais-resumo {
     margin-bottom: 1.5rem;
-    color: var(--texto-claro-suave);
+    color: var(--fc-texto-suave);
     font-size: 0.85rem;
     letter-spacing: 0.22em;
     text-align: center;
@@ -2424,31 +2436,31 @@ h2 {
     column-gap: 1rem;
     align-items: center;
     padding-bottom: 0.9rem;
-    border-bottom: 1px dotted var(--borda-divisores);
+    border-bottom: 1px dotted rgba(var(--fc-texto-rgb), 0.35);
     transition: border-color var(--transicao-media);
 }
 
 .pagina-panfleto .lista-vinhos li:hover {
-    border-bottom-color: var(--cor-destaque-amarelo);
+    border-bottom-color: var(--fc-vermelho);
 }
 
 .pagina-panfleto .lista-vinhos strong {
     grid-area: nome;
-    color: var(--fc-marfim);
+    color: var(--fc-texto);
     font-size: 1.4rem;
     line-height: 1.2;
 }
 
 .pagina-panfleto .lista-vinhos em {
     grid-area: uva;
-    color: var(--texto-claro-suave);
+    color: var(--fc-texto-suave);
     font-size: 1rem;
     line-height: 1.3;
 }
 
 .pagina-panfleto .lista-vinhos data {
     grid-area: preco;
-    color: var(--cor-destaque-amarelo);
+    color: var(--fc-vermelho-escuro);
     font-size: 1.2rem;
     font-variant-numeric: tabular-nums;
     font-weight: 700;
@@ -2458,13 +2470,13 @@ h2 {
 /* Avisos e botões */
 .pagina-panfleto .panfleto-avisos {
     padding-top: 1.75rem;
-    border-top: 1px solid var(--borda-divisores);
+    border-top: 1px solid rgba(var(--fc-vermelho-rgb), 0.35);
 }
 
 .pagina-panfleto .panfleto-avisos p {
     margin: 0 auto 0.5rem;
     max-width: 36rem;
-    color: var(--texto-claro-suave);
+    color: var(--fc-texto-suave);
     font-size: 1.1rem;
     font-style: italic;
     line-height: 1.6;
@@ -2479,11 +2491,12 @@ h2 {
     list-style: none;
 }
 
+/* Botões: contorno vinho, preenchem no hover */
 .pagina-panfleto .panfleto-botoes a {
     display: inline-block;
     padding: 0.9rem 2.25rem;
-    border: 1px solid var(--fc-marfim);
-    color: var(--fc-marfim);
+    border: 1px solid var(--fc-vermelho-escuro);
+    color: var(--fc-vermelho-escuro);
     font-size: 0.95rem;
     font-weight: 700;
     letter-spacing: 0.25em;
@@ -2493,12 +2506,12 @@ h2 {
 }
 
 .pagina-panfleto .panfleto-botoes a:hover {
-    background-color: var(--fc-marfim);
-    color: var(--fc-carvao);
+    background-color: var(--fc-vermelho-escuro);
+    color: var(--fc-branco);
 }
 
 .pagina-panfleto .panfleto-botoes a:focus-visible {
-    outline: 2px solid var(--fc-branco);
+    outline: 2px solid var(--fc-vermelho);
     outline-offset: 4px;
 }
 
@@ -2512,7 +2525,7 @@ h2 {
     }
 
     .pagina-panfleto .panfleto-pais + .panfleto-pais {
-        border-top: 1px dashed var(--borda-divisores);
+        border-top: 1px dashed rgba(var(--fc-vermelho-rgb), 0.35);
         border-left: 0;
     }
 
