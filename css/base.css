@@ -100,7 +100,7 @@ h2 {
 
 .pagina-reserva main,
 .pagina-fale-conosco main,
-n{
+.pagina-depoimentos main {
     margin-inline: auto;
     padding: 4rem 1.25rem 6rem;
     color: var(--fc-texto);
@@ -113,15 +113,19 @@ n{
     max-width: var(--fc-largura-max);
 }
 
-
+.pagina-depoimentos main {
+    max-width: var(--dep-largura-max);
+}
 
 .pagina-reserva main > * + *,
 .pagina-fale-conosco main > * + * {
     margin-top: 4rem;
 }
 
-
-
+/* O banner já mostra o título da página, então o h2 do meio fica escondido (só nos Depoimentos) */
+.pagina-depoimentos main > section > h2 {
+    display: none;
+}
 
 /* Âncora do rodapé (link "no rodapé desta página") */
 .pagina-reserva #rodape,
@@ -525,212 +529,174 @@ n{
     }
 }
 
-/* ---------- 4.8 Depoimentos: títulos e grade ---------- */
-/* Usa o mesmo visual dos cards da página inicial, sobre o fundo creme */
+/* ---------- 4.8 Depoimentos: introdução e cartões ---------- */
 
-.pagina-depoimentos main {
-    padding: 4rem max(1.5rem, calc((100% - var(--largura-conteudo)) / 2)) 5rem;
-    color: var(--texto-escuro);
-    font-family: var(--fonte-links);
+/* Texto de introdução com ornamento */
+.pagina-depoimentos main > section > p {
+    margin: 0 0 3.5rem;
+    color: var(--fc-vermelho-escuro);
+    font-size: 1.5rem;
+    font-style: italic;
+    line-height: 1.6;
     text-align: center;
 }
 
-.pagina-depoimentos .dep-chamada {
-    margin-bottom: 0.25rem;
-    color: var(--cor-destaque-vermelho);
-    font-family: var(--fonte-menu);
-    font-size: 1.75rem;
-    line-height: 1.2;
-}
-
-.pagina-depoimentos main h2 {
-    margin-bottom: 1rem;
-    color: var(--texto-escuro);
-    font-family: var(--fonte-titulo);
-    font-size: clamp(2rem, 5vw, 3.25rem);
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    line-height: 1.1;
-    text-transform: uppercase;
-}
-
-/* Barrinha vermelha embaixo do título */
-.pagina-depoimentos main h2::after {
-    content: "";
+.pagina-depoimentos main > section > p::after {
+    content: "◆";
     display: block;
-    width: 4rem;
-    height: 4px;
-    margin: 0.75rem auto 0;
-    background-color: var(--cor-destaque-vermelho);
+    width: 200px;
+    height: 14px;
+    margin: 1.2rem auto 0;
+    color: var(--fc-vermelho);
+    font-family: Arial, sans-serif;
+    font-size: 0.7rem;
+    font-style: normal;
+    line-height: 14px;
+    text-align: center;
+    background:
+        linear-gradient(90deg, transparent, var(--fc-vermelho)) left center / 85px 1px no-repeat,
+        linear-gradient(270deg, transparent, var(--fc-vermelho)) right center / 85px 1px no-repeat;
 }
 
-.pagina-depoimentos .intro {
-    max-width: 60ch;
-    margin-inline: auto;
-    font-size: 1.05rem;
-    line-height: 1.6;
-}
-
-.pagina-depoimentos .grade-depoimentos {
+/* Cartão: nome à esquerda, estrelas à direita */
+.pagina-depoimentos main article {
+    position: relative;
+    overflow: hidden;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: var(--gap-carrossel);
-    align-items: start;              /* só o card aberto cresce */
-    margin-top: 2.5rem;
-    list-style: none;
-}
-
-
-/* ---------- 4.9 Depoimentos: cartão e botão "Ver detalhes" ---------- */
-
-.pagina-depoimentos .cartao-depoimento {
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: 1fr auto;
     align-items: center;
-    gap: 0.75rem;
-    height: 100%;
-    padding: 1.5rem 1.25rem;
-    border: 1px solid rgba(28, 20, 17, 0.12);
-    border-top: 4px solid var(--cor-destaque-vermelho);
-    border-radius: var(--raio-cartao);
-    background-color: var(--cor-cartao);
-    box-shadow: var(--sombra-cartao);
-    color: var(--texto-escuro);
-    transition: transform 0.35s, box-shadow 0.35s, border-color 0.35s;
+    column-gap: 1.5rem;
+    row-gap: 0.25rem;
+    margin-bottom: 1.75rem;
+    padding: 2rem 2.25rem;
+    border: 1px solid rgba(var(--fc-vermelho-rgb), 0.25);
+    border-left: 5px solid var(--fc-vermelho);
+    border-radius: var(--dep-raio);
+    background: var(--fc-cartao);
+    box-shadow: 0 10px 26px rgba(var(--fc-texto-rgb), 0.07);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
 }
 
-.pagina-depoimentos .cartao-depoimento:hover {
-    transform: translateY(-0.5rem);
-    border-top-color: var(--cor-destaque-amarelo);
-    box-shadow: 0 16px 32px rgba(28, 20, 17, 0.2);
+/* Aspas decorativas de fundo */
+.pagina-depoimentos main article::before {
+    content: "\201C";
+    position: absolute;
+    top: -0.5rem;
+    right: 1.25rem;
+    color: rgba(var(--fc-vermelho-rgb), 0.09);
+    font-family: Georgia, serif;
+    font-size: 9rem;
+    line-height: 1;
+    pointer-events: none;
 }
 
-/* Círculo com a inicial do cliente */
-.pagina-depoimentos .avatar {
-    display: grid;
-    place-items: center;
-    width: 3.5rem;
-    height: 3.5rem;
-    border-radius: 50%;
-    background-color: var(--hover-vinho);
-    color: var(--texto-claro);
-    font-family: var(--fonte-titulo);
-    font-size: 1.6rem;
+.pagina-depoimentos main article > * {
+    position: relative;
+}
+
+.pagina-depoimentos main article:hover {
+    transform: translateY(-3px);
+    border-color: var(--fc-vermelho);
+    box-shadow: 0 20px 40px rgba(var(--fc-texto-rgb), 0.14);
+}
+
+/* Cartão aberto fica em destaque */
+.pagina-depoimentos main article:has(details[open]) {
+    border-color: rgba(var(--fc-vermelho-rgb), 0.5);
+    box-shadow: 0 20px 40px rgba(var(--fc-texto-rgb), 0.14);
+}
+
+/* Nome e estrelas */
+.pagina-depoimentos main article h3 {
+    margin: 0;
+    color: var(--fc-vermelho-escuro);
+    font-family: var(--fonte-elegante);
+    font-size: 1.7rem;
     font-weight: 700;
 }
 
-.pagina-depoimentos .cartao-depoimento h3 {
+.pagina-depoimentos main article h3 + p {
+    margin: 0;
+    color: var(--fc-texto-suave);
     font-size: 1rem;
-    font-weight: 700;
+    text-align: right;
 }
 
-.pagina-depoimentos .cartao-depoimento blockquote {
-    font-size: 0.95rem;
-    line-height: 1.55;
+.pagina-depoimentos main article details {
+    grid-column: 1 / -1;
+    margin-top: 1.25rem;
 }
 
-.pagina-depoimentos .origem-avaliacao {
-    color: var(--texto-secundario);
-    font-size: 0.85rem;
-}
 
-.pagina-depoimentos details {
-    width: 100%;
-    margin-top: 0.25rem;
-}
+/* ---------- 4.9 Depoimentos: botão "Ver depoimento" (formato pílula) ---------- */
 
-.pagina-depoimentos summary {
+.pagina-depoimentos main summary {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.55rem 1.3rem;
-    border: 2px solid var(--cor-destaque-vermelho);
-    border-radius: 2px;
-    color: var(--cor-destaque-vermelho);
-    font-size: 0.78rem;
+    gap: 0.6rem;
+    padding: 0.6rem 1.4rem;
+    border: 1px solid var(--fc-vermelho);
+    border-radius: 999px;
+    color: var(--fc-vermelho);
+    font-size: 0.85rem;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.18em;
     list-style: none;
     text-transform: uppercase;
     cursor: pointer;
-    transition: background-color var(--transicao-rapida), color var(--transicao-rapida);
+    transition: background 0.3s, color 0.3s;
 }
 
-.pagina-depoimentos summary::-webkit-details-marker {
+.pagina-depoimentos main summary::-webkit-details-marker {
     display: none;
 }
 
-.pagina-depoimentos summary::after {
+.pagina-depoimentos main summary::after {
     content: "+";
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     line-height: 1;
 }
 
-.pagina-depoimentos summary:hover,
-.pagina-depoimentos details[open] summary {
-    background-color: var(--cor-destaque-vermelho);
-    color: var(--texto-claro);
+.pagina-depoimentos main summary:hover,
+.pagina-depoimentos main details[open] summary {
+    background: var(--fc-vermelho);
+    color: var(--fc-branco);
 }
 
-.pagina-depoimentos details[open] summary::after {
+.pagina-depoimentos main details[open] summary {
+    margin-bottom: 1.5rem;
+}
+
+.pagina-depoimentos main details[open] summary::after {
     content: "\2212";                /* sinal de menos */
 }
 
-.pagina-depoimentos summary:focus-visible {
-    outline: 3px solid var(--cor-destaque-amarelo);
+.pagina-depoimentos main summary:focus-visible {
+    outline: 2px solid var(--fc-vermelho);
     outline-offset: 3px;
 }
 
-.pagina-depoimentos details p {
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    line-height: 1.55;
-    text-align: left;
-}
 
-.pagina-depoimentos details ul {
-    display: grid;
-    gap: 0.35rem;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--texto-secundario);
-    font-size: 0.82rem;
-    list-style: none;
-    text-align: left;
-}
-
-.pagina-depoimentos details li::before {
-    content: "◆ ";
-    color: var(--cor-destaque-vermelho);
-    font-size: 0.6rem;
-}
-
-
-/* ---------- 4.10 Depoimentos: tablet e celular ---------- */
-
-@media (max-width: 900px) {
-    .pagina-depoimentos .grade-depoimentos {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-}
+/* ---------- 4.10 Depoimentos: celular (até 700px) ---------- */
 
 @media (max-width: 700px) {
+
     .pagina-depoimentos main {
-        padding-block: 3rem;
+        font-size: 1.05rem;
     }
 
-    .pagina-depoimentos .grade-depoimentos {
+    .pagina-depoimentos main > section > p {
+        font-size: 1.25rem;
+    }
+
+    /* Nome em cima, estrelas embaixo */
+    .pagina-depoimentos main article {
         grid-template-columns: 1fr;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .pagina-depoimentos .cartao-depoimento {
-        transition: none;
+        padding: 1.5rem 1.25rem;
     }
 
-    .pagina-depoimentos .cartao-depoimento:hover {
-        transform: none;
+    .pagina-depoimentos main article h3 + p {
+        text-align: left;
     }
 }
 
@@ -1675,7 +1641,6 @@ n{
     max-width: var(--cardapio-largura);
 }
 
-
 /* ---------- Título e introdução ---------- */
 
 .pagina-cardapio main h2 {
@@ -1770,26 +1735,7 @@ n{
     font-weight: 600;
 }
 
-/* Adaptação para celular */
-
-@media (max-width: 700px) {
-    .pagina-cardapio .secao-saladas {
-        padding: 12px;
-    }
-
-    .pagina-cardapio .secao-saladas h3 {
-        margin: -12px -12px 15px;
-    }
-
-    .pagina-cardapio .tabela-saladas th,
-    .pagina-cardapio .tabela-saladas td {
-        padding: 10px 7px;
-        font-size: 13px;
-    }
-}
-
 /* ---------- Tabelas ---------- */
-
 
 .pagina-cardapio table {
     margin-top: 1rem;
@@ -1874,32 +1820,253 @@ n{
     color: var(--cardapio-linha);
 }
 
-/* Adaptação para celular */
+/* ==========================================================================
+   7. DELIVERY  (<body class="pagina-delivery">)
+   Fundo claro, cartões sem borda (só sombra suave), botão vinho.
+   ========================================================================== */
 
-@media (max-width: 700px) {
-    .pagina-cardapio .secao-saladas {
-        padding: 12px;
-}
-}
-
-.pagina-cardapio .secao-saladas h3 {
-     margin: -12px -12px 15px;
-}
-
-.pagina-cardapio .tabela-saladas th,
-.pagina-cardapio .tabela-saladas td {
-     padding: 10px 7px;
-     font-size: 13px;
+.pagina-delivery {
+    background:
+        radial-gradient(ellipse at top, rgba(var(--fc-vermelho-rgb), 0.06), transparent 60%),
+        var(--fc-marfim);
 }
 
+.pagina-delivery main {
+    display: grid;
+    gap: 4.5rem;
+    margin-inline: auto;
+    padding: 4rem 1.25rem 6rem;
+    max-width: var(--dep-largura-max);
+    color: var(--fc-texto);
+    font-family: var(--fonte-elegante);
+    font-size: 1.15rem;
+}
 
+/* ---------- Abertura ---------- */
 
+.pagina-delivery .delivery-abertura {
+    text-align: center;
+}
 
+.pagina-delivery .delivery-chamada {
+    margin-bottom: 0.5rem;
+    color: var(--fc-texto-suave);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+}
+
+.pagina-delivery main h2 {
+    margin-bottom: 1rem;
+    color: var(--fc-vermelho-escuro);
+    font-family: var(--fonte-cursiva);
+    font-size: clamp(3rem, 8vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+.pagina-delivery .delivery-intro {
+    margin: 0 auto 2rem;
+    max-width: 34rem;
+    color: var(--fc-texto-suave);
+    font-size: 1.45rem;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+/* ---------- Botões (sem borda) ---------- */
+
+.pagina-delivery .delivery-botao,
+.pagina-delivery .delivery-botao-escuro {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border-radius: var(--fc-raio);
+    font-family: var(--fonte-elegante);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color var(--transicao-media), transform var(--transicao-media),
+                box-shadow var(--transicao-media);
+}
+
+.pagina-delivery .delivery-botao {
+    background-color: var(--fc-vermelho-escuro);
+    color: var(--fc-branco);
+}
+
+.pagina-delivery .delivery-botao:hover {
+    background-color: var(--fc-vermelho);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(var(--fc-vermelho-rgb), 0.25);
+}
+
+.pagina-delivery .delivery-botao-escuro {
+    background-color: var(--fc-texto);
+    color: var(--fc-marfim);
+}
+
+.pagina-delivery .delivery-botao-escuro:hover {
+    background-color: var(--fc-carvao);
+    transform: translateY(-2px);
+}
+
+.pagina-delivery .delivery-botao:focus-visible,
+.pagina-delivery .delivery-botao-escuro:focus-visible {
+    outline: 3px solid var(--fc-texto);
+    outline-offset: 3px;
+}
+
+/* ---------- Títulos das seções ---------- */
+
+.pagina-delivery main h3 {
+    color: var(--fc-vermelho-escuro);
+    font-family: var(--fonte-cursiva);
+    font-size: 2.6rem;
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+.pagina-delivery .delivery-passos > h3 {
+    margin-bottom: 2rem;
+    font-size: clamp(2.4rem, 6vw, 3.2rem);
+    text-align: center;
+}
+
+/* ---------- Como pedir: 3 passos numerados ---------- */
+
+.pagina-delivery .delivery-passos ol {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+    list-style: none;
+    counter-reset: passo;
+}
+
+.pagina-delivery .delivery-passos li {
+    counter-increment: passo;
+    padding: 2rem 1.75rem;
+    border-radius: var(--fc-raio);
+    background-color: var(--fc-cartao);
+    box-shadow: 0 10px 26px rgba(var(--fc-texto-rgb), 0.08);
+    transition: transform var(--transicao-media), box-shadow var(--transicao-media);
+}
+
+.pagina-delivery .delivery-passos li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 34px rgba(var(--fc-texto-rgb), 0.14);
+}
+
+.pagina-delivery .delivery-passos li::before {
+    content: counter(passo);
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--fc-vermelho-escuro);
+    font-family: var(--fonte-cursiva);
+    font-size: 3.5rem;
+    line-height: 1;
+}
+
+.pagina-delivery .delivery-passos h4 {
+    margin-bottom: 0.4rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.pagina-delivery .delivery-passos li p {
+    color: var(--fc-texto-suave);
+    line-height: 1.6;
+}
+
+/* ---------- Horário e região ---------- */
+
+.pagina-delivery .delivery-infos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.pagina-delivery .delivery-infos article {
+    padding: 2rem 1.75rem;
+    border-radius: var(--fc-raio);
+    background-color: var(--fc-cartao);
+    box-shadow: 0 10px 26px rgba(var(--fc-texto-rgb), 0.08);
+}
+
+.pagina-delivery .delivery-infos h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
+    font-size: 2.2rem;
+}
+
+.pagina-delivery .delivery-infos i {
+    font-family: "bootstrap-icons";
+    font-size: 1.4rem;
+}
+
+.pagina-delivery .delivery-infos p {
+    line-height: 1.6;
+}
+
+/* ---------- Vinhos ---------- */
+
+.pagina-delivery .delivery-vinhos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 2.5rem 2.5rem;
+    border-radius: var(--fc-raio);
+    background-color: var(--cor-faixa);
+}
+
+.pagina-delivery .delivery-vinhos h3 {
+    margin-bottom: 0.4rem;
+}
+
+.pagina-delivery .delivery-vinhos p {
+    color: var(--fc-texto-suave);
+}
 
 /* ---------- Celular ---------- */
 
 @media (max-width: 700px) {
 
+    .pagina-delivery main {
+        gap: 3.5rem;
+        font-size: 1.05rem;
+    }
+
+    .pagina-delivery .delivery-passos ol,
+    .pagina-delivery .delivery-infos {
+        grid-template-columns: 1fr;
+    }
+
+    .pagina-delivery .delivery-vinhos {
+        padding: 2rem 1.5rem;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .pagina-delivery .delivery-botao {
+        width: 100%;
+        padding-inline: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .pagina-delivery .delivery-botao:hover,
+    .pagina-delivery .delivery-botao-escuro:hover,
+    .pagina-delivery .delivery-passos li:hover {
+        transform: none;
+    }
+    
     .pagina-cardapio main {
         padding: 3rem 1rem 4rem;
     }
@@ -1922,316 +2089,3 @@ n{
         font-size: 1.15rem;
     }
 }
-
-<<<<<<< HEAD
-/* ---------- QUEM SOMOS E NOSSA UNIDADE ---------*/
-=======
-    /* ---------- QUEM SOMOS E NOSSA UNIDADE ---------*/
->>>>>>> origin
-    
-    .nu-conteudo { width: min(1180px, 92%); margin: 0 auto; }
-    .nu-centro { text-align: center; }
- 
-
-    .nu-sobretitulo {
-    font-family: var(--fonte-script);
-    font-size: 2.1rem;
-    line-height: 1.1;
-    color: var(--vermelho);
-    }
-    .nu-titulo {
-    color: var(--texto-escuro);
-    font-family: var(--fonte-titulo);
-     font-weight: 700;
-     text-transform: uppercase;
-     letter-spacing: 2px;
-     font-size: clamp(2rem, 4.5vw, 3.2rem);
-     line-height: 1.1;
-    }
-    .nu-titulo::after {
-    content: "";
-    display: block;
-    width: 80px;
-    height: 4px;
-    margin-top: 14px;
-    background: var(--vermelho);
-    }
-    .nu-centro .nu-titulo::after { margin-inline: auto; }
-    .nu-intro { max-width: 560px; margin: 18px auto 0; font-size: 1.1rem; }
- 
-
-    .nu-botao {
-    font-family: var(--fonte-links);
-    box-sizing: border-box;
-    display: inline-block;
-    padding: 16px 34px;
-    background: var(--vermelho);
-    color: #fff;
-    font-weight: 700;
-    font-size: .95rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 3px;
-    transition: background .25s, transform .25s;
-    }
-    .nu-botao:hover { background: #a60d26; transform: translateY(-2px); }
- 
-
-    .motivos { padding: 100px 0 110px; }
-    .motivos .nu-cabecalho { margin-bottom: 56px; }
-    .grade-motivos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-    .cartao {
-    background: var(--marrom-claro);
-    color: #fff;
-    padding: 44px 32px 38px;
-    border-bottom: 5px solid var(--vermelho);
-    border-radius: 3px;
-    box-shadow: 0 14px 30px rgba(30,21,18,.22);
-    transition: transform .3s, border-color .3s;
-    }
-    .cartao:hover { transform: translateY(-8px); border-color: var(--dourado); }
-    .cartao h3 {
-    font-family: var(--fonte-titulo);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-    color: var(--dourado);
-    }
-    .cartao p { color: rgba(255,255,255,.85); }
- 
-
-    .localizacao { background: var(--creme-escuro); padding: 100px 0 110px; }
-    .localizacao .nu-cabecalho { margin-bottom: 56px; }
-    .localizacao-grade {
-    display: grid;
-    grid-template-columns: 5fr 7fr;
-    gap: 40px;
-    align-items: stretch;
-    }
-    .info {
-    background: var(--marrom-claro);
-    color: #fff;
-    padding: 44px 38px;
-    border-radius: 3px;
-    border-bottom: 5px solid var(--vermelho);
-    }
-    .info h3 {
-    font-family: var(--fonte-script);
-    font-weight: 400;
-    font-size: 2rem;
-    line-height: 1.1;
-    color: var(--dourado);
-    margin-bottom: 6px;
-    }
-    .info .bloco { padding: 20px 0; border-bottom: 1px solid rgba(255,255,255,.14); }
-    .info .bloco:last-of-type { border-bottom: 0; }
-    .info address, .info p { font-style: normal; color: rgba(255,255,255,.88); }
-    .info .destaque-horario {
-    font-family: var(--fonte-titulo);
-    font-size: 1.5rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    color: #fff;
-    }
-    .info .nu-botao { margin-top: 12px; width: 100%; text-align: center; }
- 
-    .mapa {
-    position: relative;
-    min-height: 460px;
-    border-radius: 4px;
-    box-shadow: 16px 16px 0 var(--vermelho);
-    background: var(--marrom);
-    }
-    .mapa iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 4px; }
- 
-
-    .chamada { text-align: center; padding: 5rem 0; }
-    .chamada .nu-botao { margin-top: 32px; }
- 
-
-    @media (max-width: 1000px) {
-    .grade-motivos, .localizacao-grade { grid-template-columns: 1fr; }
-    .mapa { min-height: 380px; }
-    }
-    @media (max-width: 560px) {
-    .mapa { box-shadow: 10px 10px 0 var(--vermelho); }
-    .info { padding: 34px 26px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-    .cartao, .nu-botao { transition: none; }
-    }
-
-    .qs {
-    background:
-        radial-gradient(ellipse at top, rgba(var(--fc-vermelho-rgb), 0.06), transparent 60%),
-        var(--fc-marfim);
-<<<<<<< HEAD
-    }
- 
- .qs main 
-{
-=======
-}
- 
-.qs main {
->>>>>>> origin
-    margin-inline: auto;
-    padding: 4rem 1.25rem 6rem;
-    max-width: var(--qs-largura-max);
-    color: var(--fc-texto);
-    font-family: var(--fonte-elegante);
-    font-size: 1.15rem;
-<<<<<<< HEAD
- }
-=======
-}
->>>>>>> origin
- 
-.qs main > section > h2 {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-}
- 
-
-.qs main > section > p {
-    margin: 0 auto 3.5rem;
-    max-width: var(--qs-largura-frase);
-    color: var(--fc-vermelho-escuro);
-    font-size: 1.5rem;
-    font-style: italic;
-    line-height: 1.6;
-    text-align: center;
-}
- 
-.qs main > section > p::after {
-    content: "◆";
-    display: block;
-    width: var(--qs-ornamento-largura);
-    height: 14px;
-    margin: 1.2rem auto 0;
-    color: var(--fc-vermelho);
-    font-family: Arial, sans-serif;
-    font-size: 0.7rem;
-    font-style: normal;
-    line-height: 14px;
-    text-align: center;
-    background:
-        linear-gradient(90deg, transparent, var(--fc-vermelho)) left center / var(--qs-ornamento-linha) 1px no-repeat,
-        linear-gradient(270deg, transparent, var(--fc-vermelho)) right center / var(--qs-ornamento-linha) 1px no-repeat;
-}
- 
- 
-.qs main article {
-    padding: clamp(1.75rem, 5vw, 3.5rem);
-    border: var(--qs-borda-card);
-    border-left: var(--qs-borda-destaque);
-    border-radius: var(--qs-raio);
-    background: var(--fc-cartao);
-    box-shadow: var(--qs-sombra-card);
-    transition: box-shadow var(--transicao-media), border-color var(--transicao-media);
-}
- 
-.qs main article:hover {
-    border-color: var(--fc-vermelho);
-    box-shadow: var(--qs-sombra-card-hover);
-}
- 
-.qs main article h3 {
-    margin: 0 0 2rem;
-    color: var(--texto-escuro);
-    font-family: var(--fonte-titulo);
-    font-size: clamp(1.8rem, 5vw, 2.8rem);
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    line-height: 1.1;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-.qs main article h3::after {
-    content: "";
-    display: block;
-    width: 4rem;
-    height: 4px;
-    margin: 0.75rem auto 0;
-    background-color: var(--fc-vermelho);
-}
- 
-
-.qs main video {
-    display: block;
-    width: 100%;
-    height: auto;                     /* ignora o height="500" do HTML */
-    aspect-ratio: var(--qs-video-proporcao);
-    border-radius: var(--qs-raio);
-    background-color: var(--fc-carvao);
-    box-shadow: var(--qs-sombra-video);
-}
-
-
-.qs main article h4 {
-    margin: 2.5rem 0 0.9rem;
-    color: var(--fc-vermelho-escuro);
-    font-family: var(--fonte-links);
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-align: center;
-    text-transform: uppercase;
-}
- 
-.qs main audio {
-    display: block;
-    width: 100%;
-    margin-bottom: 2.5rem;
-}
- 
-.qs main audio a {
-    color: var(--fc-vermelho-escuro);
-    font-weight: 700;
-}
- 
-
-.qs main article p {
-    margin: 0 0 1.25rem;
-    color: var(--fc-texto);
-    line-height: 1.85;
-}
- 
-
-.qs main audio + p::first-letter {
-    float: left;
-    padding: 0.2rem 0.6rem 0 0;
-    color: var(--fc-vermelho);
-    font-family: var(--fonte-titulo);
-    font-size: var(--qs-letra-capitular);
-    font-weight: 700;
-    line-height: 0.8;
-}
- 
-
-<<<<<<< HEAD
-.qs main article > p:last-child 
-{
-=======
-.qs main article > p:last-child {
->>>>>>> origin
-    margin: 2rem 0 0;
-    padding-top: 1.75rem;
-    border-top: var(--qs-borda-card);
-    color: var(--fc-vermelho-escuro);
-    font-size: 1.35rem;
-    font-style: italic;
-    font-weight: 700;
-    text-align: center;
-<<<<<<< HEAD
-};
-=======
-}
->>>>>>> origin
