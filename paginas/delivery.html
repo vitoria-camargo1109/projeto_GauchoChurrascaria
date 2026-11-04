@@ -8,15 +8,17 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <!--* link dos icones telefone e whatsapp-->
-
+     
     <!--* CSS -->
     <link rel="stylesheet" href="../css/variaveis.css">
     <link rel="stylesheet" href="../css/header_footer.css">
     <link rel="stylesheet" href="../css/base.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 </head>
 
-<body>
+<body class="pagina-delivery">  
     <a href="#main" class="skip-link">Pular para o conteúdo principal</a>
 
     <header>
@@ -37,34 +39,51 @@
 
     </header>
 
-    <main id="main">
-        <section>
+        <main id="main">
+        <section class="delivery-abertura">
+            <p class="delivery-chamada">Todos os dias, das 10h30 às 23h</p>
             <h2>Nosso Delivery</h2>
+            <p class="delivery-intro">A brasa do Gaúcho na sua mesa: peça suas carnes e pratos favoritos, quentinhos, sem sair de casa.</p>
+            <a class="delivery-botao" href="https://pedido.xmenu.com.br/?loja=21665#/vitrine" target="_blank" rel="noopener noreferrer">
+                Pedir pelo delivery<span class="visually-hidden"> (abre em nova aba)</span>
+            </a>
+        </section>
+
+        <section class="delivery-passos">
+            <h3>Como pedir</h3>
+            <ol>
+                <li>
+                    <h4>Escolha</h4>
+                    <p>Navegue pela vitrine e monte seu pedido com os pratos que mais gosta.</p>
+                </li>
+                <li>
+                    <h4>Informe o endereço</h4>
+                    <p>Digite o local onde quer receber e confira se estamos na sua região.</p>
+                </li>
+                <li>
+                    <h4>Finalize</h4>
+                    <p>Confirme o pedido e aguarde a entrega.</p>
+                </li>
+            </ol>
+        </section>
+
+        <section class="delivery-infos" aria-label="Informações do delivery">
             <article>
-                <h3>Peça suas carnes e pratos favoritos sem sair de casa</h3>
-                <a href="https://pedido.xmenu.com.br/?loja=21665#/vitrine" target="_blank" rel="noopener noreferrer">
-                    Pedir pelo Delivery (abre em nova aba)
-                </a>
+                <h3><i aria-hidden="true" class="bi bi-clock"></i> Horário do Delivery</h3>
+                <p>Todos os dias, das 10h30 às 23h.</p>
             </article>
             <article>
-                <h3>Como pedir</h3>
-                <p> Acesse nossa plataforma, escolha seus pratos favoritos, informe seu endereço e finalize seu pedido
-                </p>
+                <h3><i aria-hidden="true" class="bi bi-geo-alt"></i> Região de entrega</h3>
+                <p>Realizamos entregas na região próxima à nossa churrascaria.</p>
             </article>
-            <article>
-                <h3>Horário do Delivery</h3>
-                <p>Todos os dias das 10h30 às 23h.</p>
-            </article>
-            <article>
-                <h3>Região de entrega</h3>
-                <p>Realizamos entregas na região próxima à nossa churrascaria</p>
-            </article>
+        </section>
+
+        <section class="delivery-vinhos">
             <article>
                 <h3>Uma boa carne pede um bom vinho</h3>
-                <p> Consulte a seleção de vinhos e encontre a harmonização ideal para seu pedido</p>
-                <a href="cartela_vinho.html">
-                    Conheça nossos vinhos </a>
+                <p>Consulte a seleção de vinhos e encontre a harmonização ideal para o seu pedido.</p>
             </article>
+            <a class="delivery-botao-escuro" href="carta_vinho.html">Conheça nossos vinhos</a>
         </section>
     </main>
 
