@@ -9,43 +9,52 @@
     <style>
 
         main {
-            background-color: #e9d8bd;
+            background-image: var(--img-menu-rodape);
         }
 
         h3{
             text-align: center;
             margin-top: 40px;
             margin-bottom: 15px;
-            color: red;
+            color: var(--cor-titulo-escuro);
             font-size: 40px;
+            font-family: var(--fonte-elegante);
         }
 
         table {
             border-collapse: collapse;
-            width: 80%;
+            width: 50%;
             border-collapse: separate;
             border-spacing: 0;
             border-radius: 12px;
             overflow: hidden;
-            border: 1px solid #c6a47b;
+            border: 1px solid;
             max-width: 900px;
             margin: 0 auto;
         }
 
         th,
         td {
-            border: 1px solid #e9d8bd;
-            padding: 10px;
+            border-bottom: 1px solid #eec416 ;
+            padding: 12px;
             text-align: left;
+            font-family: var(--fonte-titulo);
+            color: var(--texto-secundario);
         }
 
         th {
-            background-color: #722b25;
-            color: white;
+            color: var(--texto-claro-suave);
+            font-family: var(--fonte-cursiva);
         }
 
         tr:nth-child(even) {
-            background-color: #722b25;
+            background-color: none;
+        }
+
+        p{
+            color: var(--texto-claro-suave);
+            font-family: var(--fonte-cursiva);
+            text-align: center;
         }
     </style>
 
@@ -83,7 +92,7 @@
     <main id="main">
         <article>
 
-            <section id="secao-salada">
+                <section class=" secao-saladas ">
 
                 <h3> Saladas </h3>
 
@@ -100,31 +109,31 @@
 
                     <tbody>
                         <tr>
-                            <th scope="row"> <b> Salada média </b> <br> Alface, tomate, cebola, palmito </th>
+                            <td scope="row"> <b> Salada média </b> <br> Alface, tomate, cebola, palmito </td>
                             <td> R$ 25,90 </td>
 
                             <td> R$ 45,90 </td>
                         </tr>
 
                         <tr>
-                            <th scope="row"> <b> Salada Completa </b> <br>
-                                Alface, tomate, cebola roxa , palmito, cenoura, tomate seco e azeitonas </th>
+                            <td scope="row"> <b> Salada Completa </b> <br>
+                                Alface, tomate, cebola roxa , palmito, cenoura, tomate seco e azeitonas </td>
                             <td> R$ 35,90 </td>
 
                             <td> R$ 55,90 </td>
                         </tr>
 
                         <tr>
-                            <th scope="row"> <b> Caesar Salad </b> <br>
+                            <td scope="row"> <b> Caesar Salad </b> <br>
                                 Alface americana, Peito de frango , cebola, Maionese, Queijo Parmesão,
-                                alho, limão e Pão Croutons </th>
+                                alho, limão e Pão Croutons </td>
                             <td> R$ 35,90 </td>
 
                             <td> R$ 55,90 </td>
                         </tr>
 
                         <tr>
-                            <th scope="row"> <b> Palmito c/ Tomate seco </b> </th>
+                            <td scope="row"> <b> Palmito c/ Tomate seco </b> </td>
                             <td> R$ 39,90 </td>
 
                             <td> R$ 59,90 </td>
@@ -181,8 +190,8 @@
                     </tbody>
 
                 </table>
-            </section>
-
+            </section>]
+            
             <br>
 
             <section>
