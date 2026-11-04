@@ -128,4 +128,28 @@
     --dep-raio: 6px;              /* Depoimentos */
     --fc-largura-max: 1240px;     /* Fale Conosco */
     --dep-largura-max: 960px;     /* Depoimentos */
+
+    /* ---------- 7. QUEM SOMOS E NOSSA UNIDADE ---------- */
+    --vermelho: var(--cor-destaque-vermelho);
+    --dourado: var(--cor-destaque-amarelo);
+    --marrom-claro: var(--cor-fundo-escuro-alternativo);
+    --creme-escuro: var(--cor-faixa);
+ 
+    --fonte-script: var(--fonte-menu);
+
+    
+
+    --qs-largura-max: var(--dep-largura-max);              
+    --qs-largura-frase: 38rem;                             
+    --qs-raio: var(--dep-raio);
+    --qs-borda-card: 1px solid rgba(var(--fc-vermelho-rgb), 0.25);
+    --qs-borda-destaque: 5px solid var(--fc-vermelho);     
+    --qs-video-proporcao: 16 / 9;
+    --qs-letra-capitular: 4.2rem;                          
+    --qs-letra-capitular-celular: 3.4rem;
+    --qs-ornamento-largura: 200px;                         
+    --qs-ornamento-linha: 85px;
+    --qs-sombra-card: 0 10px 26px rgba(var(--fc-texto-rgb), 0.07);
+    --qs-sombra-card-hover: 0 20px 40px rgba(var(--fc-texto-rgb), 0.14);
+    --qs-sombra-video: 0 16px 36px rgba(var(--fc-carvao-rgb), 0.3);
 }
