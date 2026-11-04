@@ -5,31 +5,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cardápio - Gaúcho Grill Figueiras</title>
-    <!--
+   
     <style>
+
+        main {
+            background-image: var(--img-menu-rodape);
+        }
+
+        h3{
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            color: var(--cor-titulo-escuro);
+            font-size: 40px;
+            font-family: var(--fonte-elegante);
+        }
+
         table {
             border-collapse: collapse;
-            width: 100%;
+            width: 50%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid;
+            max-width: 900px;
+            margin: 0 auto;
+            border: none;
         }
 
         th,
         td {
-            border: 1px solid #ccc;
-            padding: 10px;
+            border-bottom: 1px solid #eec416 ;
+            padding: 12px;
             text-align: left;
+            font-family: var(--fonte-titulo);
+            color: var(--texto-secundario);
         }
 
         th {
-            background-color: #8B0000;
-            color: white;
+            color: var(--texto-claro-suave);
+            font-family: var(--fonte-cursiva);
         }
 
         tr:nth-child(even) {
-            background-color: #f2f2f2;
+            background-color: none;
         }
-    </style> -->
 
-    <!--* link dos icones telefone e whatsapp-->
+        p{
+            color: var(--texto-claro-suave);
+            font-family: var(--fonte-cursiva);
+            text-align: center;
+        }
+    </style>
+
+    <!-- link dos icones telefone e whatsapp *-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
     <!--* Caminho para o CSS. *-->
@@ -63,9 +93,7 @@
     <main id="main">
         <article>
 
-            <h2> Cardápio </h2>
-
-            <section>
+                <section class=" secao-saladas ">
 
                 <h3> Saladas </h3>
 
@@ -82,31 +110,31 @@
 
                     <tbody>
                         <tr>
-                            <th scope="row"> <b> Salada média </b> <br> Alface, tomate, cebola, palmito </th>
+                            <td scope="row"> <b> Salada média </b> <br> Alface, tomate, cebola, palmito </td>
                             <td> R$ 25,90 </td>
 
                             <td> R$ 45,90 </td>
                         </tr>
 
                         <tr>
-                            <th scope="row"> <b> Salada Completa </b> <br>
-                                Alface, tomate, cebola roxa , palmito, cenoura, tomate seco e azeitonas </th>
+                            <td scope="row"> <b> Salada Completa </b> <br>
+                                Alface, tomate, cebola roxa , palmito, cenoura, tomate seco e azeitonas </td>
                             <td> R$ 35,90 </td>
 
                             <td> R$ 55,90 </td>
                         </tr>
 
                         <tr>
-                            <th scope="row"> <b> Caesar Salad </b> <br>
+                            <td scope="row"> <b> Caesar Salad </b> <br>
                                 Alface americana, Peito de frango , cebola, Maionese, Queijo Parmesão,
-                                alho, limão e Pão Croutons </th>
+                                alho, limão e Pão Croutons </td>
                             <td> R$ 35,90 </td>
 
                             <td> R$ 55,90 </td>
                         </tr>
 
                         <tr>
-                            <th scope="row"> <b> Palmito c/ Tomate seco </b> </th>
+                            <td scope="row"> <b> Palmito c/ Tomate seco </b> </td>
                             <td> R$ 39,90 </td>
 
                             <td> R$ 59,90 </td>
@@ -163,7 +191,7 @@
                     </tbody>
 
                 </table>
-            </section>
+            </section>]
 
             <br>
 
@@ -1647,6 +1675,6 @@
         <p class="copyright">&copy; 2026 Gaúcho Grill Figueiras. Todos os direitos reservados.</p>
     </footer>
 
-</body>
+</body> 
 
 </html>
