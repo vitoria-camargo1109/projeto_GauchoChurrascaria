@@ -7,7 +7,7 @@
    1. Reset
    2. Corpo e títulos
    3. Acessibilidade (texto oculto e skip-link)
-   4. Páginas Fale Conosco, Reserva, Depoimentos, Cardápio e Carta de Vinhos
+   4. Páginas Fale Conosco, Reserva, Trabalhe Conosco, Depoimentos, Cardápio e Carta de Vinhos
       (fundo, layout e cores compartilhados)
    5. Página inicial
    6. Cardápio (livro)
@@ -77,7 +77,7 @@ h2 {
 
 /* ==========================================================================
    4. PÁGINAS FALE CONOSCO, RESERVA, DEPOIMENTOS, CARDÁPIO E CARTA DE VINHOS
-      <body class="pagina-fale-conosco">, <body class="pagina-reserva">,
+      <body class="pagina-fale-conosco">, <body class="pagina-reserva">, <body class="pagina-trabalhe">,
       <body class="pagina-depoimentos">, <body class="pagina-livro"> (Cardápio)
       e <body class="pagina-panfleto"> (Carta de Vinhos).
       As páginas compartilham fundo, layout da main, títulos com ornamento e
@@ -95,9 +95,11 @@ h2 {
    4.9 Depoimentos: botão "Ver depoimento"
    4.10 Depoimentos: celular
    4.11 Reserva: ajustes do formulário
+   4.12 Trabalhe Conosco: ajustes
    ========================================================================== */
 /* ---------- 4.1 Fundo e layout (todas as páginas) ---------- */
 
+.pagina-trabalhe,
 .pagina-reserva,
 .pagina-fale-conosco,
 .pagina-depoimentos,
@@ -108,6 +110,7 @@ h2 {
         var(--fc-marfim);
 }
 
+.pagina-trabalhe main,
 .pagina-reserva main,
 .pagina-fale-conosco main,
 .pagina-depoimentos main,
@@ -120,6 +123,7 @@ h2 {
     font-size: 1.15rem;
 }
 
+.pagina-trabalhe main,
 .pagina-reserva main,
 .pagina-fale-conosco main,
 .pagina-panfleto main {
@@ -131,6 +135,7 @@ h2 {
     max-width: var(--dep-largura-max);
 }
 
+.pagina-trabalhe main > * + *,
 .pagina-reserva main > * + *,
 .pagina-fale-conosco main > * + * {
     margin-top: 4rem;
@@ -142,6 +147,7 @@ h2 {
 }
 
 /* Âncora do rodapé (link "no rodapé desta página") */
+.pagina-trabalhe #rodape,
 .pagina-reserva #rodape,
 .pagina-fale-conosco #rodape {
     scroll-margin-top: 1rem;
@@ -150,6 +156,7 @@ h2 {
 
 /* ---------- 4.2 Títulos com ornamento ---------- */
 
+.pagina-trabalhe main h2,
 .pagina-reserva main h2,
 .pagina-fale-conosco main h2,
 .pagina-fale-conosco main > article > h3,
@@ -166,6 +173,7 @@ h2 {
 }
 
 /* Losango com linhas laterais embaixo do título */
+.pagina-trabalhe main h2::after,
 .pagina-reserva main h2::after,
 .pagina-fale-conosco main h2::after,
 .pagina-fale-conosco main > article > h3::after,
@@ -190,6 +198,7 @@ h2 {
 
 /* ---------- 4.3 Formulário (Fale Conosco e Reserva) ---------- */
 
+.pagina-trabalhe main form,
 .pagina-reserva main form,
 .pagina-fale-conosco main form {
     position: relative;
@@ -205,6 +214,7 @@ h2 {
 }
 
 /* Moldura dupla interna */
+.pagina-trabalhe main form::before,
 .pagina-reserva main form::before,
 .pagina-fale-conosco main form::before {
     content: "";
@@ -216,6 +226,7 @@ h2 {
 }
 
 /* Grade de 2 colunas */
+.pagina-trabalhe main fieldset,
 .pagina-reserva main fieldset,
 .pagina-fale-conosco main fieldset {
     display: grid;
@@ -227,6 +238,7 @@ h2 {
     border: 0;
 }
 
+.pagina-trabalhe main legend,
 .pagina-reserva main legend,
 .pagina-fale-conosco main legend {
     float: left;
@@ -241,14 +253,17 @@ h2 {
 }
 
 /* Observação e botão ocupam a largura toda */
+.pagina-trabalhe main fieldset p:has(textarea),
 .pagina-reserva main fieldset p:has(textarea),
 .pagina-fale-conosco main fieldset p:has(textarea),
+.pagina-trabalhe main fieldset button,
 .pagina-reserva main fieldset button,
 .pagina-fale-conosco main fieldset button {
     grid-column: 1 / -1;
 }
 
 /* Cada campo: rótulo + campo + dica */
+.pagina-trabalhe main form p,
 .pagina-reserva main form p,
 .pagina-fale-conosco main form p {
     display: grid;
@@ -257,12 +272,14 @@ h2 {
     margin: 0;
 }
 
+.pagina-trabalhe main form p br,
 .pagina-reserva main form p br,
 .pagina-fale-conosco main form p br {
     display: none;
 }
 
 /* Rótulos em dourado suave */
+.pagina-trabalhe main form label,
 .pagina-reserva main form label,
 .pagina-fale-conosco main form label {
     color: #d4af37;
@@ -272,6 +289,7 @@ h2 {
     text-transform: uppercase;
 }
 
+.pagina-trabalhe main form small,
 .pagina-reserva main form small,
 .pagina-fale-conosco main form small {
     color: rgba(var(--fc-marfim-rgb), 0.65);
@@ -280,10 +298,13 @@ h2 {
 }
 
 /* Campos: só uma linha clara embaixo */
+.pagina-trabalhe main form input,
 .pagina-reserva main form input,
 .pagina-fale-conosco main form input,
+.pagina-trabalhe main form select,
 .pagina-reserva main form select,
 .pagina-fale-conosco main form select,
+.pagina-trabalhe main form textarea,
 .pagina-reserva main form textarea,
 .pagina-fale-conosco main form textarea {
     width: 100%;
@@ -299,6 +320,7 @@ h2 {
     transition: border-color 0.3s, box-shadow 0.3s, background-color 0.3s;
 }
 
+.pagina-trabalhe main form ::placeholder,
 .pagina-reserva main form ::placeholder,
 .pagina-fale-conosco main form ::placeholder {
     color: rgba(var(--fc-marfim-rgb), 0.4);
@@ -306,6 +328,7 @@ h2 {
 }
 
 /* Textarea: caixa completa */
+.pagina-trabalhe main form textarea,
 .pagina-reserva main form textarea,
 .pagina-fale-conosco main form textarea {
     min-height: 130px;
@@ -316,6 +339,7 @@ h2 {
 }
 
 /* Select: seta clara própria */
+.pagina-trabalhe main form select,
 .pagina-reserva main form select,
 .pagina-fale-conosco main form select {
     appearance: none;
@@ -326,6 +350,7 @@ h2 {
     cursor: pointer;
 }
 
+.pagina-trabalhe main form select option,
 .pagina-reserva main form select option,
 .pagina-fale-conosco main form select option {
     background: var(--fc-campo-escuro);
@@ -333,6 +358,7 @@ h2 {
 }
 
 /* Mantém o fundo escuro quando o navegador autopreenche */
+.pagina-trabalhe main form input:-webkit-autofill,
 .pagina-reserva main form input:-webkit-autofill,
 .pagina-fale-conosco main form input:-webkit-autofill {
     -webkit-text-fill-color: var(--fc-marfim);
@@ -341,8 +367,10 @@ h2 {
 }
 
 /* Foco */
+.pagina-trabalhe main form input:focus,
 .pagina-reserva main form input:focus,
 .pagina-fale-conosco main form input:focus,
+.pagina-trabalhe main form select:focus,
 .pagina-reserva main form select:focus,
 .pagina-fale-conosco main form select:focus {
     outline: none;
@@ -350,6 +378,7 @@ h2 {
     box-shadow: 0 2px 0 0 var(--fc-branco);
 }
 
+.pagina-trabalhe main form textarea:focus,
 .pagina-reserva main form textarea:focus,
 .pagina-fale-conosco main form textarea:focus {
     outline: none;
@@ -358,10 +387,13 @@ h2 {
 }
 
 /* Inválido (só depois que a pessoa mexe no campo) */
+.pagina-trabalhe main form input:user-invalid,
 .pagina-reserva main form input:user-invalid,
 .pagina-fale-conosco main form input:user-invalid,
+.pagina-trabalhe main form select:user-invalid,
 .pagina-reserva main form select:user-invalid,
 .pagina-fale-conosco main form select:user-invalid,
+.pagina-trabalhe main form textarea:user-invalid,
 .pagina-reserva main form textarea:user-invalid,
 .pagina-fale-conosco main form textarea:user-invalid {
     border-color: var(--fc-erro);
@@ -369,6 +401,7 @@ h2 {
 }
 
 /* Botão: contorno claro que se preenche no hover */
+.pagina-trabalhe main form button[type="submit"],
 .pagina-reserva main form button[type="submit"],
 .pagina-fale-conosco main form button[type="submit"] {
     justify-self: center;
@@ -387,6 +420,7 @@ h2 {
     transition: background 0.35s, color 0.35s, box-shadow 0.35s;
 }
 
+.pagina-trabalhe main form button[type="submit"]:hover,
 .pagina-reserva main form button[type="submit"]:hover,
 .pagina-fale-conosco main form button[type="submit"]:hover {
     background: var(--fc-marfim);
@@ -394,6 +428,7 @@ h2 {
     box-shadow: 0 10px 28px rgba(var(--fc-marfim-rgb), 0.2);
 }
 
+.pagina-trabalhe main form button[type="submit"]:focus-visible,
 .pagina-reserva main form button[type="submit"]:focus-visible,
 .pagina-fale-conosco main form button[type="submit"]:focus-visible {
     outline: 2px solid var(--fc-branco);
@@ -403,6 +438,7 @@ h2 {
 
 /* ---------- 4.4 Card "Outras formas de contato" ---------- */
 
+.pagina-trabalhe .card-contato,
 .pagina-reserva .card-contato,
 .pagina-fale-conosco .card-contato {
     position: relative;
@@ -415,6 +451,7 @@ h2 {
 }
 
 /* Moldura interna */
+.pagina-trabalhe .card-contato::before,
 .pagina-reserva .card-contato::before,
 .pagina-fale-conosco .card-contato::before {
     content: "";
@@ -424,6 +461,7 @@ h2 {
     pointer-events: none;
 }
 
+.pagina-trabalhe .card-contato h3,
 .pagina-reserva .card-contato h3,
 .pagina-fale-conosco .card-contato h3 {
     margin: 0 0 0.75rem;
@@ -434,6 +472,7 @@ h2 {
     line-height: 1.1;
 }
 
+.pagina-trabalhe .card-contato p,
 .pagina-reserva .card-contato p,
 .pagina-fale-conosco .card-contato p {
     margin: 0;
@@ -496,6 +535,7 @@ h2 {
 
 /* ---------- 4.6 Links do card de contato ---------- */
 
+.pagina-trabalhe .card-contato a,
 .pagina-reserva .card-contato a,
 .pagina-fale-conosco .card-contato a {
     border-bottom: 1px solid var(--fc-vermelho);
@@ -505,12 +545,14 @@ h2 {
     transition: color var(--transicao-rapida), border-color var(--transicao-rapida);
 }
 
+.pagina-trabalhe .card-contato a:hover,
 .pagina-reserva .card-contato a:hover,
 .pagina-fale-conosco .card-contato a:hover {
     border-bottom-color: var(--fc-vermelho-escuro);
     color: var(--fc-vermelho);
 }
 
+.pagina-trabalhe .card-contato a:focus-visible,
 .pagina-reserva .card-contato a:focus-visible,
 .pagina-fale-conosco .card-contato a:focus-visible {
     outline: 2px solid var(--fc-vermelho);
@@ -522,6 +564,7 @@ h2 {
 
 @media (max-width: 700px) {
 
+    .pagina-trabalhe main,
     .pagina-reserva main,
     .pagina-fale-conosco main,
     .pagina-livro main,
@@ -529,18 +572,21 @@ h2 {
         font-size: 1.05rem;
     }
 
+    .pagina-trabalhe main fieldset,
     .pagina-reserva main fieldset,
     .pagina-fale-conosco main fieldset {
         grid-template-columns: 1fr;
         gap: 1.75rem;
     }
 
+    .pagina-trabalhe main form button[type="submit"],
     .pagina-reserva main form button[type="submit"],
     .pagina-fale-conosco main form button[type="submit"] {
         width: 100%;
         padding-inline: 1rem;
     }
 
+    .pagina-trabalhe .card-contato,
     .pagina-reserva .card-contato,
     .pagina-fale-conosco .card-contato {
         padding: 2rem 1.25rem;
@@ -727,11 +773,13 @@ h2 {
 /* O restante do estilo vem das regras compartilhadas acima (4.1 a 4.4) */
 
 /* Título e frase de apresentação acima do formulário */
-.pagina-reserva main > section:first-of-type > h2 {
+.pagina-reserva main > section:first-of-type > h2,
+.pagina-trabalhe main > section:first-of-type > h2 {
     margin-bottom: 1.5rem;
 }
 
-.pagina-reserva main > section:first-of-type > p {
+.pagina-reserva main > section:first-of-type > p,
+.pagina-trabalhe main > section:first-of-type > p {
     margin: 0 auto 3rem;
     max-width: 32rem;
     color: var(--fc-texto-suave);
@@ -974,6 +1022,15 @@ h2 {
         float: none;                  /* o título não fica mais ao lado do primeiro campo */
         display: block;
     }
+}
+
+
+/* ---------- 4.12 Trabalhe Conosco: ajustes ---------- */
+/* Usa o mesmo formulário (grade de 2 colunas) e o mesmo card do Fale Conosco (4.1 a 4.4) */
+
+/* Card "Vagas disponíveis" logo abaixo do formulário */
+.pagina-trabalhe main section > .card-contato {
+    margin-top: 4rem;
 }
 
 
@@ -2556,7 +2613,12 @@ h2 {
    9. QUEM SOMOS  (<body class="qs">)  E  NOSSA UNIDADE
    ========================================================================== */
 
-.nu-conteudo { width: min(1180px, 92%); margin: 0 auto; }
+/* Margem lateral das seções da Nossa Unidade: conteúdo de no máximo 1180px, centralizado */
+.motivos,
+.localizacao {
+    --nu-margem: max(4%, calc((100% - var(--nu-largura-max)) / 2));
+}
+
 .nu-centro { text-align: center; }
 
 
@@ -2605,9 +2667,10 @@ transition: background .25s, transform .25s;
 .nu-botao:hover { background: var(--hover-vinho); transform: translateY(-2px); }
 
 
-.motivos { padding: 100px 0 110px; }
+.motivos { padding: 100px var(--nu-margem) 110px; }
 .motivos .nu-cabecalho { margin-bottom: 56px; }
-.grade-motivos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.grade-motivos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; list-style: none; }
+.grade-motivos > li { display: grid; }   /* o card ocupa a altura toda */
 .cartao {
 background: var(--marrom-claro);
 color: var(--fc-branco);
@@ -2629,14 +2692,15 @@ color: var(--dourado);
 .cartao p { color: rgba(255,255,255,.85); }
 
 
-.localizacao { background: var(--creme-escuro); padding: 100px 0 110px; }
-.localizacao .nu-cabecalho { margin-bottom: 56px; }
-.localizacao-grade {
-display: grid;
-grid-template-columns: 5fr 7fr;
-gap: 40px;
-align-items: stretch;
+.localizacao {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 40px;
+    align-items: stretch;
+    padding: 100px var(--nu-margem) 110px;
+    background: var(--creme-escuro);
 }
+.localizacao .nu-cabecalho { grid-column: 1 / -1; margin-bottom: 16px; }   /* + 40px do gap = 56px */
 .info {
 background: var(--marrom-claro);
 color: var(--fc-branco);
@@ -2674,12 +2738,12 @@ background: var(--cor-fundo-escuro);
 .mapa iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; border-radius: 4px; }
 
 
-section.chamada { text-align: center; padding: 5rem 0; }
+section.chamada { text-align: center; padding: 5rem 4%; }
 section.chamada .nu-botao { margin-top: 32px; }
 
 
 @media (max-width: 1000px) {
-.grade-motivos, .localizacao-grade { grid-template-columns: 1fr; }
+.grade-motivos, .localizacao { grid-template-columns: 1fr; }
 .mapa { min-height: 380px; }
 }
 @media (max-width: 560px) {
