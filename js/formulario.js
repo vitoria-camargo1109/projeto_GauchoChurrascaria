@@ -395,6 +395,17 @@ const mensagens = {
     horario: {
         valueMissing: "Escolha o horário da reserva."
     },
+    email: {
+        valueMissing: "Digite o seu e-mail.",
+        typeMismatch: "Digite um e-mail válido. Exemplo: nome@exemplo.com."
+    },
+    vaga: {
+        valueMissing: "Escolha a vaga de interesse."
+    },
+    experiencia: {
+        valueMissing: "Conte um pouco sobre a sua experiência.",
+        tooShort: "Escreva pelo menos 10 caracteres."
+    },
     pessoas: {
         valueMissing: "Informe quantas pessoas virão.",
         patternMismatch: "Digite apenas números."
@@ -475,7 +486,7 @@ document.addEventListener("DOMContentLoaded", function () {
         montarContador(campoPessoas);
     }
 
-    document.querySelectorAll("form input, form select").forEach(function (campo) {
+    document.querySelectorAll("form input, form select, form textarea").forEach(function (campo) {
         campo.addEventListener("input", function () { mostrarMensagem(campo); });
         campo.addEventListener("invalid", function () { mostrarMensagem(campo); });
     });

@@ -139,6 +139,9 @@
     --creme-escuro: var(--cor-faixa);
     --fonte-script: var(--fonte-menu);
 
+    /* Nossa Unidade */
+    --nu-largura-max: 1180px;               /* largura máxima do conteúdo */
+
     /* Quem Somos */
     --qs-largura-max: var(--dep-largura-max);
     --qs-largura-frase: 38rem;
