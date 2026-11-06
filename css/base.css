@@ -26,6 +26,19 @@
     padding: 0;
 }
 
+/* O padding e a borda passam a ficar DENTRO da largura do elemento */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Imagens, vídeos e mapas nunca passam da largura da tela */
+img,
+video,
+iframe {
+    max-width: 100%;
+}
 
 /* ==========================================================================
    2. CORPO E TÍTULOS
@@ -2905,4 +2918,120 @@ font-size: 1.35rem;
 font-style: italic;
 font-weight: 700;
 text-align: center;
+}
+
+/* ==========================================================================
+   10. AJUSTES DE TABLET E CELULAR
+   ========================================================================== */
+
+/* ---------- 10.1 Página inicial (até 900px): texto e foto empilham ---------- */
+@media (max-width: 900px) {
+
+    .pagina-inicial .secao-dividida {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .pagina-inicial .secao-dividida > figure {
+        order: -1;                                /* foto antes do texto */
+    }
+
+    .pagina-inicial .secao-dividida img {
+        box-shadow: 0.5rem 0.5rem 0 var(--cor-fundo-escuro);
+    }
+
+    .pagina-inicial .secao-trabalhe img {
+        box-shadow: 0.5rem 0.5rem 0 var(--cor-destaque-vermelho);
+    }
+
+    /* Empilhado, o bloco aparece de baixo para cima (e não mais pelos lados) */
+    .js-animacoes .secao-dividida > article.revelar,
+    .js-animacoes .secao-unidade > article.revelar,
+    .js-animacoes .secao-dividida > figure.revelar {
+        --desloc-x: 0;
+        --desloc-y: var(--deslocamento-entrada);
+    }
+}
+
+/* ---------- 10.2 Celular (até 700px) ---------- */
+@media (max-width: 700px) {
+
+    /* Menos espaço em volta do conteúdo */
+    .pagina-trabalhe main,
+    .pagina-reserva main,
+    .pagina-fale-conosco main,
+    .pagina-depoimentos main,
+    .pagina-panfleto main,
+    .pagina-delivery main,
+    .qs main {
+        padding: 2.5rem 1rem 4rem;
+    }
+
+    .pagina-livro main {
+        padding: 2.5rem 0.75rem 4rem;
+    }
+
+    .pagina-trabalhe main > * + *,
+    .pagina-reserva main > * + *,
+    .pagina-fale-conosco main > * + * {
+        margin-top: 3rem;
+    }
+
+    /* Formulários: menos padding e rótulos menos espaçados */
+    .pagina-trabalhe main form,
+    .pagina-reserva main form,
+    .pagina-fale-conosco main form {
+        padding: 2rem 1.25rem;
+    }
+
+    .pagina-trabalhe main form label,
+    .pagina-reserva main form label,
+    .pagina-fale-conosco main form label {
+        letter-spacing: 0.12em;
+    }
+
+    /* Cardápio: mais espaço para o nome dos pratos */
+    .pagina-livro .livro {
+        padding: 1.5rem 0.75rem 1.5rem 2.25rem;
+    }
+
+    /* Carta de vinhos e Delivery: letras menos espaçadas */
+    .pagina-panfleto .panfleto-marca {
+        letter-spacing: 0.2em;
+    }
+
+    .pagina-delivery .delivery-chamada {
+        letter-spacing: 0.12em;
+    }
+
+    /* Nossa Unidade */
+    .motivos,
+    .localizacao {
+        padding: 3.5rem 1.25rem;
+    }
+
+    .cartao {
+        padding: 2rem 1.5rem;
+    }
+
+    .mapa {
+        min-height: 18rem;
+    }
+
+    /* Quem Somos */
+    .qs main > section > p {
+        font-size: 1.25rem;
+    }
+
+    .qs main article {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .qs main article h4 {
+        letter-spacing: 0.08em;
+    }
+
+    .qs main audio + p::first-letter {
+        font-size: var(--qs-letra-capitular-celular);   /* variável que já existia e não estava em uso */
+    }
 }
