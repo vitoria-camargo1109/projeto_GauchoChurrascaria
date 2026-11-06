@@ -4,17 +4,23 @@
    quando entram na tela, ao rolar a página.
 
    - Carregue este arquivo no <head>, SEM "defer", para não piscar o conteúdo.
-   - Sem JavaScript (ou para quem pediu "reduzir movimento" no sistema)
-     nada é escondido: a página aparece normalmente.
+   - Sem JavaScript nada é escondido: a página aparece normalmente.
+   - Para quem pediu "reduzir movimento" no sistema, os blocos só aparecem
+     suavemente (fade), sem deslizar.
    - O visual da animação está em css/base.css, na seção 5.9.
    ========================================================================== */
 
 const prefereSemMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-if (!prefereSemMovimento && "IntersectionObserver" in window) {
+if ("IntersectionObserver" in window) {
 
     /* Avisa o CSS que as animações estão ativas */
     document.documentElement.classList.add("js-animacoes");
+
+    /* Quem reduz movimento no sistema vê só o fade, sem deslocamento */
+    if (prefereSemMovimento) {
+        document.documentElement.classList.add("movimento-reduzido");
+    }
 
     document.addEventListener("DOMContentLoaded", function () {
         const secoes = document.querySelectorAll(".pagina-inicial main > section");
@@ -48,5 +54,30 @@ if (!prefereSemMovimento && "IntersectionObserver" in window) {
             bloco.classList.add("revelar");
             observador.observe(bloco);
         });
+
+        /* Rede de segurança: se a pessoa pular para o meio ou o fim da página
+           (link de âncora, atualizar a página já rolada, rolagem muito rápida),
+           os blocos que ficaram para trás também precisam aparecer. */
+        let verificando = false;
+
+        function revelarOsJaPassados() {
+            verificando = false;
+            blocos.forEach(function (bloco) {
+                if (!bloco.classList.contains("visivel") &&
+                    bloco.getBoundingClientRect().top < window.innerHeight) {
+                    bloco.classList.add("visivel");
+                    observador.unobserve(bloco);
+                }
+            });
+        }
+
+        window.addEventListener("scroll", function () {
+            if (!verificando) {
+                verificando = true;
+                window.requestAnimationFrame(revelarOsJaPassados);
+            }
+        }, { passive: true });
+
+        window.addEventListener("load", revelarOsJaPassados);
     });
 }

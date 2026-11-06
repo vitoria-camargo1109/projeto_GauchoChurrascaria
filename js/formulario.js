@@ -402,6 +402,13 @@ const mensagens = {
     vaga: {
         valueMissing: "Escolha a vaga de interesse."
     },
+    assunto: {
+        valueMissing: "Escolha o assunto da mensagem."
+    },
+    obs: {
+        valueMissing: "Escreva a sua observação.",
+        tooShort: "Escreva pelo menos 10 caracteres."
+    },
     experiencia: {
         valueMissing: "Conte um pouco sobre a sua experiência.",
         tooShort: "Escreva pelo menos 10 caracteres."
