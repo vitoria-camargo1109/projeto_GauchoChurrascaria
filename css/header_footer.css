@@ -317,3 +317,120 @@ address {
         gap: 1rem;
     }
 }
+
+/* ==========================================================================
+   6. MENU HAMBÚRGUER E BANNER NO TABLET E CELULAR
+   ========================================================================== */
+
+/* O botão ☰ é criado pelo js/menu.js; no computador ele fica escondido */
+.menu-botao {
+    display: none;
+}
+
+/* Tablet e celular (até 1200px) */
+@media (max-width: 1200px) {
+
+    :root {
+        --altura-menu: 4rem;             /* barra mais baixa; o logo e o banner acompanham */
+    }
+
+    .menu {
+        flex-wrap: wrap;                 /* os links descem para baixo do logo */
+        gap: 0 1rem;
+        max-height: 100vh;               /* se não couber na tela, o menu rola */
+        overflow-y: auto;
+        padding: 0 1rem;
+    }
+
+    .menu h1 {
+        flex: 1 1 0;                     /* ocupa o espaço que sobra e empurra o botão para a direita */
+        min-width: 0;
+        font-size: clamp(1.2rem, 5vw, 1.8rem);
+        white-space: normal;
+    }
+
+    /* Links: um embaixo do outro, cada um ocupando a linha toda */
+    .menu a:not(:first-child) {
+        flex: 0 0 100%;
+        padding: 0.9rem 0.25rem;
+        border-top: 1px solid var(--borda-divisores);
+        font-size: 1.05rem;
+    }
+
+    /* Botão ☰ */
+    .menu-botao {
+        display: grid;
+        place-items: center;
+        width: 2.75rem;
+        height: 2.75rem;
+        border: 2px solid var(--texto-claro);
+        border-radius: var(--raio-padrao);
+        background: transparent;
+        color: var(--texto-claro);
+        font-size: 1.6rem;
+        cursor: pointer;
+        transition: color var(--transicao-rapida), border-color var(--transicao-rapida);
+    }
+
+    .menu-botao:hover {
+        border-color: var(--cor-destaque-vermelho);
+        color: var(--cor-destaque-vermelho);
+    }
+
+    .menu-botao:focus-visible {
+        outline: 2px solid var(--cor-destaque-amarelo);
+        outline-offset: 3px;
+    }
+
+    /* Com JavaScript: links escondidos até o botão abrir o menu */
+    .js-menu .menu a:not(:first-child) {
+        display: none;
+    }
+
+    .js-menu .menu.aberto a:not(:first-child) {
+        display: block;
+        animation: menu-abrir 0.3s ease-out both;
+    }
+
+    /* Banner menor */
+    header h1[class^="banner_"] {
+        min-height: 16rem;
+        padding: 1rem;
+        font-size: clamp(3rem, 9vw, 4.5rem);
+        text-align: center;
+    }
+
+    .menu_footer a {
+        padding: 0.4rem 0;               /* links do rodapé mais fáceis de tocar */
+    }
+}
+
+/* Celular (até 700px): banner ainda menor */
+@media (max-width: 700px) {
+
+    header h1[class^="banner_"] {
+        min-height: 12rem;
+        font-size: clamp(2.5rem, 12vw, 3.5rem);
+    }
+}
+
+/* Animação de abrir o menu: os links descem um pouco e aparecem (fade) */
+@keyframes menu-abrir {
+    from {
+        opacity: 0;
+        transform: translateY(-0.75rem);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Quem prefere menos movimento: o menu abre sem animação */
+@media (prefers-reduced-motion: reduce) {
+
+    .js-menu .menu.aberto a:not(:first-child) {
+        animation: none;
+    }
+}
