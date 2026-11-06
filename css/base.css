@@ -367,13 +367,20 @@ h2 {
     color: var(--fc-marfim);
 }
 
-/* Mantém o fundo escuro quando o navegador autopreenche */
+/* Mantém o fundo escuro quando o navegador autopreenche (inclusive com foco) */
 .pagina-trabalhe main form input:-webkit-autofill,
 .pagina-reserva main form input:-webkit-autofill,
-.pagina-fale-conosco main form input:-webkit-autofill {
+.pagina-fale-conosco main form input:-webkit-autofill,
+.pagina-trabalhe main form input:-webkit-autofill:hover,
+.pagina-reserva main form input:-webkit-autofill:hover,
+.pagina-fale-conosco main form input:-webkit-autofill:hover,
+.pagina-trabalhe main form input:-webkit-autofill:focus,
+.pagina-reserva main form input:-webkit-autofill:focus,
+.pagina-fale-conosco main form input:-webkit-autofill:focus {
     -webkit-text-fill-color: var(--fc-marfim);
-    box-shadow: 0 0 0 1000px var(--fc-campo-escuro) inset;
+    box-shadow: 0 0 0 1000px var(--fc-campo-escuro) inset, 0 2px 0 0 var(--fc-branco);
     caret-color: var(--fc-marfim);
+    transition: background-color 9999s ease-in-out 0s;   /* impede o Chrome de pintar o azul */
 }
 
 /* Foco */
