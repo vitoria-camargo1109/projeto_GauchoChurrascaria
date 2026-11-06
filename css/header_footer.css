@@ -58,8 +58,13 @@ header {
     font-weight: 500;
 }
 
-.menu a:hover {
-    color: var(--cor-destaque-vermelho);
+@media (hover: hover) and (pointer: fine) {
+    .menu a:hover {
+        color: var(--cor-destaque-vermelho);
+    }
+}
+
+.menu a {
     transition: color var(--transicao-rapida);
 }
 
@@ -372,11 +377,12 @@ address {
         transition: color var(--transicao-rapida), border-color var(--transicao-rapida);
     }
 
-    .menu-botao:hover {
-        border-color: var(--cor-destaque-vermelho);
-        color: var(--cor-destaque-vermelho);
+    @media (hover: hover) and (pointer: fine) {
+        .menu-botao:hover {
+            border-color: var(--cor-destaque-vermelho);
+            color: var(--cor-destaque-vermelho);
+        }
     }
-
     .menu-botao:focus-visible {
         outline: 2px solid var(--cor-destaque-amarelo);
         outline-offset: 3px;
@@ -432,5 +438,108 @@ address {
 
     .js-menu .menu.aberto a:not(:first-child) {
         animation: none;
+    }
+}
+
+/* Menu: fundo sólido caso a imagem não carregue */
+.menu {
+    background-color: var(--cor-fundo-escuro);
+}
+
+/* Links com # não ficam escondidos atrás do menu fixo */
+html {
+    scroll-padding-top: var(--altura-menu);
+}
+
+/* Impede a página de balançar para o lado */
+body {
+    overflow-x: clip;
+}
+
+/* No celular, o menu acompanha a barra do navegador */
+@media (max-width: 1200px) {
+    .menu {
+        max-height: 100dvh;
+    }
+}
+
+/* Cardápio no celular: mais espaço para o nome dos pratos */
+@media (max-width: 700px) {
+
+    /* Menos margem dentro da folha */
+    .pagina-livro .livro {
+        padding: 1.25rem 0.5rem 1.25rem 1.75rem;
+    }
+
+    .pagina-livro .livro::before {
+        left: 1.25rem;
+    }
+
+    .pagina-livro .livro::after {
+        left: 0.55rem;
+    }
+
+    /* Cabeçalho da tabela: letras menos espaçadas e menores */
+    .pagina-livro thead th {
+        font-size: 0.7rem;
+        letter-spacing: 0.04em;
+    }
+
+    /* Colunas de preço mais estreitas */
+    .pagina-livro thead th:not(:first-child),
+    .pagina-livro tbody td {
+        width: 4.5rem;
+        padding-left: 0.25rem;
+        font-size: 0.9rem;
+    }
+
+    /* Nome do prato e descrição um pouco menores */
+    .pagina-livro tbody th {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    .pagina-livro tbody th b {
+        font-size: 1.1rem;
+    }
+}
+
+/* Cardápio no celular: mais espaço para o nome dos pratos */
+@media (max-width: 700px) {
+
+    .pagina-livro main {
+        padding-inline: 0.5rem !important;
+    }
+
+    .pagina-livro .livro {
+        padding: 1.5rem 1rem 1.5rem 2.25rem !important;
+    }
+
+    .pagina-livro .livro::before {
+        left: 1.5rem;
+    }
+
+    .pagina-livro .livro::after {
+        left: 0.7rem;
+    }
+
+    .pagina-livro thead th {
+        font-size: 0.65rem !important;
+        letter-spacing: 0.02em !important;
+    }
+
+    .pagina-livro thead th:not(:first-child),
+    .pagina-livro tbody td {
+        width: 4.25rem !important;
+        padding-left: 0.2rem !important;
+        font-size: 0.9rem !important;
+    }
+
+    .pagina-livro tbody th {
+        font-size: 0.9rem !important;
+    }
+
+    .pagina-livro tbody th b {
+        font-size: 1.1rem !important;
     }
 }
