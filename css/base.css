@@ -21,7 +21,7 @@
    1. RESET
    ========================================================================== */
 
-* {
+   * {
     margin: 0;
     padding: 0;
 }
@@ -97,6 +97,7 @@ h2 {
       As páginas compartilham fundo, layout da main, títulos com ornamento e
       cores (variáveis --fc-*).
       A Reserva usa o mesmo formulário e o mesmo card do Fale Conosco (seções 4.2 a 4.4).
+      Os Depoimentos só compartilham o fundo; o resto usa o visual da página inicial.
 
    4.1 Fundo e layout (todas as páginas)
    4.2 Títulos com ornamento
@@ -105,9 +106,9 @@ h2 {
    4.5 Fale Conosco: perguntas frequentes (FAQ)
    4.6 Fale Conosco e Reserva: links
    4.7 Fale Conosco e Reserva: celular
-   4.8 Depoimentos: introdução e cartões
-   4.9 Depoimentos: botão "Ver depoimento"
-   4.10 Depoimentos: celular
+   4.8 Depoimentos: títulos e grade
+   4.9 Depoimentos: cartão e botão "Ver detalhes"
+   4.10 Depoimentos: tablet e celular
    4.11 Reserva: ajustes do formulário
    4.12 Trabalhe Conosco: ajustes
    ========================================================================== */
@@ -127,7 +128,6 @@ h2 {
 .pagina-trabalhe main,
 .pagina-reserva main,
 .pagina-fale-conosco main,
-.pagina-depoimentos main,
 .pagina-livro main,
 .pagina-panfleto main {
     margin-inline: auto;
@@ -144,7 +144,6 @@ h2 {
     max-width: var(--fc-largura-max);
 }
 
-.pagina-depoimentos main,
 .pagina-livro main {
     max-width: var(--dep-largura-max);
 }
@@ -153,11 +152,6 @@ h2 {
 .pagina-reserva main>*+*,
 .pagina-fale-conosco main>*+* {
     margin-top: 4rem;
-}
-
-/* O banner já mostra o título da página, então o h2 do meio fica escondido (só nos Depoimentos) */
-.pagina-depoimentos main>section>h2 {
-    display: none;
 }
 
 /* Âncora do rodapé (link "no rodapé desta página") */
@@ -614,175 +608,214 @@ h2 {
     }
 }
 
-/* ---------- 4.8 Depoimentos: introdução e cartões ---------- */
+/* ---------- 4.8 Depoimentos: títulos e grade ---------- */
+/* Usa o mesmo visual dos cards da página inicial, sobre o fundo creme */
 
-/* Texto de introdução com ornamento */
-.pagina-depoimentos main>section>p {
-    margin: 0 0 3.5rem;
-    color: var(--fc-vermelho-escuro);
-    font-size: 1.5rem;
-    font-style: italic;
-    line-height: 1.6;
+.pagina-depoimentos main {
+    padding: 4rem max(1.5rem, calc((100% - var(--largura-conteudo)) / 2)) 5rem;
+    color: var(--texto-escuro);
+    font-family: var(--fonte-links);
     text-align: center;
 }
 
-.pagina-depoimentos main>section>p::after {
-    content: "◆";
+.pagina-depoimentos .dep-chamada {
+    margin-bottom: 0.25rem;
+    color: var(--cor-destaque-vermelho);
+    font-family: var(--fonte-menu);
+    font-size: 1.75rem;
+    line-height: 1.2;
+}
+
+.pagina-depoimentos main h2 {
+    margin-bottom: 1rem;
+    color: var(--texto-escuro);
+    font-family: var(--fonte-titulo);
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+/* Barrinha vermelha embaixo do título */
+.pagina-depoimentos main h2::after {
+    content: "";
     display: block;
-    width: 200px;
-    height: 14px;
-    margin: 1.2rem auto 0;
-    color: var(--fc-vermelho);
-    font-family: Arial, sans-serif;
-    font-size: 0.7rem;
-    font-style: normal;
-    line-height: 14px;
-    text-align: center;
-    background:
-        linear-gradient(90deg, transparent, var(--fc-vermelho)) left center / 85px 1px no-repeat,
-        linear-gradient(270deg, transparent, var(--fc-vermelho)) right center / 85px 1px no-repeat;
+    width: 4rem;
+    height: 4px;
+    margin: 0.75rem auto 0;
+    background-color: var(--cor-destaque-vermelho);
 }
 
-/* Cartão: nome à esquerda, estrelas à direita */
-.pagina-depoimentos main article {
-    position: relative;
-    overflow: hidden;
+.pagina-depoimentos .intro {
+    max-width: 60ch;
+    margin-inline: auto;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.pagina-depoimentos .grade-depoimentos {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--gap-carrossel);
+    align-items: stretch;            /* cards da mesma linha com a mesma altura */
+    margin-top: 2.5rem;
+    list-style: none;
+}
+
+
+/* ---------- 4.9 Depoimentos: cartão e botão "Ver detalhes" ---------- */
+
+.pagina-depoimentos .cartao-depoimento {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    column-gap: 1.5rem;
-    row-gap: 0.25rem;
-    margin-bottom: 1.75rem;
-    padding: 2rem 2.25rem;
-    border: 1px solid rgba(var(--fc-vermelho-rgb), 0.25);
-    border-left: 5px solid var(--fc-vermelho);
-    border-radius: var(--dep-raio);
-    background: var(--fc-cartao);
-    box-shadow: 0 10px 26px rgba(var(--fc-texto-rgb), 0.07);
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    gap: 0.75rem;
+    height: 100%;
+    padding: 1.5rem 1.25rem;
+    border: 1px solid rgba(28, 20, 17, 0.12);
+    border-top: 4px solid var(--cor-destaque-vermelho);
+    border-radius: var(--raio-cartao);
+    background-color: var(--cor-cartao);
+    box-shadow: var(--sombra-cartao);
+    color: var(--texto-escuro);
+    transition: transform 0.35s, box-shadow 0.35s, border-color 0.35s;
 }
 
-/* Aspas decorativas de fundo */
-.pagina-depoimentos main article::before {
-    content: "\201C";
-    position: absolute;
-    top: -0.5rem;
-    right: 1.25rem;
-    color: rgba(var(--fc-vermelho-rgb), 0.09);
-    font-family: Georgia, serif;
-    font-size: 9rem;
-    line-height: 1;
-    pointer-events: none;
+.pagina-depoimentos .cartao-depoimento:hover {
+    transform: translateY(-0.5rem);
+    border-top-color: var(--cor-destaque-amarelo);
+    box-shadow: 0 16px 32px rgba(28, 20, 17, 0.2);
 }
 
-.pagina-depoimentos main article>* {
-    position: relative;
-}
-
-.pagina-depoimentos main article:hover {
-    transform: translateY(-3px);
-    border-color: var(--fc-vermelho);
-    box-shadow: 0 20px 40px rgba(var(--fc-texto-rgb), 0.14);
-}
-
-/* Cartão aberto fica em destaque */
-.pagina-depoimentos main article:has(details[open]) {
-    border-color: rgba(var(--fc-vermelho-rgb), 0.5);
-    box-shadow: 0 20px 40px rgba(var(--fc-texto-rgb), 0.14);
-}
-
-/* Nome e estrelas */
-.pagina-depoimentos main article h3 {
-    margin: 0;
-    color: var(--fc-vermelho-escuro);
-    font-family: var(--fonte-elegante);
-    font-size: 1.7rem;
+/* Círculo com a inicial do cliente */
+.pagina-depoimentos .avatar {
+    display: grid;
+    place-items: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    background-color: var(--hover-vinho);
+    color: var(--texto-claro);
+    font-family: var(--fonte-titulo);
+    font-size: 1.6rem;
     font-weight: 700;
 }
 
-.pagina-depoimentos main article h3+p {
-    margin: 0;
-    color: var(--fc-texto-suave);
+.pagina-depoimentos .cartao-depoimento h3 {
     font-size: 1rem;
-    text-align: right;
+    font-weight: 700;
 }
 
-.pagina-depoimentos main article details {
-    grid-column: 1 / -1;
-    margin-top: 1.25rem;
+.pagina-depoimentos .cartao-depoimento blockquote {
+    flex: 1;                         /* ocupa o espaço que sobra e empurra o botão para o fim */
+    min-height: 6.2em;               /* uns 4 linhas: deixa as linhas de cards parecidas */
+    font-size: 0.95rem;
+    line-height: 1.55;
 }
 
+.pagina-depoimentos .origem-avaliacao {
+    color: var(--texto-secundario);
+    font-size: 0.85rem;
+}
 
-/* ---------- 4.9 Depoimentos: botão "Ver depoimento" (formato pílula) ---------- */
+.pagina-depoimentos details {
+    width: 100%;
+    margin-top: auto;                /* botão sempre no fim do card */
+}
 
-.pagina-depoimentos main summary {
+.pagina-depoimentos summary {
     display: inline-flex;
     align-items: center;
-    gap: 0.6rem;
-    padding: 0.6rem 1.4rem;
-    border: 1px solid var(--fc-vermelho);
-    border-radius: 999px;
-    color: var(--fc-vermelho);
-    font-size: 0.85rem;
+    gap: 0.5rem;
+    padding: 0.55rem 1.3rem;
+    border: 2px solid var(--cor-destaque-vermelho);
+    border-radius: 2px;
+    color: var(--cor-destaque-vermelho);
+    font-size: 0.78rem;
     font-weight: 700;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.1em;
     list-style: none;
     text-transform: uppercase;
     cursor: pointer;
-    transition: background 0.3s, color 0.3s;
+    transition: background-color var(--transicao-rapida), color var(--transicao-rapida);
 }
 
-.pagina-depoimentos main summary::-webkit-details-marker {
+.pagina-depoimentos summary::-webkit-details-marker {
     display: none;
 }
 
-.pagina-depoimentos main summary::after {
+.pagina-depoimentos summary::after {
     content: "+";
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     line-height: 1;
 }
 
-.pagina-depoimentos main summary:hover,
-.pagina-depoimentos main details[open] summary {
-    background: var(--fc-vermelho);
-    color: var(--fc-branco);
+.pagina-depoimentos summary:hover,
+.pagina-depoimentos details[open] summary {
+    background-color: var(--cor-destaque-vermelho);
+    color: var(--texto-claro);
 }
 
-.pagina-depoimentos main details[open] summary {
-    margin-bottom: 1.5rem;
+.pagina-depoimentos details[open] summary::after {
+    content: "\2212";                /* sinal de menos */
 }
 
-.pagina-depoimentos main details[open] summary::after {
-    content: "\2212";
-    /* sinal de menos */
-}
-
-.pagina-depoimentos main summary:focus-visible {
-    outline: 2px solid var(--fc-vermelho);
+.pagina-depoimentos summary:focus-visible {
+    outline: 3px solid var(--cor-destaque-amarelo);
     outline-offset: 3px;
 }
 
+.pagina-depoimentos details p {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    text-align: left;
+}
 
-/* ---------- 4.10 Depoimentos: celular (até 700px) ---------- */
+.pagina-depoimentos details ul {
+    display: grid;
+    gap: 0.35rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--texto-secundario);
+    font-size: 0.82rem;
+    list-style: none;
+    text-align: left;
+}
+
+.pagina-depoimentos details li::before {
+    content: "◆ ";
+    color: var(--cor-destaque-vermelho);
+    font-size: 0.6rem;
+}
+
+
+/* ---------- 4.10 Depoimentos: tablet e celular ---------- */
+
+@media (max-width: 900px) {
+    .pagina-depoimentos .grade-depoimentos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
 
 @media (max-width: 700px) {
-
     .pagina-depoimentos main {
-        font-size: 1.05rem;
+        padding-block: 3rem;
     }
 
-    .pagina-depoimentos main>section>p {
-        font-size: 1.25rem;
+    .pagina-depoimentos .grade-depoimentos {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pagina-depoimentos .cartao-depoimento {
+        transition: none;
     }
 
-    /* Nome em cima, estrelas embaixo */
-    .pagina-depoimentos main article {
-        grid-template-columns: minmax(0, 1fr);
-        padding: 1.5rem 1.25rem;
-    }
-
-    .pagina-depoimentos main article h3+p {
-        text-align: left;
+    .pagina-depoimentos .cartao-depoimento:hover {
+        transform: none;
     }
 }
 
