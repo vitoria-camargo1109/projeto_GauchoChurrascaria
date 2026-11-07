@@ -66,7 +66,9 @@ Realizamos o desenvolvimento de um site para um restaurante, com o foco na refor
 
 ## Relato e comprovação do contato.
 
-A aluna Maria Eduarda Arakaki Rodrigues realizou o contato com o responsável e sua esposa, ambos donos do negócio, para pedir a autorização. O encontro ocorreu de maneira positiva, com o cliente muito interessado na proposta, autorizando o uso das imagens e do nome do estabelecimento, pediu que fosse inspirado no site que ele já possuia, oferecemos páginas adicionais como os depoimentos, fale conosco, nossa unidade e trabalhe conosco. O cliente demonstrou agrado ao falarmos das adições, desde então entramos em contato para batermos informações e dar atualizações sobre o progresso.  
+A aluna Maria Eduarda Arakaki Rodrigues realizou o contato com o responsável e sua esposa, ambos donos do negócio, para pedir a autorização. O encontro ocorreu de maneira positiva, com o cliente muito interessado na proposta, autorizando o uso das imagens e do nome do estabelecimento, pediu que fosse inspirado no site que ele já possuia, oferecemos páginas adicionais como os depoimentos, fale conosco, nossa unidade e trabalhe conosco. O cliente demonstrou agrado ao falarmos das adições, desde então entramos em contato para batermos informações e dar atualizações sobre o progresso. 
+
+Forma de contato: presencial
 Número do dono: (13) 99667-6016 (Jefferson Tomasi)
 
 <p aling="center">
@@ -111,6 +113,25 @@ Produto final:
 <img width="500" height="210" alt="image" src="https://github.com/user-attachments/assets/bef5cddf-7a1b-4ac5-9294-60e9f6ee66fa" />
 <img width="500" height="210" alt="image" src="https://github.com/user-attachments/assets/4abf360e-e6fd-4cae-888a-a6b83e8e9b3f" />
 
+## Organização do CSS
+
+O CSS está dividido em três arquivos, sem regras repetidas entre eles:
+
+variaveis.css: todas as cores, fontes, medidas, imagens e efeitos (o resto do código só usa var(--nome)).
+header_footer.css: menu fixo, menu hambúrguer, banners e rodapé, iguais em todas as páginas.
+base.css: reset, acessibilidade e o estilo de cada página (inicial, cardápio, delivery, carta de vinhos, formulários, depoimentos, quem somos e nossa unidade).
+
+Grid Layout organiza grades de cards, formulários, rodapé e panfleto; Flexbox organiza o menu, carrossel, botões e alinhamentos. O site é responsivo, com ajustes em 1200px, 900px e 700px, e respeita a preferência prefers-reduced-motion.
+
+JavaScript
+menu.js: menu hambúrguer no tablet e celular (clique, tecla Esc e clique fora).
+depoimentos.js: botões anterior/próximo do carrossel e destaque do card central.
+cardapio.js: cardápio em formato de livro, com botões, setas do teclado e sumário.
+animacoes.js: blocos da página inicial aparecem ao rolar (IntersectionObserver).
+formulario.js: máscara de telefone, calendário da reserva, lista de horários, contador de pessoas e mensagens de erro em português.
+
+Todas as páginas continuam funcionando sem JavaScript: a validação básica dos formulários usa apenas atributos nativos do HTML5.
+
 ## Uso da IA
 
 Utilizamos a IA para nos auxiliar a resolver problemas simples, ensinar a lógica, fazer revisão do site, aprendizado e principalmente analisar os requisitos desejados. Nosso grupo optou por utilizar o Claude como IA para nos ajudar a desenvolver o site e tirar dúvidas. Escolhemos usar a IA somente nestas tarefas pois queríamos nos desafiar a aprender a estrutura do Front-end na prática, não dependendo somente da inteligência artificial para fazer nosso trabalho, mas fomos testando e aprendendo as estruturas básicas, usando apenas como apoio para ser um site que cobre todos os requisitos e para ser um código organizado. Para a verificação das respostas, frequentemente mostrávamos nosso progresso ao professor, e pedíamos feedback e análise para garantir que estava tudo nos conformes, também conversamos em grupo para validar se aquilo que a IA sugeriu era viável ou era melhor fazer de outra forma, como por exemplo, para requisitos, onde a IA pedia para alterarmos partes do HTML que já haviam sido avaliados e aprovados na entrega 1, onde optamos por deixar do jeito que estava, que já estava ótimo e funcionando com perfeição.
@@ -144,6 +165,20 @@ e "Nossa unidade", o horário de funcionamento e o mapa incorporado foram levant
 - Corrigir os erros apontados pelo validador do W3C.
 - Deixar o layout responsivo.
 - Usar as branch e os commits do Vscode.
+
+## Domínio e hospedagem
+
+O site está hospedado no GitHub Pages (link no início deste documento).
+
+Domínio: o restaurante já possui domínio próprio, "https://www.gauchofigueiras.com.br/", então não é necessário adquirir um novo.
+
+Para usar esse domínio com o site novo, o processo seria:
+
+Confirmar com o proprietário onde o domínio está registrado (ex.: Registro.br) e quem tem acesso ao painel de DNS.
+Apontar o domínio para o GitHub Pages (registros DNS A/CNAME e arquivo CNAME no repositório) ou para o Netlify.
+Ativar o HTTPS na hospedagem escolhida.
+
+Atualmente o site publicado pelo grupo usa o endereço do GitHub Pages, indicado no início deste documento.
 
 ## Conclusão com a reflexão do grupo sobre os aprendizados da etapa
 
