@@ -85,6 +85,7 @@ Usamos principalmente de inspiração os sites dos restaurantes Hawksmoor UK (ht
 - Paleta de cores e Tipografia
 
 Fizemos uma pesquisa de teoria das cores, como o site se trata de um estabelecimento de alimentação, decidimos que as cores vermelho e amarelo seriam as mais adequadas, pois remetem à fome e estimulam o apetite, e também são as cores da logo do restaurante, então achamos que seria interessante manter as cores da logo na estética visual do site. Porém, também testamos as cores dourada (#BF8D50, cor de destaque), marrom (#732C12, cor de apoio) e verde (como as cores #14211B, para detalhes, e #19261F, outra opção de detalhes, para fundos escuros e fundos escuros alternativos, como os cards), porém foram descartadas pois achamos que as cores não combinavam com a logo, e acabava tirando a estética que queríamos para o site. Com a fonte "Oswald, Parisienne e Great Vibes", para banners e títulos, a "Cormorant Garamond" para texto de leitura e a "Montserrat" para a interface. No final, optamos por usar as cores vermelho (#D90718, cor destaque), amarelo (#F2BC1B, cor de apoio) e marrom escuro (#261D1A, para cor de fundo dos cards) e as fontes Parisienne, Great Vibes, Oswald, Montserrat, Cormorant Garamond.
+
 Teste:
 
 <img width="400" height="210" alt="depoimentos_verde" src="https://github.com/user-attachments/assets/beebc8f3-de0a-460b-8e1e-e34b827109e9" />
@@ -99,6 +100,7 @@ Produto final:
 - Elementos
 
 Inicialmente, consideramos deixar os botões como "ver mais" com cantos mais arredondados, pois cria uma interface mais amigável, suave e humanizada. Porém, optamos por deixar com um aspecto mais retangular, para trazer uma diferenciação visual e para transmitir uma imagem de modernidade e sofisticação. 
+
 Teste:
 
 <img width="400" height="210" alt="reserva_redondo" src="https://github.com/user-attachments/assets/2e771b01-25f5-4643-8ccf-252400f075c9" />
