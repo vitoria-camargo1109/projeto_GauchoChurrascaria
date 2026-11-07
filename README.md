@@ -71,7 +71,7 @@ A aluna Maria Eduarda Arakaki Rodrigues realizou o contato com o responsável e 
 Forma de contato: presencial
 Número do dono: (13) 99667-6016 (Jefferson Tomasi)
 
-<p aling="center">
+<p align ="center">
 <img src="./assets/img/foto_gaucho.png.jpeg" alt="Foto com o dono" width="300">
 </p>
 
@@ -134,7 +134,7 @@ Todas as páginas continuam funcionando sem JavaScript: a validação básica do
 
 ## Uso da IA
 
-Utilizamos a IA para nos auxiliar a resolver problemas simples, ensinar a lógica, fazer revisão do site, aprendizado e principalmente analisar os requisitos desejados. Nosso grupo optou por utilizar o Claude como IA para nos ajudar a desenvolver o site e tirar dúvidas. Escolhemos usar a IA somente nestas tarefas pois queríamos nos desafiar a aprender a estrutura do Front-end na prática, não dependendo somente da inteligência artificial para fazer nosso trabalho, mas fomos testando e aprendendo as estruturas básicas, usando apenas como apoio para ser um site que cobre todos os requisitos e para ser um código organizado. Para a verificação das respostas, frequentemente mostrávamos nosso progresso ao professor, e pedíamos feedback e análise para garantir que estava tudo nos conformes, também conversamos em grupo para validar se aquilo que a IA sugeriu era viável ou era melhor fazer de outra forma, como por exemplo, para requisitos, onde a IA pedia para alterarmos partes do HTML que já haviam sido avaliados e aprovados na entrega 1, onde optamos por deixar do jeito que estava, que já estava ótimo e funcionando com perfeição.
+Utilizamos a IA para nos auxiliar a resolver problemas simples, ensinar a lógica, fazer revisão do site, aprendizado e principalmente analisar os requisitos desejados. Nosso grupo optou por utilizar o Claude (Anthropic) — Modelo: Sonnet 5.5 como IA para nos ajudar a desenvolver o site e tirar dúvidas. Escolhemos usar a IA somente nestas tarefas pois queríamos nos desafiar a aprender a estrutura do Front-end na prática, não dependendo somente da inteligência artificial para fazer nosso trabalho, mas fomos testando e aprendendo as estruturas básicas, usando apenas como apoio para ser um site que cobre todos os requisitos e para ser um código organizado. Para a verificação das respostas, frequentemente mostrávamos nosso progresso ao professor, e pedíamos feedback e análise para garantir que estava tudo nos conformes, também conversamos em grupo para validar se aquilo que a IA sugeriu era viável ou era melhor fazer de outra forma, como por exemplo, para requisitos, onde a IA pedia para alterarmos partes do HTML que já haviam sido avaliados e aprovados na entrega 1, onde optamos por deixar do jeito que estava, que já estava ótimo e funcionando com perfeição.
 
 ## Como seria um processo por IA
 
@@ -182,8 +182,8 @@ Atualmente o site publicado pelo grupo usa o endereço do GitHub Pages, indicado
 
 ## Conclusão com a reflexão do grupo sobre os aprendizados da etapa
 
-Ao longo do desenvolvimento deste projeto, pudemos colocar em prática os conceitos de HTML estudados em sala de aula, aplicando-os em um contexto real: a criação de um site funcional para um cliente de verdade. Essa experiência trouxe desafios que vão além do código, como entender as necessidades do cliente, manter a padronização visual entre as páginas e organizar o trabalho em equipe de forma que cada integrante pudesse contribuir de acordo com suas responsabilidades.
+Ao longo do projeto, colocamos em prática HTML, CSS e JavaScript em um contexto real: um site funcional para um cliente de verdade. A experiência trouxe desafios além do código, como entender as necessidades do cliente, manter a padronização visual entre as páginas e organizar o trabalho em equipe.
 
-Um dos principais aprendizados foi a importância da estrutura semântica do HTML para garantir acessibilidade e organização do conteúdo, além de perceber como pequenos detalhes — como links funcionais, atributos corretos e validação do código — fazem diferença na qualidade final do produto. O contato direto com o cliente também foi enriquecedor, pois nos mostrou como alinhar expectativas e traduzir pedidos informais em funcionalidades concretas no site.
+Na Entrega 2, aprendemos a organizar o CSS em arquivos com responsabilidades claras, usar variáveis para manter a identidade visual, aplicar Grid e Flexbox, tornar o layout responsivo e adicionar interatividade com JavaScript sem comprometer a acessibilidade: o site continua utilizável sem scripts, com foco visível no teclado e respeito a quem prefere menos movimento. Também percebemos como a limpeza do código (remover regras repetidas e validar no W3C) melhora a qualidade final.
 
-Como grupo, sentimos que a divisão de tarefas por página facilitou o desenvolvimento, mas também reforçou a necessidade de comunicação constante para manter a coerência entre as partes construídas por cada integrante. Encerramos esta etapa com mais confiança para lidar com projetos de front-end e com uma base mais sólida para os próximos desafios da disciplina.
+O contato direto com o cliente nos mostrou como alinhar expectativas e traduzir pedidos informais em funcionalidades. A divisão de tarefas por página facilitou o desenvolvimento, mas reforçou a necessidade de comunicação constante para manter a coerência entre as partes. Encerramos esta etapa com mais confiança em projetos de front-end e com uma base sólida para os próximos desafios.
