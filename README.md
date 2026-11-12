@@ -187,3 +187,6 @@ Ao longo do projeto, colocamos em prática HTML, CSS e JavaScript em um contexto
 Na Entrega 2, aprendemos a organizar o CSS em arquivos com responsabilidades claras, usar variáveis para manter a identidade visual, aplicar Grid e Flexbox, tornar o layout responsivo e adicionar interatividade com JavaScript sem comprometer a acessibilidade: o site continua utilizável sem scripts, com foco visível no teclado e respeito a quem prefere menos movimento. Também percebemos como a limpeza do código (remover regras repetidas e validar no W3C) melhora a qualidade final.
 
 O contato direto com o cliente nos mostrou como alinhar expectativas e traduzir pedidos informais em funcionalidades. A divisão de tarefas por página facilitou o desenvolvimento, mas reforçou a necessidade de comunicação constante para manter a coerência entre as partes. Encerramos esta etapa com mais confiança em projetos de front-end e com uma base sólida para os próximos desafios.
+
+## Link para o slide da apresentação:
+[Slides do pitch final](https://docs.google.com/presentation/d/1NZiPqIcN5J6yuZNcBz_I2ueNBswA4F1_/edit?usp=sharing)
